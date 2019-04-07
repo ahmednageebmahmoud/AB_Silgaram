@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="SilgaramCP.red-uae.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Projects\\FreeProjects\\Ahmed\ Ibrahim\\Projects\\5--Silgaram\\Apps\\SilgaramControlPanel\\ControlPanel\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Projects\\FreeProjects\\Ahmed\ Ibrahim\\Projects\\5--Silgaram\\Apps\\SilgaramControlPanel\\ControlPanel\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ControlPanel-20180915073155.mdf;Initial Catalog=aspnet-ControlPanel-20180915073155;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="G:\\Projects\\FreeProjects\\Ahmed\ Ibrahim\\Projects\\5--Silgaram\\Apps\\SilgaramControlPanel\\ControlPanel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="SilgaramEntities-Web.config Connection String" description="" value="metadata=res://*/Models.DataBase.csdl|res://*/Models.DataBase.ssdl|res://*/Models.DataBase.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=AHMED\AHMED;initial catalog=Silgaram;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="G:\\Projects\\FreeProjects\\Ahmed\ Ibrahim\\Projects\\5--Silgaram\\Apps\\SilgaramControlPanel\\ControlPanel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SilgaramEntities']/@connectionString" />
+  </parameter>
+</parameters>

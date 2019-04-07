@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--body-->
+
+    <div ng-app="ngApp" ng-controller="ctrlTestApi">
+
+        <div class="form-group">
+            <button>Add New Key</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Key
+                        </th>
+                        <th>
+                            Value
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" ng-model="data.Key" /></td>
+                        <td><input type="text" ng-model="data.Value" /></td>
+                        <td><button ng-click="FormDate.Push({data.Key:data.Value})"></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+
+            @section scripts{
+                <script src="~/Scripts/Angular/Views/TestApi/Controller.js"></script>
+                <script src="~/Scripts/Angular/Views/TestApi/Service.js"></script>
+            }
+

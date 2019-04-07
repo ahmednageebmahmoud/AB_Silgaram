@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = Token.Notifications;
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.Notifications;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" ng-app="ngApp" ng-controller="ctrlNotifications">
+    <div class="">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bg-inverse">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fas fa-bell"></i>
+                    <span class="caption-subject bold  uppercase  " ng-class="{'font-green-sharp':Notify.FkState_Id==1,'font-yellow-crusta':Notify.FkState_Id==2,'font-red-flamingo':Notify.FkState_Id==3}">
+                        {{Notify.PageName}}
+                    </span>
+
+                    <span class="caption-helper">@Token.Notify  </span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                    <a href="" class="reload"> </a>
+                    <a href="" class="fullscreen"> </a>
+                    <a href="" class="remove"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <h4><span ng-class="Notify.CssClassIcon"></span> {{Notify.Heading}} {{Notify.NameObject}} .... </h4>
+
+                <!--Delete Or create -->
+                <p ng-if="Notify.FkState_Id!=State.Update">
+                    @Token.TheUserHas <span class="notify" title="@Token.UserName">{{Notify.UserName}}</span>
+
+                    <span class="notify" title="@Token.Action">{{Notify.NameAction}}</span>
+
+                    @Token.For <span class="notify" title="@Token.Page">{{Notify.PageName}}</span>
+
+                    @Token.AndNameHer <span class="notify" title="@Token.Name">{{Notify.NameObject}}</span>
+
+                    <span ng-if="Notify.HistoryDetails.length>0">
+                        <span ng-repeat="x in Notify.HistoryDetails">
+                            <span ng-if="$index==0">@Token.AndHeAddedTheFollowing</span>
+                            <br ng-if="$index==0" />
+                            <br ng-if="$index==0" />
+
+
+                            <span>
+                                {{$index+1}} -  {{x.ColumnName}} :
+                                <i ng-class="{'fas fa-check':x.ColumNewContent=='True', 'fas fa-times':x.ColumNewContent=='False'}"></i>
+                                <span ng-hide="x.ColumNewContent=='True'||x.ColumNewContent=='False'">{{x.ColumNewContent}}</span>  .
+                            </span>
+
+                            <br />
+                            <br />
+                        </span>
+                    </span>
+
+
+                    @Token.InADay <span class="notify" title="@Token.Date">{{Notify.Date}}</span>
+
+                    @Token.InTime <span class="notify" title="@Token.Time">{{Notify.Time}}</span>
+                </p>
+
+                <!--Update-->
+                <p ng-if="Notify.FkState_Id==State.Update">
+                    @Token.TheUserHas <span class="notify" title="@Token.UserName">{{Notify.UserName}}</span>
+
+                    <span class="notify" title="@Token.Event">{{Notify.NameAction}}</span>
+
+                    @Token.For <span class="notify" title="@Token.Page">{{Notify.PageName}}</span>
+
+                    @Token.AndNameHer <span class="notify" title="@Token.Name">{{Notify.NameObject}}</span>
+
+                    <span ng-if="Notify.HistoryDetails.length>0" >
+                        <span ng-repeat="x in Notify.HistoryDetails|filterIsNotNull:'ColumNewContent':'ColumOldContent'">
+                            <span ng-if="$index==0">@Token.AndHeUpdatedTheFollowing</span>
+                            <br ng-if="$index==0" />
+                            <br ng-if="$index==0" />
+
+                            <span ng-hide="x.ColumOldContent==null||x.ColumNewContent==null">
+                                {{$index+1}} - @Token.In {{x.ColumnName}} : @Token.From
+
+                                <i ng-class="{'fas fa-check':x.ColumOldContent=='True', 'fas fa-times':x.ColumOldContent=='False'}"></i>
+                                <span ng-hide="x.ColumOldContent=='True'||x.ColumOldContent=='False'">{{x.ColumOldContent}}</span>
+
+                                @Token.To
+                                <i ng-class="{'fas fa-check':x.ColumNewContent=='True', 'fas fa-times':x.ColumNewContent=='False'}"></i>
+                                <span ng-hide="x.ColumNewContent=='True'||x.ColumNewContent=='False'">{{x.ColumNewContent}}</span>
+                            </span>
+                            <br />
+                            <br />
+                        </span>
+                    </span>
+
+                    @Token.InADay <span class="notify" title="@Token.Date">{{Notify.Date}}</span>
+
+                    @Token.InTime <span class="notify" title="@Token.Time">{{Notify.Time}}</span>
+                </p>
+            </div>
+
+        </div>
+        <!-- END GRID PORTLET-->
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Notifications/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/Notifications/Controller.js"></script>
+    In
+}
+
+<style>
+    .notify {
+        font-weight: bold;
+    }
+
+        .notify:hover {
+            color: firebrick;
+        }
+</style>

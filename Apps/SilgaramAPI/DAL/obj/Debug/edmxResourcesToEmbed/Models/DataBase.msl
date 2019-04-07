@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SilgaramModelStoreContainer" CdmEntityContainer="SilgaramEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="SilgaramModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="FkProvince_Id" ColumnName="FkProvince_Id" />
+          <ScalarProperty Name="FKCountry_Id" ColumnName="FKCountry_Id" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdFavorites">
+      <EntityTypeMapping TypeName="SilgaramModel.AdFavorite">
+        <MappingFragment StoreEntitySet="AdFavorites">
+          <ScalarProperty Name="FKAd_Id" ColumnName="FKAd_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ads">
+      <EntityTypeMapping TypeName="SilgaramModel.Ad">
+        <MappingFragment StoreEntitySet="Ads">
+          <ScalarProperty Name="CountAutoPostToNow" ColumnName="CountAutoPostToNow" />
+          <ScalarProperty Name="IsAutoPost" ColumnName="IsAutoPost" />
+          <ScalarProperty Name="IsPostWithOutPhoneNumber" ColumnName="IsPostWithOutPhoneNumber" />
+          <ScalarProperty Name="IsAllowMessaging" ColumnName="IsAllowMessaging" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FkLocation_Id" ColumnName="FkLocation_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkAlbum_Id" ColumnName="FkAlbum_Id" />
+          <ScalarProperty Name="FkCategory_Id" ColumnName="FkCategory_Id" />
+          <ScalarProperty Name="FkSubCategory_Id" ColumnName="FkSubCategory_Id" />
+          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+          <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdsSliders">
+      <EntityTypeMapping TypeName="SilgaramModel.AdsSlider">
+        <MappingFragment StoreEntitySet="AdsSlider">
+          <ScalarProperty Name="FkPositionType_Id" ColumnName="FkPositionType_Id" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkFile_Id" ColumnName="FkFile_Id" />
+          <ScalarProperty Name="ViewerCount" ColumnName="ViewerCount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdsViewers">
+      <EntityTypeMapping TypeName="SilgaramModel.AdsViewer">
+        <MappingFragment StoreEntitySet="AdsViewers">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="FKAd_Id" ColumnName="FKAd_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="CountViewer" ColumnName="CountViewer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlbumFiles">
+      <EntityTypeMapping TypeName="SilgaramModel.AlbumFile">
+        <MappingFragment StoreEntitySet="AlbumFiles">
+          <ScalarProperty Name="FkFile_Id" ColumnName="FkFile_Id" />
+          <ScalarProperty Name="FkAlbum_Id" ColumnName="FkAlbum_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="SilgaramModel.Album">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppsInformations">
+      <EntityTypeMapping TypeName="SilgaramModel.AppsInformation">
+        <MappingFragment StoreEntitySet="AppsInformation">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SilgaramModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatMessages">
+      <EntityTypeMapping TypeName="SilgaramModel.ChatMessage">
+        <MappingFragment StoreEntitySet="ChatMessages">
+          <ScalarProperty Name="IsOwnar" ColumnName="IsOwnar" />
+          <ScalarProperty Name="FKChat_Id" ColumnName="FKChat_Id" />
+          <ScalarProperty Name="SendDateTime" ColumnName="SendDateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chattings">
+      <EntityTypeMapping TypeName="SilgaramModel.Chatting">
+        <MappingFragment StoreEntitySet="Chatting">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="FkAd_Id" ColumnName="FkAd_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommercialBanners">
+      <EntityTypeMapping TypeName="SilgaramModel.CommercialBanner">
+        <MappingFragment StoreEntitySet="CommercialBanners">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="SilgaramModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="FkFile_Id" ColumnName="FkFile_Id" />
+          <ScalarProperty Name="CountryKey" ColumnName="CountryKey" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="SilgaramModel.File">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="FkFileType_Id" ColumnName="FkFileType_Id" />
+          <ScalarProperty Name="FKAppInformation_Id" ColumnName="FKAppInformation_Id" />
+          <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileTypes">
+      <EntityTypeMapping TypeName="SilgaramModel.FileType">
+        <MappingFragment StoreEntitySet="FileTypes">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Followings">
+      <EntityTypeMapping TypeName="SilgaramModel.Following">
+        <MappingFragment StoreEntitySet="Following">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="SilgaramModel.Gender">
+        <MappingFragment StoreEntitySet="Genders">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="SilgaramModel.History">
+        <MappingFragment StoreEntitySet="Histories">
+          <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+          <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FKPage_Id" ColumnName="FKPage_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="FkState_Id" ColumnName="FkState_Id" />
+          <ScalarProperty Name="RedirectUrl" ColumnName="RedirectUrl" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoryDetails">
+      <EntityTypeMapping TypeName="SilgaramModel.HistoryDetail">
+        <MappingFragment StoreEntitySet="HistoryDetails">
+          <ScalarProperty Name="CoulmIsEn" ColumnName="CoulmIsEn" />
+          <ScalarProperty Name="CoulmIsSingl" ColumnName="CoulmIsSingl" />
+          <ScalarProperty Name="FkHistory_Id" ColumnName="FkHistory_Id" />
+          <ScalarProperty Name="ColumNewContent" ColumnName="ColumNewContent" />
+          <ScalarProperty Name="ColumOldContent" ColumnName="ColumOldContent" />
+          <ScalarProperty Name="ColumResourceName" ColumnName="ColumResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="SilgaramModel.Job">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="SilgaramModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageTypes">
+      <EntityTypeMapping TypeName="SilgaramModel.LanguageType">
+        <MappingFragment StoreEntitySet="LanguageTypes">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageUsings">
+      <EntityTypeMapping TypeName="SilgaramModel.LanguageUsing">
+        <MappingFragment StoreEntitySet="LanguageUsing">
+          <ScalarProperty Name="FKLanguage_Id" ColumnName="FKLanguage_Id" />
+          <ScalarProperty Name="FKLanguageType_Id" ColumnName="FKLanguageType_Id" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="SilgaramModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="SilgaramModel.Log">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="SilgaramModel.Menu">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ClassIcon" ColumnName="ClassIcon" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nationalities">
+      <EntityTypeMapping TypeName="SilgaramModel.Nationality">
+        <MappingFragment StoreEntitySet="Nationalities">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationsIsReads">
+      <EntityTypeMapping TypeName="SilgaramModel.NotificationsIsRead">
+        <MappingFragment StoreEntitySet="NotificationsIsRead">
+          <ScalarProperty Name="FKUser_Id" ColumnName="FKUser_Id" />
+          <ScalarProperty Name="FkHistory_Id" ColumnName="FkHistory_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferFavorites">
+      <EntityTypeMapping TypeName="SilgaramModel.OfferFavorite">
+        <MappingFragment StoreEntitySet="OfferFavorites">
+          <ScalarProperty Name="FKOffer_Id" ColumnName="FKOffer_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="SilgaramModel.Offer">
+        <MappingFragment StoreEntitySet="Offers">
+          <ScalarProperty Name="FkSubCategory_Id" ColumnName="FkSubCategory_Id" />
+          <ScalarProperty Name="FkCategory_Id" ColumnName="FkCategory_Id" />
+          <ScalarProperty Name="SmallDiscription" ColumnName="SmallDiscription" />
+          <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkAlbum_Id" ColumnName="FkAlbum_Id" />
+          <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffersViewers">
+      <EntityTypeMapping TypeName="SilgaramModel.OffersViewer">
+        <MappingFragment StoreEntitySet="OffersViewers">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="FKOffer_Id" ColumnName="FKOffer_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="CountViewer" ColumnName="CountViewer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="SilgaramModel.Page">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="IsFronEnd" ColumnName="IsFronEnd" />
+          <ScalarProperty Name="IsControlPanel" ColumnName="IsControlPanel" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PagesAllows">
+      <EntityTypeMapping TypeName="SilgaramModel.PagesAllow">
+        <MappingFragment StoreEntitySet="PagesAllow">
+          <ScalarProperty Name="FkPage_Id" ColumnName="FkPage_Id" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="IsAllowLog" ColumnName="IsAllowLog" />
+          <ScalarProperty Name="IsAllowNotify" ColumnName="IsAllowNotify" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PagesRoles">
+      <EntityTypeMapping TypeName="SilgaramModel.PagesRole">
+        <MappingFragment StoreEntitySet="PagesRoles">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkPageRoleTypes_Id" ColumnName="FkPageRoleTypes_Id" />
+          <ScalarProperty Name="FkRole_Id" ColumnName="FkRole_Id" />
+          <ScalarProperty Name="FkPage_Id" ColumnName="FkPage_Id" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+          <ScalarProperty Name="IsCreate" ColumnName="IsCreate" />
+          <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PagesRoleTypes">
+      <EntityTypeMapping TypeName="SilgaramModel.PagesRoleType">
+        <MappingFragment StoreEntitySet="PagesRoleTypes">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="SilgaramModel.Payment">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+          <ScalarProperty Name="Auth" ColumnName="Auth" />
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointPackages">
+      <EntityTypeMapping TypeName="SilgaramModel.PointPackage">
+        <MappingFragment StoreEntitySet="PointPackages">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PositionTypes">
+      <EntityTypeMapping TypeName="SilgaramModel.PositionType">
+        <MappingFragment StoreEntitySet="PositionTypes">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="SilgaramModel.Province">
+        <MappingFragment StoreEntitySet="Provinces">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FKCountry_Id" ColumnName="FKCountry_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="SilgaramModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="FkReportType_Id" ColumnName="FkReportType_Id" />
+          <ScalarProperty Name="FkAd_Id" ColumnName="FkAd_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportTypes">
+      <EntityTypeMapping TypeName="SilgaramModel.ReportType">
+        <MappingFragment StoreEntitySet="ReportTypes">
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SilgaramModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="IsControlPanel" ColumnName="IsControlPanel" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialStatus">
+      <EntityTypeMapping TypeName="SilgaramModel.SocialStatu">
+        <MappingFragment StoreEntitySet="SocialStatus">
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="SilgaramModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="CssClassIcon" ColumnName="CssClassIcon" />
+          <ScalarProperty Name="CssClassStyle" ColumnName="CssClassStyle" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="SilgaramModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategories">
+          <ScalarProperty Name="FkFile_Id" ColumnName="FkFile_Id" />
+          <ScalarProperty Name="FkCategory_Id" ColumnName="FkCategory_Id" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubMenus">
+      <EntityTypeMapping TypeName="SilgaramModel.SubMenu">
+        <MappingFragment StoreEntitySet="SubMenus">
+          <ScalarProperty Name="FKPage_Id" ColumnName="FKPage_Id" />
+          <ScalarProperty Name="FkMenu_Id" ColumnName="FkMenu_Id" />
+          <ScalarProperty Name="ClassIcon" ColumnName="ClassIcon" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TechnicalSupports">
+      <EntityTypeMapping TypeName="SilgaramModel.TechnicalSupport">
+        <MappingFragment StoreEntitySet="TechnicalSupport">
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TechnicalSupportReads">
+      <EntityTypeMapping TypeName="SilgaramModel.TechnicalSupportRead">
+        <MappingFragment StoreEntitySet="TechnicalSupportRead">
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="FkTechnicalSupport_Id" ColumnName="FkTechnicalSupport_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInformations">
+      <EntityTypeMapping TypeName="SilgaramModel.UserInformation">
+        <MappingFragment StoreEntitySet="UserInformation">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FkFollowing_Id" ColumnName="FkFollowing_Id" />
+          <ScalarProperty Name="FKLanguage_Id" ColumnName="FKLanguage_Id" />
+          <ScalarProperty Name="FKJob_Id" ColumnName="FKJob_Id" />
+          <ScalarProperty Name="FKSocialStatus_Id" ColumnName="FKSocialStatus_Id" />
+          <ScalarProperty Name="FKGender_Id" ColumnName="FKGender_Id" />
+          <ScalarProperty Name="FkNationality_Id" ColumnName="FkNationality_Id" />
+          <ScalarProperty Name="FKAddress_Id" ColumnName="FKAddress_Id" />
+          <ScalarProperty Name="FkImage_Id" ColumnName="FkImage_Id" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MediumName" ColumnName="MediumName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="SilgaramModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogins">
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+          <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPointPackages">
+      <EntityTypeMapping TypeName="SilgaramModel.UserPointPackage">
+        <MappingFragment StoreEntitySet="UserPointPackages">
+          <ScalarProperty Name="FkPayment_Id" ColumnName="FkPayment_Id" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="FKPointPackage_Id" ColumnName="FKPointPackage_Id" />
+          <ScalarProperty Name="BuyDateTime" ColumnName="BuyDateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="SilgaramModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="FkRole_Id" ColumnName="FkRole_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SilgaramModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="FireBaseToken" ColumnName="FireBaseToken" />
+          <ScalarProperty Name="IsAgent" ColumnName="IsAgent" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="FkLog_Id" ColumnName="FkLog_Id" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersFollowings">
+      <EntityTypeMapping TypeName="SilgaramModel.UsersFollowing">
+        <MappingFragment StoreEntitySet="UsersFollowing">
+          <ScalarProperty Name="FkFollowing_Id" ColumnName="FkFollowing_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersPrivateNotifies">
+      <EntityTypeMapping TypeName="SilgaramModel.UsersPrivateNotify">
+        <MappingFragment StoreEntitySet="UsersPrivateNotifies">
+          <ScalarProperty Name="FkHistory_Id" ColumnName="FkHistory_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersPurchasesAds">
+      <EntityTypeMapping TypeName="SilgaramModel.UsersPurchasesAd">
+        <MappingFragment StoreEntitySet="UsersPurchasesAds">
+          <ScalarProperty Name="BayDateTime" ColumnName="BayDateTime" />
+          <ScalarProperty Name="AdPrice" ColumnName="AdPrice" />
+          <ScalarProperty Name="FkAd_Id" ColumnName="FkAd_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersPurchasesOffers">
+      <EntityTypeMapping TypeName="SilgaramModel.UsersPurchasesOffer">
+        <MappingFragment StoreEntitySet="UsersPurchasesOffers">
+          <ScalarProperty Name="FkPayment_Id" ColumnName="FkPayment_Id" />
+          <ScalarProperty Name="BayDateTime" ColumnName="BayDateTime" />
+          <ScalarProperty Name="OfferNetPrice" ColumnName="OfferNetPrice" />
+          <ScalarProperty Name="OfferDiscountRate" ColumnName="OfferDiscountRate" />
+          <ScalarProperty Name="OfferPrice" ColumnName="OfferPrice" />
+          <ScalarProperty Name="FkOffer_Id" ColumnName="FkOffer_Id" />
+          <ScalarProperty Name="FkUser_Id" ColumnName="FkUser_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

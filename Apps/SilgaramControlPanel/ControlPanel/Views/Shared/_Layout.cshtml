@@ -1,0 +1,483 @@
+﻿ <!DOCTYPE html>
+@{
+    string lang = LanguageService.IsEn ? "en" : "ar";
+    string dir = LanguageService.IsEn ? "ltr" : "rtl";
+}
+<html lang="en" dir="@dir">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports" name="description" />
+    <meta content="" name="author" />
+
+
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    @*<link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    @*<link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/metronicCss/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+
+
+
+    @*<link href="../assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/metronicCss/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+
+    @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" >*@
+
+    <link href="~/Content/fontawesome5.5.13.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all5.0.13.min.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+
+
+    <link href="~/Content/Custom/custom.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    @if (LanguageService.IsEn)
+    {
+
+        @*<link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+        @*<link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet" />
+
+	<!-- END GLOBAL MANDATORY STYLES -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+        @*<link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/bootstrap-daterangepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+        @*<link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/morris/morris.css" rel="stylesheet" />
+
+        @*<link href="../assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+
+        @*<link href="../assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/jqvmap/jqvmap.css" rel="stylesheet" />
+
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN THEME GLOBAL STYLES -->
+        @*<link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />*@
+        <link href="~/Content/metronicCss/global/components.min.css" rel="stylesheet" />
+
+        @*<link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/metronicCss/global/plugins.min.css" rel="stylesheet" />
+	<!-- END THEME GLOBAL STYLES -->
+	<!-- BEGIN THEME LAYOUT STYLES -->
+        @*<link href="../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css"/>*@
+        <link href="~/Content/metronicCss/layout/layout.min.css" rel="stylesheet" />
+
+        @*<link href="../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />*@
+        <link href="~/Content/metronicCss/Color/darkblue.min.css" rel="stylesheet" />
+
+        @* <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="~/Content/Custom/custom.css" rel="stylesheet" />
+	<!-- END THEME LAYOUT STYLES -->
+
+	<!--toastr-->
+        <link href="~/Content/metronicCss/bootstrap-toastr/toastr.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+
+        <link href="~/Content/metronicCssRtl/bootstrap-switch/bootstrap-switch-rtl.min.css" rel="stylesheet" />
+
+        <link href="~/Content/metronicCssRtl/bootstrap-daterangepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+        <link href="~/Content/metronicCss/morris/morris.css" rel="stylesheet" />
+
+
+        <link href="~/Content/metronicCssRtl/jqvmap/jqvmap.css" rel="stylesheet" />
+
+
+
+        <link href="~/Content/metronicCssRtl/global/components-rtl.min.css" rel="stylesheet" />
+
+        <link href="~/Content/metronicCssRtl/global/plugins-rtl.min.css" rel="stylesheet" />
+        <link href="~/Content/metronicCssRtl/layout/layout-rtl.css" rel="stylesheet" />
+
+        <link href="~/Content/metronicCssRtl/layout/themes/darkblue-rtl.min.css" rel="stylesheet" />
+
+    <!--toastr-->
+        <link href="~/Content/metronicCssRtl/bootstrap-toastr/toastr-rtl.min.css" rel="stylesheet" />
+        <link href="~/Content/Custom/custom-rtl.css" rel="stylesheet" />
+
+    }
+
+
+
+
+
+
+    <!--ng Date-->
+    <link href="~/Content/ngDate/ngDateCss.css" rel="stylesheet" />
+
+    @RenderSection("styles", required: false)
+
+
+
+
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" ng-app="ngApp">
+
+    <div class="page-wrapper" ng-controller="ctrlLayOut">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="/">
+                        <img src="~/Files/Images/LoginPage/logo.png" alt="logo" class="logo-default" width="25" />
+                    </a>
+                    <div class="menu-toggler sidebar-toggler">
+                        <span></span>
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- BEGIN NOTIFICATION DROPDOWN -->
+                        <!-- DOC: Apply "dropdown-dark" class after "dropdown-extended" to change the dropdown styte -->
+                        <!-- DOC: Apply "dropdown-hoverable" class after below "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
+                        <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
+                        <!--Notifications-->
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-bell"></i>
+                                <span class="badge badge-default">{{NotificationCount}}  </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3>
+                                        <span class="bold"> {{AllNotifications.length}} </span> @Token.Notifications @Token.From  {{NotificationCount}}
+                                    </h3>
+                                    <a href="~/UserProfile" ng-show="false">@Token.ViewAll</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                        <li ng-repeat="x in AllNotifications">
+                                            <a ng-href="{{x.RedirectUrl==null?'/Notifications?NotId='+x.Id:x.RedirectUrl}}">
+                                                <div>
+                                                    <span class="time">{{x.ActionDate}}</span>
+                                                    <span class="details">
+                                                        <span class="label label-sm label-icon " ng-class="x.CssClassStyle">
+                                                            <i ng-class="x.CssClassIcon"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <span>
+                                                    {{x.Notify}}
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <center>
+
+                                                <button type="button" class="btn btn-default mt-ladda-btn ladda-button btn-circle" data-style="expand-left" data-spinner-color="#333" ng-click="getNotifications(true)">
+                                                    <span class="ladda-label">@Token.ShowMore</span>
+                                                    <span class="ladda-spinner"></span>
+                                                </button>
+                                            </center>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END NOTIFICATION DROPDOWN -->
+                        <!-- BEGIN INBOX DROPDOWN -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-envelope-open"></i>
+                                <span class="badge badge-default"> {{TechnicalSupportCount}} </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3>
+
+                                        <span class="bold"></span>
+
+                                        <span class="bold"> {{TechnicalSupport.length}} </span> @Token.TechnicalSupport @Token.From  {{TechnicalSupportCount}}
+                                    </h3>
+
+                                    <a href="app_inbox.html" ng-show="false">view all</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                        <li ng-repeat="x in TechnicalSupport">
+                                            <a href="{{x.RedirectUrl}}">
+                                                @*<span class="photo">
+                                                        <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
+                                                    </span>*@
+                                                <span class="subject">
+                                                    <span class="from">{{x.UserName}} </span>
+                                                    <span class="time">{{x.Date}} </span>
+                                                </span>
+                                                <span class="message">{{x.Message.substring(0,30)}}...</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <center>
+                                                <button type="button" class="btn btn-default mt-ladda-btn ladda-button btn-circle" data-style="expand-left" data-spinner-color="#333" ng-click="getTechnicalSupport(true)">
+                                                    <span class="ladda-label">@Token.ShowMore</span>
+                                                    <span class="ladda-spinner"></span>
+                                                </button>
+                                            </center>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img alt="" class="img-circle" src="{{UserData.ImageUrl.replace('~','')}}" />
+                                <span class="username username-hide-on-mobile"> {{UserData.UserName}} </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="~/UserProfile">
+                                        <i class="icon-user"></i> @Token.UserProfile
+                                    </a>
+                                </li>
+                                <li ng-show="false">
+                                    <a href="app_calendar.html">
+                                        <i class="icon-calendar"></i> My Calendar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="app_inbox.html" ng-show="false">
+                                        <i class="icon-envelope-open"></i> My Inbox
+                                        <span class="badge badge-danger"> 3 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="app_todo.html" ng-show="false">
+                                        <i class="icon-rocket"></i> My Tasks
+                                        <span class="badge badge-success"> 7 </span>
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="page_user_lock_1.html" ng-show="false">
+                                        <i class="icon-lock"></i> Lock Screen
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/Logout">
+                                        <i class="icon-key"></i> @Token.Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-quick-sidebar-toggler" ng-show="false">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <i class="icon-logout"></i>
+                            </a>
+                        </li>
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            @Html.Partial("_Menu")
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <a href="Home">@Token.Home</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span> @ViewBag.Title</span>
+                            </li>
+                        </ul>
+                        <div class="page-toolbar">
+                            <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+                                <i class="icon-calendar"></i>&nbsp;
+                                <span class="thin uppercase hidden-xs"></span>&nbsp;
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE BAR -->
+                    <!-- BEGIN PAGE TITLE-->
+                    <h1 class="page-title">
+                        @ViewBag.Title
+                        <small> @ViewBag.Description</small>
+                    </h1>
+                    <!-- END PAGE TITLE-->
+                    <!-- END PAGE HEADER-->
+                    @RenderBody()
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                @DateTime.Now.Year &copy; @Token.AppName
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </div>
+    <!-- BEGIN QUICK NAV -->
+
+    <div class="quick-nav-overlay"></div>
+    <!-- END QUICK NAV -->
+    <!--[if lt IE 9]>
+    <script src="../assets/global/plugins/respond.min.js"></script>
+    <script src="../assets/global/plugins/excanvas.min.js"></script>
+    <script src="../assets/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    @*
+
+        هذة لملفات مرتبة يجب اذا تم نقلهم يكون بنفس الترتيب
+
+    *@
+
+
+
+    <!-- BEGIN CORE PLUGINS -->
+    @*<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/plugins/jquery.min.js"></script>
+
+    @*<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/bootstrap/bootstrapThemth.min.js"></script>
+
+    @*<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>*@
+
+
+    @*<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+    @*<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/plugins/jquery.blockui.min.js"></script>
+
+    @*<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @*<script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/plugins/moment.min.js"></script>
+
+    @*<script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    @*<script src="../assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/morris/morris.min.js"></script>
+
+
+    <!--    Counterup-->
+    <script src="~/Scripts/metronicJS/counterup/jquery.counterup.min.js"></script>
+    <script src="~/Scripts/metronicJS/counterup/jquery.waypoints.min.js"></script>
+
+
+    <script src="~/Scripts/metronicJS/global/app.js"></script>
+    <script src="~/Scripts/metronicJS/global/dashboard.min.js"></script>
+    <script src="~/Scripts/metronicJS/layouts/layout.min.js"></script>
+    <script src="~/Scripts/metronicJS/layouts/demo.min.js"></script>
+    <script src="~/Scripts/metronicJS/global/quick-sidebar.min.js"></script>
+    <script src="~/Scripts/metronicJS/global/quick-nav.min.js"></script>
+
+    <!--MyJavaScript-->
+    <script src="~/Scripts/Custom/MyJavaScript.js"></script>
+    <!--toastr-->
+    <script src="~/Scripts/metronicJS/bootstrap-toastr/toastr.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <!--ng Date-->
+    <script src="~/Scripts/ngDate/ngDate.js"></script>
+    <!--ngFOP-->
+    <script src="~/Scripts/ngFOP/ngFOP.js"></script>
+    <!--   <script src="~/Scripts/ngFOP/directiveNgFop.js"></script>
+       <script src="~/Scripts/ngFOP/directiveNgFopOrderByDefult.js"></script>
+       <script src="~/Scripts/ngFOP/directiveNgPaging.js"></script>
+       <script src="~/Scripts/ngFOP/fOPService.js"></script>
+       <script src="~/Scripts/ngFOP/directiveNgFopData.js"></script>
+       <script src="~/Scripts/ngFOP/serviceOrderBy.js"></script>
+       <script src="~/Scripts/ngFOP/servicePaging.js"></script>-->
+    <!--NG Uplaod Image-->
+    <script src="~/Scripts/ngUplaodImage/ngUplaodImage.js"></script>
+    <!--NG Uplaod Image Multiple-->
+    <script src="~/Scripts/ngUplaodImageMultiple/ngUplaodImagemultiple.js"></script>
+    <!--Angular Sheard-->
+    <script src="~/Scripts/Angular/Shared/Module.js"></script>
+    <script src="~/Scripts/Angular/Shared/ControllerJs.js"></script>
+    <script src="~/Scripts/Angular/Shared/Service.js"></script>
+    <script src="~/Scripts/Angular/Shared/Filters.js"></script>
+
+    <!--ng Counterup-->
+    <script src="~/Scripts/ngCounterup/ngCounterup.js"></script>
+
+    <!--Service-->
+    <script src="~/Scripts/Angular/Service/Service.js"></script>
+    <!--State-->
+    <script src="~/Scripts/Custom/EnumsJs.js"></script>
+    <!--Token-->
+    <script src="~/Scripts/Custom/Token.js"></script>
+    <!--Sercice-->
+    <script src="~/Scripts/Custom/Service.js"></script>
+
+    <!-- ملفات مهمة من اجل القيام بعمل تحميل الجداول كا ورد واكسل وخلافة-->
+    @*
+            لا تقوم بعمل اى تاثير على جداول الانجلر لان الانجلر يحمل فى زمن التشغيل
+            <script src="~/Scripts/metronicJS/datatable/datatables.min.js"></script>
+        <script src="~/Scripts/metronicJS/TabelButtonCtrl/table-datatables-buttons.min.js"></script>
+        <script src="~/Scripts/metronicJS/datatable/datatables.bootstrap.js"></script>*@
+
+    <!--Cloes Menu-->
+    <script>
+		$(document).ready(function () {
+			$('.menu-toggler').click();
+		});
+    </script>
+
+    @Html.Partial("~/Views/Shared/ServiceJS.cshtml")
+    @RenderSection("scripts", required: false)
+    <script>
+		$(document).ready(function () {
+			$('#clickmewow').click(function () {
+				$('#radio1003').attr('checked', 'checked');
+			});
+		})
+    </script>
+</body>
+</html>

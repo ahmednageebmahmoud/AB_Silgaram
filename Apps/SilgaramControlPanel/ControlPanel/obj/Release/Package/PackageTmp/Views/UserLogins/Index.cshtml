@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = Token.UserLogins;
+    var priv = PageService.GetPageRole(PageEnumVM.UserLogins);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--body-->
+@if (priv.IsDisplay)
+{
+
+    <div ng-app="ngApp" ng-controller="ctrlUserLogins" >
+        <!--data-->
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bell-o"></i>@Token.UserLogin  @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions()"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+                        <div class="form-group col-lg-12 col-md-12">
+                            <!--User Serial-->
+                            <div class="col-lg-3 col-md-3">
+                                        <label>@Token.EnterUserSerialNo :</label>
+                                <div class="input-group">
+                                    <div class="input-icon">
+                                        <input  class="form-control" type="text" placeholder="@Token.EnterUserSerialNo" ng-model="UserSerialNo">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button   class="btn btn-success" type="button" ng-click="getUserLogins(UserSerialNo)">
+                                            @Token.GetUserLogins
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                 
+                            </div>
+                        </div>
+                        
+                        <!--Form Add New And Show And Edit-->
+                        <form name="frmUserLogin" novalidate  ng-fop-data="UserLogins"  ng-fop-data-repeat="UserLoginsRepeat">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.UserName"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="UserName"
+                                                    ng-fop-type-filter="text"
+                                                    ></ng-fop>
+                                        </th>
+                                        <th class="th-30">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Date"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Date"
+                                                    ng-fop-type-filter="text"
+                                                     ></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.IsSuccess"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="IsSuccess"
+                                                    ng-fop-type-filter="bool"
+                                                     ></ng-fop>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in UserLoginsRepeat">
+                                        <td class="highlight">
+<label>{{x.UserName}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.LoginDate}}</label>
+
+                                        </td>
+                                        <td>
+                                            <label class="mt-checkbox mt-checkbox-outline">
+                                                <input type="checkbox" class="form-control " ng-model="x.IsSuccess"  disabled="disabled">
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                         
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <!--Paging-->
+                                            <ng-paging-display-more  ng-paging-count-item="50"></ng-paging-display-more>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+
+
+        @section scripts{
+         
+              <script src="~/Scripts/Angular/Views/UserLogins/Service.js"></script>
+            <script src="~/Scripts/Angular/Views/UserLogins/ControllerJs.js"></script> 
+        }
+

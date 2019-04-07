@@ -1,0 +1,290 @@
+﻿
+@{
+    ViewBag.Title = Token.Products;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Products);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Products;
+
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlProducts">
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell"></i>@Token.Products @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="callFunctions(Product.FkProduct_Id)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                @if (priv.IsCreate)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-green bold uppercase">
+                                            <a href="~/Products/CreateAndUpdate" class="btn btn-default green-stripe">
+                                                @Token.CreateNew
+                                                <i class="fas fa-plus"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmProduct" novalidate>
+                            <table class="table table-striped table-bordered table-advance table-hover" ng-fop-data="Products" ng-fop-data-repeat="ProductsRepeat">
+                                <thead>
+                                    <tr>
+                                        <th class="th-15">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Name"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="ProductNameAr"
+                                                    ng-fop-type-filter="text"
+                                                    @*OrderBY*@
+                                                    ></ng-fop>
+                                        </th>
+                                        <th class="th-50">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Description"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="ProductDescription"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                         
+                                        <th class="th-10">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Price"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Price"
+                                                    ng-fop-type-filter="number"></ng-fop>
+                                        </th>
+ 
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="x in ProductsRepeat track by $index" ng-show="x.State!=State.Delete">
+                                
+                                    <tr >
+                                            <!--Name-->
+                                        <td class="">
+                                            <label>{{x.ProductName}}</label>
+                                        </td>
+                                            <!--Description-->
+                                        <td class="hidden-xs">
+                                            <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.ProductDescription}}</pre>
+                                        </td>
+                                        <td class="">
+                                            <!--Price-->
+                                            <label>{{x.Price}}</label>
+                                        </td>
+                                      
+                                        <td>
+                                            @if (priv.IsUpdate)
+                                            {
+                                                <a href="~/Products/CreateAndUpdate?productId={{x.Id}}">
+                                                <i class="fas fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ></i>
+                                                </a>
+                                            }
+                                            @if (priv.IsDelete)
+                                            {
+                                                <i class="fas fa-trash cursor-pointer icont-controller" title="@Token.Delete" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="deleteConfirm(x.Id)"></i>
+                                            }
+
+                                            <!--Show More-->
+                                            <span>
+                                             <i class="fas fa-sort-down cursor-pointer icont-controller" title="@Token.ShowMore" data-placement="top" data-toggle="tooltip" ng-hide="x.ShowMore" ng-click="x.ShowMore=true"></i>
+                                            <i class="fas fa-sort-up cursor-pointer icont-controller" title="@Token.Collapse @Token.ShowMore"   data-placement="top" data-toggle="tooltip" ng-hide="!x.ShowMore" ng-click="x.ShowMore=false"></i>
+                                            </span>
+                                            <!--Display Product Sold-->
+                                            <span>
+                                                <a href="~/ProductsSold?productId={{x.Id}}">
+                                                <i class="fas fas fa-shopping-cart cursor-pointer icont-controller" title="@Token.Display @Token.ProductSold" data-placement="top" data-toggle="tooltip" ></i>
+                                                </a>
+                                            </span>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr ng-if="x.ShowMore">
+                                        <td colspan="2">
+                                            <center>
+                                                <h3>@Token.Product</h3>
+                                            </center>
+                                            <!--Product Information-->
+                                            <div class="form-group">
+                                                <dl class="dl-horizontal">
+                                                    <dt>@Token.CreateDateTime :</dt>
+                                                    <dd>
+                                                        <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.CreateDateTime}}</pre>
+                                                    </dd>
+                                                    <dt>@Token.CreateBy :</dt>
+                                                    <dd>
+                                                        <label style="display:block">@Token.UserName: {{x.CreateBy.UserName}}</label>
+                                                        <label style="display:block">@Token.SerialNumber: {{x.CreateBy.Serial}}</label>
+                                                        <label style="display:block">
+                                                            @Token.ImageProfile:   <img class="img-circle" src="{{x.CreateBy.ImageUrl.replace('~','')}}" width="100" height="100" alt="">
+                                                        </label>
+                                                    </dd>
+                                                    <dt>@Token.NameAr :</dt>
+                                                    <dd>
+                                                        <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.NameAr}}</pre>
+                                                    </dd>
+                                                    <dt>@Token.NameEn :</dt>
+                                                    <dd>
+                                                        <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.NameEn}}</pre>
+                                                    </dd>
+                                                    <dt>@Token.DescriptionAr :</dt>
+                                                    <dd>
+                                                        <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.DescriptionAr}}</pre>
+                                                    </dd>
+                                                    <dt>@Token.DescriptionEn :</dt>
+                                                    <dd>
+                                                        <pre style="border: none;background: none;font-weight: 400;font-size:18px">{{x.DescriptionEn}}</pre>
+                                                    </dd>
+                                                
+                                                    <dt>
+                                                        @Token.Images :
+                                                    </dt>
+                                                    <dd>
+                                                        <center>
+                                                            <img class="img-circle" ng-repeat="img in x.Images track by $index" src="{{img.FullFileUrl.replace('~','')}}" width="100" height="100" alt="">
+                                                        </center>
+                                                    </dd>
+                                                    
+                                                </dl>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                               </td>
+                                    </tr>
+                                     
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <!--Paging-->
+                                            <ng-paging-display-more ng-paging-count-item="50"></ng-paging-display-more>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange(Products)">
+                                                @Token.SaveChange
+                                                <i class="fas fa-save"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+            <div class="portlet-body" style="display: block;">
+                <div class="table-scrollable">
+                    <!--Delete Undo-->
+                    <div class="col-lg-3 col-md-3">
+                        <div class="caption">
+                            <i class="fas fa-bell"></i>@Token.Undo       @Token.Delete
+                        </div>
+                        <table class="table table-striped table-bordered table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="th-90">
+                                        <div class="icon-addon addon-sm">
+                                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="@Token.Search..." ng-model="ProductName">
+                                            <label ng-show="ProductName.length==0||ProductName==null||ProductName==undefined" for="txt2" class="glyphicon glyphicon-search" rel="tooltip"></label>
+                                            <label ng-show="ProductName.length>0&amp;&amp;ProductName!=null" class="glyphicon glyphicon-remove-circle ng-hide" ng-click="ProductName=undefined"></label>
+                                        </div>
+                                    </th>
+                                    <th class="th-10">
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in Products|filter:{'ProductName':ProductName}" ng-show="x.State==State.Delete">
+                                    <td>{{x.ProductName}}</td>
+                                    <td><i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="undoDelete(x)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <pre ng-show="false">{{Product|json}}</pre>
+        <pre ng-show="false">{{Products|json:4}}</pre>
+
+        @if (priv.IsDelete)
+                {
+       <!-- Delete Confirm -->
+            <div class="modal fade " id="DeleteConfirm" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>@Token.AreYouSureDelete ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" ng-click="delete( )">
+                                @Token.YesDelete
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button class="btn btn-default" ng-click="cancelDelete( )">
+                                @Token.Cancel
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+       
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Products/Controller.js"></script>
+    <script src="~/Scripts/Angular/Views/Products/Service.js"></script>
+}
+

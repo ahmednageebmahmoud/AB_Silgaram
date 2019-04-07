@@ -1,0 +1,62 @@
+﻿<div class="text-center">
+    <ul class="pagination ul-CursorPointer ul-li-last "style="margin: 0px;" >
+        <li ng-class="{disabled:(Pager.currentPage === 1||Pager.totalPages==0||Pager.pages==null)}" ng-click="GotoPage(1)" title="First">
+            <a  ><i class="glyphicon glyphicon-step-backward"></i></a>
+
+        </li>
+        <li ng-class="{disabled:(Pager.currentPage === 1||Pager.totalPages==0||Pager.pages==null)}" ng-click="(Pager.currentPage - 1>0)?GotoPage(Pager.currentPage - 1):null" title="Previous">
+            <a ><i class="glyphicon glyphicon-chevron-left"></i> </a>
+        </li>
+ 
+        <li ng-repeat="x in Pager.pages  " ng-class="{activePage:(Pager.currentPage == x.numPage)}"  ng-click="GotoPage(x.numPage)" title="{{x.numPage}}">
+            <a  >{{x.numPage}}</a>
+        </li>
+        <li ng-show="Pager.totalPages>0&&Pager.pages[Pager.pages.length-1].numPage!=Pager.totalPages">
+            <a>....</a>
+        </li>
+        <li ng-show="Pager.totalPages>0&&Pager.pages[Pager.pages.length-1].numPage!=Pager.totalPages" ng-click="GotoPage(Pager.totalPages)">
+            <a >{{Pager.totalPages}}</a>
+        </li>
+        <li ng-class="{disabled:Pager.currentPage === Pager.totalPages||Pager.pages==null}" ng-click="(Pager.currentPage + 1<=Pager.totalPages)?GotoPage(Pager.currentPage + 1):null" title="Next">
+            <a > <i class="glyphicon glyphicon-chevron-right"></i></a>
+        </li>
+        <li ng-class="{disabled:Pager.currentPage === Pager.totalPages||Pager.pages==null}" ng-click="GotoPage(Pager.totalPages)" title="Last">
+            <a > <i class="glyphicon glyphicon-step-forward"></i></a>
+        </li>
+        <!--<li>
+            <input type="number" name="xxx" ng-class="{disabled:Pager.totalPages==0}" ng-disabled="Pager.totalPages==0" placeholder="Page Number" ng-model="Pager.currentPage" ng-change="GotoPage(Pager.currentPage)"  min="1" max="{{Pager.totalPages==0?1:Pager.totalPages}}" title="Go To Page"/>
+        </li>
+        <li>
+            <select ng-class="{disabled:Pager.totalPages==0}" ng-disabled="Pager.totalPages==0" ng-model="Pager.pageItemsCount" ng-options="x as x for x in Pager.pageItemsCountselect" ng-change="changePageItemsCount(Pager.pageItemsCount)" title="Count Item"></select>
+        </li>
+        <li>
+            <select ng-class="{disabled:Pager.totalPages==0}" ng-disabled="Pager.totalPages==0" ng-model="Pager.pageSize" ng-options="x as x for x in Pager.pageSizeSelect   " ng-change="changePageSize(Pager.pageSize)" title="Count Pages"></select>
+        </li>-->
+        <li>
+            <!--
+    currentPage * pageItemsCount - pageItemsCount + 1
+    exam1
+    1 * 5 = 5 ;
+    5 - 5 = 0 ;
+    0 + 1 = 1
+
+    exam2
+    2 * 5 = 10 ;
+    10 - 5 = 5 ;
+    5 + 1 = 6
+    -->
+
+            <a  ng-show="(Pager.currentPage*Pager.pageItemsCount)>0">
+           {{showing}}  {{Pager.currentPage*Pager.pageItemsCount-Pager.pageItemsCount+1}}-{{(Pager.currentPage*Pager.pageItemsCount-Pager.pageItemsCount)+Pager.items.length}} {{of}} {{Pager.itemLength}} {{Items}} 
+            </a>
+        
+        </li>
+        <li>
+            <a ng-click="getDataMore()">
+                Dispaly Moro
+            </a>
+        </li>
+    </ul>
+    <div>
+           </div>
+</div>

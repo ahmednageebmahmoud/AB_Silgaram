@@ -1,0 +1,1890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SilgaramModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SilgaramEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="SilgaramModel.Address" />
+    <EntitySet Name="AdFavorites" EntityType="SilgaramModel.AdFavorite" />
+    <EntitySet Name="Ads" EntityType="SilgaramModel.Ad" />
+    <EntitySet Name="AlbumFiles" EntityType="SilgaramModel.AlbumFile" />
+    <EntitySet Name="Albums" EntityType="SilgaramModel.Album" />
+    <EntitySet Name="AppsInformations" EntityType="SilgaramModel.AppsInformation" />
+    <EntitySet Name="Categories" EntityType="SilgaramModel.Category" />
+    <EntitySet Name="Countries" EntityType="SilgaramModel.Country" />
+    <EntitySet Name="Files" EntityType="SilgaramModel.File" />
+    <EntitySet Name="FileTypes" EntityType="SilgaramModel.FileType" />
+    <EntitySet Name="Genders" EntityType="SilgaramModel.Gender" />
+    <EntitySet Name="Histories" EntityType="SilgaramModel.History" />
+    <EntitySet Name="HistoryDetails" EntityType="SilgaramModel.HistoryDetail" />
+    <EntitySet Name="Jobs" EntityType="SilgaramModel.Job" />
+    <EntitySet Name="Languages" EntityType="SilgaramModel.Language" />
+    <EntitySet Name="LanguageTypes" EntityType="SilgaramModel.LanguageType" />
+    <EntitySet Name="LanguageUsings" EntityType="SilgaramModel.LanguageUsing" />
+    <EntitySet Name="Locations" EntityType="SilgaramModel.Location" />
+    <EntitySet Name="Logs" EntityType="SilgaramModel.Log" />
+    <EntitySet Name="Menus" EntityType="SilgaramModel.Menu" />
+    <EntitySet Name="Nationalities" EntityType="SilgaramModel.Nationality" />
+    <EntitySet Name="NotificationsIsReads" EntityType="SilgaramModel.NotificationsIsRead" />
+    <EntitySet Name="OfferFavorites" EntityType="SilgaramModel.OfferFavorite" />
+    <EntitySet Name="Offers" EntityType="SilgaramModel.Offer" />
+    <EntitySet Name="Pages" EntityType="SilgaramModel.Page" />
+    <EntitySet Name="PagesAllows" EntityType="SilgaramModel.PagesAllow" />
+    <EntitySet Name="PagesRoles" EntityType="SilgaramModel.PagesRole" />
+    <EntitySet Name="PagesRoleTypes" EntityType="SilgaramModel.PagesRoleType" />
+    <EntitySet Name="PhoneNumbers" EntityType="SilgaramModel.PhoneNumber" />
+    <EntitySet Name="Phones" EntityType="SilgaramModel.Phone" />
+    <EntitySet Name="PhoneTypes" EntityType="SilgaramModel.PhoneType" />
+    <EntitySet Name="Provinces" EntityType="SilgaramModel.Province" />
+    <EntitySet Name="Roles" EntityType="SilgaramModel.Role" />
+    <EntitySet Name="SocialStatus" EntityType="SilgaramModel.SocialStatu" />
+    <EntitySet Name="States" EntityType="SilgaramModel.State" />
+    <EntitySet Name="SubCategories" EntityType="SilgaramModel.SubCategory" />
+    <EntitySet Name="SubMenus" EntityType="SilgaramModel.SubMenu" />
+    <EntitySet Name="TechnicalSupports" EntityType="SilgaramModel.TechnicalSupport" />
+    <EntitySet Name="TechnicalSupportReads" EntityType="SilgaramModel.TechnicalSupportRead" />
+    <EntitySet Name="UserInformations" EntityType="SilgaramModel.UserInformation" />
+    <EntitySet Name="UserLogins" EntityType="SilgaramModel.UserLogin" />
+    <EntitySet Name="UserRoles" EntityType="SilgaramModel.UserRole" />
+    <EntitySet Name="Users" EntityType="SilgaramModel.User" />
+    <EntitySet Name="UsersPurchasesAds" EntityType="SilgaramModel.UsersPurchasesAd" />
+    <EntitySet Name="UsersPurchasesOffers" EntityType="SilgaramModel.UsersPurchasesOffer" />
+    <EntitySet Name="ViewerAds" EntityType="SilgaramModel.ViewerAd" />
+    <EntitySet Name="ViewerOffers" EntityType="SilgaramModel.ViewerOffer" />
+    <AssociationSet Name="FK_Addresses_Countries" Association="SilgaramModel.FK_Addresses_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_Provinces" Association="SilgaramModel.FK_Addresses_Provinces">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Addresses" Association="SilgaramModel.FK_UserInformation_Addresses">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdFavorites_Ads" Association="SilgaramModel.FK_AdFavorites_Ads">
+      <End Role="Ad" EntitySet="Ads" />
+      <End Role="AdFavorite" EntitySet="AdFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdFavorites_Users" Association="SilgaramModel.FK_AdFavorites_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AdFavorite" EntitySet="AdFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Albums" Association="SilgaramModel.FK_Ads_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Categories" Association="SilgaramModel.FK_Ads_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Location" Association="SilgaramModel.FK_Ads_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Logs" Association="SilgaramModel.FK_Ads_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_SubCategories" Association="SilgaramModel.FK_Ads_SubCategories">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Users" Association="SilgaramModel.FK_Ads_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Ad" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdViewer_Ads" Association="SilgaramModel.FK_AdViewer_Ads">
+      <End Role="Ad" EntitySet="Ads" />
+      <End Role="ViewerAd" EntitySet="ViewerAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchases_Ads" Association="SilgaramModel.FK_UsersPurchases_Ads">
+      <End Role="Ad" EntitySet="Ads" />
+      <End Role="UsersPurchasesAd" EntitySet="UsersPurchasesAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlbumFiles_Albums" Association="SilgaramModel.FK_AlbumFiles_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="AlbumFile" EntitySet="AlbumFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlbumFiles_Files" Association="SilgaramModel.FK_AlbumFiles_Files">
+      <End Role="File" EntitySet="Files" />
+      <End Role="AlbumFile" EntitySet="AlbumFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Albums" Association="SilgaramModel.FK_Offers_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Offer" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppsInformation_Logs" Association="SilgaramModel.FK_AppsInformation_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="AppsInformation" EntitySet="AppsInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_AppInformation" Association="SilgaramModel.FK_Images_AppInformation">
+      <End Role="AppsInformation" EntitySet="AppsInformations" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_Logs" Association="SilgaramModel.FK_Categories_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Categories" Association="SilgaramModel.FK_Offers_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Offer" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Categories" Association="SilgaramModel.FK_SubCategories_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Files" Association="SilgaramModel.FK_Countries_Files">
+      <End Role="File" EntitySet="Files" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Logs" Association="SilgaramModel.FK_Countries_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Countries" Association="SilgaramModel.FK_Provinces_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Province" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Files_FileTypes" Association="SilgaramModel.FK_Files_FileTypes">
+      <End Role="FileType" EntitySet="FileTypes" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Files" Association="SilgaramModel.FK_SubCategories_Files">
+      <End Role="File" EntitySet="Files" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Images" Association="SilgaramModel.FK_UserInformation_Images">
+      <End Role="File" EntitySet="Files" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Genders" Association="SilgaramModel.FK_UserInformation_Genders">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Logs" Association="SilgaramModel.FK_Histories_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Pages" Association="SilgaramModel.FK_Histories_Pages">
+      <End Role="Page" EntitySet="Pages" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_States" Association="SilgaramModel.FK_Histories_States">
+      <End Role="State" EntitySet="States" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Users" Association="SilgaramModel.FK_Histories_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryDetails_Histories" Association="SilgaramModel.FK_HistoryDetails_Histories">
+      <End Role="History" EntitySet="Histories" />
+      <End Role="HistoryDetail" EntitySet="HistoryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationsIsRead_Histories" Association="SilgaramModel.FK_NotificationsIsRead_Histories">
+      <End Role="History" EntitySet="Histories" />
+      <End Role="NotificationsIsRead" EntitySet="NotificationsIsReads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Logs" Association="SilgaramModel.FK_Jobs_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Jobs" Association="SilgaramModel.FK_UserInformation_Jobs">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageUsing_Languages" Association="SilgaramModel.FK_LanguageUsing_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="LanguageUsing" EntitySet="LanguageUsings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Languages" Association="SilgaramModel.FK_UserInformation_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageUsing_LanguageTypes" Association="SilgaramModel.FK_LanguageUsing_LanguageTypes">
+      <End Role="LanguageType" EntitySet="LanguageTypes" />
+      <End Role="LanguageUsing" EntitySet="LanguageUsings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nationalities_Logs" Association="SilgaramModel.FK_Nationalities_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Nationality" EntitySet="Nationalities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Logs" Association="SilgaramModel.FK_Offers_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Offer" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesAllow_Logs" Association="SilgaramModel.FK_PagesAllow_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="PagesAllow" EntitySet="PagesAllows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Logs" Association="SilgaramModel.FK_PagesRoles_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="PagesRole" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Logs" Association="SilgaramModel.FK_Provinces_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="Province" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Logs" Association="SilgaramModel.FK_SubCategories_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Logs" Association="SilgaramModel.FK_Users_Logs">
+      <End Role="Log" EntitySet="Logs" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenu_Menu" Association="SilgaramModel.FK_SubMenu_Menu">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="SubMenu" EntitySet="SubMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Nationalities" Association="SilgaramModel.FK_UserInformation_Nationalities">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationsIsRead_Users" Association="SilgaramModel.FK_NotificationsIsRead_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="NotificationsIsRead" EntitySet="NotificationsIsReads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferFavorites_Offers" Association="SilgaramModel.FK_OfferFavorites_Offers">
+      <End Role="Offer" EntitySet="Offers" />
+      <End Role="OfferFavorite" EntitySet="OfferFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferFavorites_Users" Association="SilgaramModel.FK_OfferFavorites_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="OfferFavorite" EntitySet="OfferFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_SubCategories" Association="SilgaramModel.FK_Offers_SubCategories">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="Offer" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Offers" Association="SilgaramModel.FK_UsersPurchasesOffers_Offers">
+      <End Role="Offer" EntitySet="Offers" />
+      <End Role="UsersPurchasesOffer" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewerOffers_Offers" Association="SilgaramModel.FK_ViewerOffers_Offers">
+      <End Role="Offer" EntitySet="Offers" />
+      <End Role="ViewerOffer" EntitySet="ViewerOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesAllow_Pages" Association="SilgaramModel.FK_PagesAllow_Pages">
+      <End Role="Page" EntitySet="Pages" />
+      <End Role="PagesAllow" EntitySet="PagesAllows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Pages" Association="SilgaramModel.FK_PagesRoles_Pages">
+      <End Role="Page" EntitySet="Pages" />
+      <End Role="PagesRole" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenu_Pages" Association="SilgaramModel.FK_SubMenu_Pages">
+      <End Role="Page" EntitySet="Pages" />
+      <End Role="SubMenu" EntitySet="SubMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_PagesRoles" Association="SilgaramModel.FK_PagesRoles_PagesRoles">
+      <End Role="PagesRole" EntitySet="PagesRoles" />
+      <End Role="PagesRole1" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_PagesRoleTypes" Association="SilgaramModel.FK_PagesRoles_PagesRoleTypes">
+      <End Role="PagesRoleType" EntitySet="PagesRoleTypes" />
+      <End Role="PagesRole" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Roles" Association="SilgaramModel.FK_PagesRoles_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="PagesRole" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhoneNumbers_PagesRoleTypes" Association="SilgaramModel.FK_PhoneNumbers_PagesRoleTypes">
+      <End Role="PhoneType" EntitySet="PhoneTypes" />
+      <End Role="PhoneNumber" EntitySet="PhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhoneNumbers_Phones" Association="SilgaramModel.FK_PhoneNumbers_Phones">
+      <End Role="Phone" EntitySet="Phones" />
+      <End Role="PhoneNumber" EntitySet="PhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Phones" Association="SilgaramModel.FK_UserInformation_Phones">
+      <End Role="Phone" EntitySet="Phones" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="SilgaramModel.FK_UserRoles_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_SocialStatuses" Association="SilgaramModel.FK_UserInformation_SocialStatuses">
+      <End Role="SocialStatu" EntitySet="SocialStatus" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TechnicalSupportRead_TechnicalSupport" Association="SilgaramModel.FK_TechnicalSupportRead_TechnicalSupport">
+      <End Role="TechnicalSupport" EntitySet="TechnicalSupports" />
+      <End Role="TechnicalSupportRead" EntitySet="TechnicalSupportReads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TechnicalSupportRead_Users" Association="SilgaramModel.FK_TechnicalSupportRead_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="TechnicalSupportRead" EntitySet="TechnicalSupportReads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Users" Association="SilgaramModel.FK_UserInformation_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserInformation" EntitySet="UserInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogins_Users" Association="SilgaramModel.FK_UserLogins_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserLogin" EntitySet="UserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="SilgaramModel.FK_UserRoles_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdViewer_Users" Association="SilgaramModel.FK_AdViewer_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ViewerAd" EntitySet="ViewerAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchases_Users" Association="SilgaramModel.FK_UsersPurchases_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UsersPurchasesAd" EntitySet="UsersPurchasesAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Users" Association="SilgaramModel.FK_UsersPurchasesOffers_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UsersPurchasesOffer" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewerOffers_Users" Association="SilgaramModel.FK_ViewerOffers_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ViewerOffer" EntitySet="ViewerOffers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FKCountry_Id" Type="Int32" />
+    <Property Name="FkProvince_Id" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Country" Relationship="SilgaramModel.FK_Addresses_Countries" FromRole="Address" ToRole="Country" />
+    <NavigationProperty Name="Province" Relationship="SilgaramModel.FK_Addresses_Provinces" FromRole="Address" ToRole="Province" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Addresses" FromRole="Address" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="AdFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FkUser_Id" Type="Int32" />
+    <Property Name="FKAd_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ad" Relationship="SilgaramModel.FK_AdFavorites_Ads" FromRole="AdFavorite" ToRole="Ad" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_AdFavorites_Users" FromRole="AdFavorite" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="IsTop" Type="Boolean" Nullable="false" />
+    <Property Name="IsApprove" Type="Boolean" Nullable="false" />
+    <Property Name="FkSubCategory_Id" Type="Int32" />
+    <Property Name="FkCategory_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkAlbum_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLocation_Id" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsAllowMessaging" Type="Boolean" Nullable="false" />
+    <Property Name="IsPostWithOutPhoneNumber" Type="Boolean" Nullable="false" />
+    <Property Name="IsAutoPost" Type="Boolean" Nullable="false" />
+    <Property Name="CountAutoPostToNow" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdFavorites" Relationship="SilgaramModel.FK_AdFavorites_Ads" FromRole="Ad" ToRole="AdFavorite" />
+    <NavigationProperty Name="Album" Relationship="SilgaramModel.FK_Ads_Albums" FromRole="Ad" ToRole="Album" />
+    <NavigationProperty Name="Category" Relationship="SilgaramModel.FK_Ads_Categories" FromRole="Ad" ToRole="Category" />
+    <NavigationProperty Name="Location" Relationship="SilgaramModel.FK_Ads_Location" FromRole="Ad" ToRole="Location" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Ads_Logs" FromRole="Ad" ToRole="Log" />
+    <NavigationProperty Name="SubCategory" Relationship="SilgaramModel.FK_Ads_SubCategories" FromRole="Ad" ToRole="SubCategory" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_Ads_Users" FromRole="Ad" ToRole="User" />
+    <NavigationProperty Name="ViewerAds" Relationship="SilgaramModel.FK_AdViewer_Ads" FromRole="Ad" ToRole="ViewerAd" />
+    <NavigationProperty Name="UsersPurchasesAds" Relationship="SilgaramModel.FK_UsersPurchases_Ads" FromRole="Ad" ToRole="UsersPurchasesAd" />
+  </EntityType>
+  <EntityType Name="AlbumFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkAlbum_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkFile_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Album" Relationship="SilgaramModel.FK_AlbumFiles_Albums" FromRole="AlbumFile" ToRole="Album" />
+    <NavigationProperty Name="File" Relationship="SilgaramModel.FK_AlbumFiles_Files" FromRole="AlbumFile" ToRole="File" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_Albums" FromRole="Album" ToRole="Ad" />
+    <NavigationProperty Name="AlbumFiles" Relationship="SilgaramModel.FK_AlbumFiles_Albums" FromRole="Album" ToRole="AlbumFile" />
+    <NavigationProperty Name="Offers" Relationship="SilgaramModel.FK_Offers_Albums" FromRole="Album" ToRole="Offer" />
+  </EntityType>
+  <EntityType Name="AppsInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_AppsInformation_Logs" FromRole="AppsInformation" ToRole="Log" />
+    <NavigationProperty Name="Files" Relationship="SilgaramModel.FK_Images_AppInformation" FromRole="AppsInformation" ToRole="File" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_Categories" FromRole="Category" ToRole="Ad" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Categories_Logs" FromRole="Category" ToRole="Log" />
+    <NavigationProperty Name="Offers" Relationship="SilgaramModel.FK_Offers_Categories" FromRole="Category" ToRole="Offer" />
+    <NavigationProperty Name="SubCategories" Relationship="SilgaramModel.FK_SubCategories_Categories" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <Property Name="CountryKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkFile_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="SilgaramModel.FK_Addresses_Countries" FromRole="Country" ToRole="Address" />
+    <NavigationProperty Name="File" Relationship="SilgaramModel.FK_Countries_Files" FromRole="Country" ToRole="File" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Countries_Logs" FromRole="Country" ToRole="Log" />
+    <NavigationProperty Name="Provinces" Relationship="SilgaramModel.FK_Provinces_Countries" FromRole="Country" ToRole="Province" />
+  </EntityType>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileUrl" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FKAppInformation_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkFileType_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AlbumFiles" Relationship="SilgaramModel.FK_AlbumFiles_Files" FromRole="File" ToRole="AlbumFile" />
+    <NavigationProperty Name="AppsInformation" Relationship="SilgaramModel.FK_Images_AppInformation" FromRole="File" ToRole="AppsInformation" />
+    <NavigationProperty Name="Countries" Relationship="SilgaramModel.FK_Countries_Files" FromRole="File" ToRole="Country" />
+    <NavigationProperty Name="FileType" Relationship="SilgaramModel.FK_Files_FileTypes" FromRole="File" ToRole="FileType" />
+    <NavigationProperty Name="SubCategories" Relationship="SilgaramModel.FK_SubCategories_Files" FromRole="File" ToRole="SubCategory" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Images" FromRole="File" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="FileType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Files" Relationship="SilgaramModel.FK_Files_FileTypes" FromRole="FileType" ToRole="File" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Genders" FromRole="Gender" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RedirectUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FkState_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKPage_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" />
+    <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TitleAr" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Histories_Logs" FromRole="History" ToRole="Log" />
+    <NavigationProperty Name="Page" Relationship="SilgaramModel.FK_Histories_Pages" FromRole="History" ToRole="Page" />
+    <NavigationProperty Name="State" Relationship="SilgaramModel.FK_Histories_States" FromRole="History" ToRole="State" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_Histories_Users" FromRole="History" ToRole="User" />
+    <NavigationProperty Name="HistoryDetails" Relationship="SilgaramModel.FK_HistoryDetails_Histories" FromRole="History" ToRole="HistoryDetail" />
+    <NavigationProperty Name="NotificationsIsReads" Relationship="SilgaramModel.FK_NotificationsIsRead_Histories" FromRole="History" ToRole="NotificationsIsRead" />
+  </EntityType>
+  <EntityType Name="HistoryDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColumResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ColumOldContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ColumNewContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FkHistory_Id" Type="Int32" Nullable="false" />
+    <Property Name="CoulmIsSingl" Type="Boolean" Nullable="false" />
+    <Property Name="CoulmIsEn" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="History" Relationship="SilgaramModel.FK_HistoryDetails_Histories" FromRole="HistoryDetail" ToRole="History" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Jobs_Logs" FromRole="Job" ToRole="Log" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Jobs" FromRole="Job" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguageUsings" Relationship="SilgaramModel.FK_LanguageUsing_Languages" FromRole="Language" ToRole="LanguageUsing" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Languages" FromRole="Language" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="LanguageType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LanguageUsings" Relationship="SilgaramModel.FK_LanguageUsing_LanguageTypes" FromRole="LanguageType" ToRole="LanguageUsing" />
+  </EntityType>
+  <EntityType Name="LanguageUsing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+    <Property Name="FKLanguageType_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKLanguage_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="SilgaramModel.FK_LanguageUsing_Languages" FromRole="LanguageUsing" ToRole="Language" />
+    <NavigationProperty Name="LanguageType" Relationship="SilgaramModel.FK_LanguageUsing_LanguageTypes" FromRole="LanguageUsing" ToRole="LanguageType" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Longitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_Location" FromRole="Location" ToRole="Ad" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_Logs" FromRole="Log" ToRole="Ad" />
+    <NavigationProperty Name="AppsInformations" Relationship="SilgaramModel.FK_AppsInformation_Logs" FromRole="Log" ToRole="AppsInformation" />
+    <NavigationProperty Name="Categories" Relationship="SilgaramModel.FK_Categories_Logs" FromRole="Log" ToRole="Category" />
+    <NavigationProperty Name="Countries" Relationship="SilgaramModel.FK_Countries_Logs" FromRole="Log" ToRole="Country" />
+    <NavigationProperty Name="Histories" Relationship="SilgaramModel.FK_Histories_Logs" FromRole="Log" ToRole="History" />
+    <NavigationProperty Name="Jobs" Relationship="SilgaramModel.FK_Jobs_Logs" FromRole="Log" ToRole="Job" />
+    <NavigationProperty Name="Nationalities" Relationship="SilgaramModel.FK_Nationalities_Logs" FromRole="Log" ToRole="Nationality" />
+    <NavigationProperty Name="Offers" Relationship="SilgaramModel.FK_Offers_Logs" FromRole="Log" ToRole="Offer" />
+    <NavigationProperty Name="PagesAllows" Relationship="SilgaramModel.FK_PagesAllow_Logs" FromRole="Log" ToRole="PagesAllow" />
+    <NavigationProperty Name="PagesRoles" Relationship="SilgaramModel.FK_PagesRoles_Logs" FromRole="Log" ToRole="PagesRole" />
+    <NavigationProperty Name="Provinces" Relationship="SilgaramModel.FK_Provinces_Logs" FromRole="Log" ToRole="Province" />
+    <NavigationProperty Name="SubCategories" Relationship="SilgaramModel.FK_SubCategories_Logs" FromRole="Log" ToRole="SubCategory" />
+    <NavigationProperty Name="Users" Relationship="SilgaramModel.FK_Users_Logs" FromRole="Log" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="ClassIcon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SubMenus" Relationship="SilgaramModel.FK_SubMenu_Menu" FromRole="Menu" ToRole="SubMenu" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Nationalities_Logs" FromRole="Nationality" ToRole="Log" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Nationalities" FromRole="Nationality" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="NotificationsIsRead">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkHistory_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKUser_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="History" Relationship="SilgaramModel.FK_NotificationsIsRead_Histories" FromRole="NotificationsIsRead" ToRole="History" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_NotificationsIsRead_Users" FromRole="NotificationsIsRead" ToRole="User" />
+  </EntityType>
+  <EntityType Name="OfferFavorite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKOffer_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Offer" Relationship="SilgaramModel.FK_OfferFavorites_Offers" FromRole="OfferFavorite" ToRole="Offer" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_OfferFavorites_Users" FromRole="OfferFavorite" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="IsTop" Type="Boolean" Nullable="false" />
+    <Property Name="FkAlbum_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <Property Name="DiscountRate" Type="Int32" Nullable="false" />
+    <Property Name="SmallDiscription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkCategory_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkSubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Album" Relationship="SilgaramModel.FK_Offers_Albums" FromRole="Offer" ToRole="Album" />
+    <NavigationProperty Name="Category" Relationship="SilgaramModel.FK_Offers_Categories" FromRole="Offer" ToRole="Category" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Offers_Logs" FromRole="Offer" ToRole="Log" />
+    <NavigationProperty Name="OfferFavorites" Relationship="SilgaramModel.FK_OfferFavorites_Offers" FromRole="Offer" ToRole="OfferFavorite" />
+    <NavigationProperty Name="SubCategory" Relationship="SilgaramModel.FK_Offers_SubCategories" FromRole="Offer" ToRole="SubCategory" />
+    <NavigationProperty Name="UsersPurchasesOffers" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Offers" FromRole="Offer" ToRole="UsersPurchasesOffer" />
+    <NavigationProperty Name="ViewerOffers" Relationship="SilgaramModel.FK_ViewerOffers_Offers" FromRole="Offer" ToRole="ViewerOffer" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsControlPanel" Type="Boolean" Nullable="false" />
+    <Property Name="IsFronEnd" Type="Boolean" Nullable="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Histories" Relationship="SilgaramModel.FK_Histories_Pages" FromRole="Page" ToRole="History" />
+    <NavigationProperty Name="PagesAllows" Relationship="SilgaramModel.FK_PagesAllow_Pages" FromRole="Page" ToRole="PagesAllow" />
+    <NavigationProperty Name="PagesRoles" Relationship="SilgaramModel.FK_PagesRoles_Pages" FromRole="Page" ToRole="PagesRole" />
+    <NavigationProperty Name="SubMenus" Relationship="SilgaramModel.FK_SubMenu_Pages" FromRole="Page" ToRole="SubMenu" />
+  </EntityType>
+  <EntityType Name="PagesAllow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsAllowNotify" Type="Boolean" Nullable="false" />
+    <Property Name="IsAllowLog" Type="Boolean" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkPage_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_PagesAllow_Logs" FromRole="PagesAllow" ToRole="Log" />
+    <NavigationProperty Name="Page" Relationship="SilgaramModel.FK_PagesAllow_Pages" FromRole="PagesAllow" ToRole="Page" />
+  </EntityType>
+  <EntityType Name="PagesRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsDisplay" Type="Boolean" Nullable="false" />
+    <Property Name="IsCreate" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="FkPage_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkRole_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkPageRoleTypes_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_PagesRoles_Logs" FromRole="PagesRole" ToRole="Log" />
+    <NavigationProperty Name="Page" Relationship="SilgaramModel.FK_PagesRoles_Pages" FromRole="PagesRole" ToRole="Page" />
+    <NavigationProperty Name="PagesRoles1" Relationship="SilgaramModel.FK_PagesRoles_PagesRoles" FromRole="PagesRole" ToRole="PagesRole1" />
+    <NavigationProperty Name="PagesRole1" Relationship="SilgaramModel.FK_PagesRoles_PagesRoles" FromRole="PagesRole1" ToRole="PagesRole" />
+    <NavigationProperty Name="PagesRoleType" Relationship="SilgaramModel.FK_PagesRoles_PagesRoleTypes" FromRole="PagesRole" ToRole="PagesRoleType" />
+    <NavigationProperty Name="Role" Relationship="SilgaramModel.FK_PagesRoles_Roles" FromRole="PagesRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="PagesRoleType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PagesRoles" Relationship="SilgaramModel.FK_PagesRoles_PagesRoleTypes" FromRole="PagesRoleType" ToRole="PagesRole" />
+  </EntityType>
+  <EntityType Name="PhoneNumber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="FKPhone_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkPhoneType_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PhoneType" Relationship="SilgaramModel.FK_PhoneNumbers_PagesRoleTypes" FromRole="PhoneNumber" ToRole="PhoneType" />
+    <NavigationProperty Name="Phone" Relationship="SilgaramModel.FK_PhoneNumbers_Phones" FromRole="PhoneNumber" ToRole="Phone" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneNumbers" Relationship="SilgaramModel.FK_PhoneNumbers_Phones" FromRole="Phone" ToRole="PhoneNumber" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_Phones" FromRole="Phone" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="PhoneType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneNumbers" Relationship="SilgaramModel.FK_PhoneNumbers_PagesRoleTypes" FromRole="PhoneType" ToRole="PhoneNumber" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FKCountry_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="SilgaramModel.FK_Addresses_Provinces" FromRole="Province" ToRole="Address" />
+    <NavigationProperty Name="Country" Relationship="SilgaramModel.FK_Provinces_Countries" FromRole="Province" ToRole="Country" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Provinces_Logs" FromRole="Province" ToRole="Log" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsControlPanel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PagesRoles" Relationship="SilgaramModel.FK_PagesRoles_Roles" FromRole="Role" ToRole="PagesRole" />
+    <NavigationProperty Name="UserRoles" Relationship="SilgaramModel.FK_UserRoles_Roles" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="SocialStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserInformations" Relationship="SilgaramModel.FK_UserInformation_SocialStatuses" FromRole="SocialStatu" ToRole="UserInformation" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CssClassStyle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CssClassIcon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Histories" Relationship="SilgaramModel.FK_Histories_States" FromRole="State" ToRole="History" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkCategory_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkFile_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_SubCategories" FromRole="SubCategory" ToRole="Ad" />
+    <NavigationProperty Name="Category" Relationship="SilgaramModel.FK_SubCategories_Categories" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="File" Relationship="SilgaramModel.FK_SubCategories_Files" FromRole="SubCategory" ToRole="File" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_SubCategories_Logs" FromRole="SubCategory" ToRole="Log" />
+    <NavigationProperty Name="Offers" Relationship="SilgaramModel.FK_Offers_SubCategories" FromRole="SubCategory" ToRole="Offer" />
+  </EntityType>
+  <EntityType Name="SubMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="ClassIcon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FkMenu_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKPage_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="SilgaramModel.FK_SubMenu_Menu" FromRole="SubMenu" ToRole="Menu" />
+    <NavigationProperty Name="Page" Relationship="SilgaramModel.FK_SubMenu_Pages" FromRole="SubMenu" ToRole="Page" />
+  </EntityType>
+  <EntityType Name="TechnicalSupport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TechnicalSupportReads" Relationship="SilgaramModel.FK_TechnicalSupportRead_TechnicalSupport" FromRole="TechnicalSupport" ToRole="TechnicalSupportRead" />
+  </EntityType>
+  <EntityType Name="TechnicalSupportRead">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkTechnicalSupport_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TechnicalSupport" Relationship="SilgaramModel.FK_TechnicalSupportRead_TechnicalSupport" FromRole="TechnicalSupportRead" ToRole="TechnicalSupport" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_TechnicalSupportRead_Users" FromRole="TechnicalSupportRead" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MediumName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NationalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="FkImage_Id" Type="Int32" Nullable="false" />
+    <Property Name="FKAddress_Id" Type="Int32" />
+    <Property Name="FkNationality_Id" Type="Int32" />
+    <Property Name="FKGender_Id" Type="Int32" />
+    <Property Name="FKSocialStatus_Id" Type="Int32" />
+    <Property Name="FKJob_Id" Type="Int32" />
+    <Property Name="FKLanguage_Id" Type="Int32" />
+    <Property Name="FkPhone_Id" Type="Int32" />
+    <NavigationProperty Name="Address" Relationship="SilgaramModel.FK_UserInformation_Addresses" FromRole="UserInformation" ToRole="Address" />
+    <NavigationProperty Name="File" Relationship="SilgaramModel.FK_UserInformation_Images" FromRole="UserInformation" ToRole="File" />
+    <NavigationProperty Name="Gender" Relationship="SilgaramModel.FK_UserInformation_Genders" FromRole="UserInformation" ToRole="Gender" />
+    <NavigationProperty Name="Job" Relationship="SilgaramModel.FK_UserInformation_Jobs" FromRole="UserInformation" ToRole="Job" />
+    <NavigationProperty Name="Language" Relationship="SilgaramModel.FK_UserInformation_Languages" FromRole="UserInformation" ToRole="Language" />
+    <NavigationProperty Name="Nationality" Relationship="SilgaramModel.FK_UserInformation_Nationalities" FromRole="UserInformation" ToRole="Nationality" />
+    <NavigationProperty Name="Phone" Relationship="SilgaramModel.FK_UserInformation_Phones" FromRole="UserInformation" ToRole="Phone" />
+    <NavigationProperty Name="SocialStatu" Relationship="SilgaramModel.FK_UserInformation_SocialStatuses" FromRole="UserInformation" ToRole="SocialStatu" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UserInformation_Users" FromRole="UserInformation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UserLogins_Users" FromRole="UserLogin" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkRole_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="SilgaramModel.FK_UserRoles_Roles" FromRole="UserRole" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UserRoles_Users" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Serial" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="FkLog_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AdFavorites" Relationship="SilgaramModel.FK_AdFavorites_Users" FromRole="User" ToRole="AdFavorite" />
+    <NavigationProperty Name="Ads" Relationship="SilgaramModel.FK_Ads_Users" FromRole="User" ToRole="Ad" />
+    <NavigationProperty Name="Histories" Relationship="SilgaramModel.FK_Histories_Users" FromRole="User" ToRole="History" />
+    <NavigationProperty Name="Log" Relationship="SilgaramModel.FK_Users_Logs" FromRole="User" ToRole="Log" />
+    <NavigationProperty Name="NotificationsIsReads" Relationship="SilgaramModel.FK_NotificationsIsRead_Users" FromRole="User" ToRole="NotificationsIsRead" />
+    <NavigationProperty Name="OfferFavorites" Relationship="SilgaramModel.FK_OfferFavorites_Users" FromRole="User" ToRole="OfferFavorite" />
+    <NavigationProperty Name="TechnicalSupportReads" Relationship="SilgaramModel.FK_TechnicalSupportRead_Users" FromRole="User" ToRole="TechnicalSupportRead" />
+    <NavigationProperty Name="UserInformation" Relationship="SilgaramModel.FK_UserInformation_Users" FromRole="User" ToRole="UserInformation" />
+    <NavigationProperty Name="UserLogins" Relationship="SilgaramModel.FK_UserLogins_Users" FromRole="User" ToRole="UserLogin" />
+    <NavigationProperty Name="UserRoles" Relationship="SilgaramModel.FK_UserRoles_Users" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="ViewerAds" Relationship="SilgaramModel.FK_AdViewer_Users" FromRole="User" ToRole="ViewerAd" />
+    <NavigationProperty Name="UsersPurchasesAds" Relationship="SilgaramModel.FK_UsersPurchases_Users" FromRole="User" ToRole="UsersPurchasesAd" />
+    <NavigationProperty Name="UsersPurchasesOffers" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Users" FromRole="User" ToRole="UsersPurchasesOffer" />
+    <NavigationProperty Name="ViewerOffers" Relationship="SilgaramModel.FK_ViewerOffers_Users" FromRole="User" ToRole="ViewerOffer" />
+  </EntityType>
+  <EntityType Name="UsersPurchasesAd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkAd_Id" Type="Int32" Nullable="false" />
+    <Property Name="AdPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="BayDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Ad" Relationship="SilgaramModel.FK_UsersPurchases_Ads" FromRole="UsersPurchasesAd" ToRole="Ad" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UsersPurchases_Users" FromRole="UsersPurchasesAd" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UsersPurchasesOffer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkOffer_Id" Type="Int32" Nullable="false" />
+    <Property Name="OfferPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="OfferDiscountRate" Type="Int32" Nullable="false" />
+    <Property Name="OfferNetPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="BayDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Offer" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Offers" FromRole="UsersPurchasesOffer" ToRole="Offer" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Users" FromRole="UsersPurchasesOffer" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ViewerAd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountViewer" Type="Int64" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" />
+    <Property Name="FKAd_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ad" Relationship="SilgaramModel.FK_AdViewer_Ads" FromRole="ViewerAd" ToRole="Ad" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_AdViewer_Users" FromRole="ViewerAd" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ViewerOffer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountViewer" Type="Int64" Nullable="false" />
+    <Property Name="FkUser_Id" Type="Int32" />
+    <Property Name="FKOffer_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Offer" Relationship="SilgaramModel.FK_ViewerOffers_Offers" FromRole="ViewerOffer" ToRole="Offer" />
+    <NavigationProperty Name="User" Relationship="SilgaramModel.FK_ViewerOffers_Users" FromRole="ViewerOffer" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Addresses_Countries">
+    <End Type="SilgaramModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="SilgaramModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="FKCountry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_Provinces">
+    <End Type="SilgaramModel.Province" Role="Province" Multiplicity="0..1" />
+    <End Type="SilgaramModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="FkProvince_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Addresses">
+    <End Type="SilgaramModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKAddress_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdFavorites_Ads">
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.AdFavorite" Role="AdFavorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdFavorite">
+        <PropertyRef Name="FKAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdFavorites_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SilgaramModel.AdFavorite" Role="AdFavorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdFavorite">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Albums">
+    <End Type="SilgaramModel.Album" Role="Album" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Categories">
+    <End Type="SilgaramModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Location">
+    <End Type="SilgaramModel.Location" Role="Location" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkLocation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_SubCategories">
+    <End Type="SilgaramModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkSubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdViewer_Ads">
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.ViewerAd" Role="ViewerAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewerAd">
+        <PropertyRef Name="FKAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchases_Ads">
+    <End Type="SilgaramModel.Ad" Role="Ad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.UsersPurchasesAd" Role="UsersPurchasesAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesAd">
+        <PropertyRef Name="FkAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlbumFiles_Albums">
+    <End Type="SilgaramModel.Album" Role="Album" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.AlbumFile" Role="AlbumFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlbumFile">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlbumFiles_Files">
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.AlbumFile" Role="AlbumFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlbumFile">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Albums">
+    <End Type="SilgaramModel.Album" Role="Album" Multiplicity="1" />
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppsInformation_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.AppsInformation" Role="AppsInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppsInformation">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_AppInformation">
+    <End Type="SilgaramModel.AppsInformation" Role="AppsInformation" Multiplicity="1" />
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppsInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FKAppInformation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.Category" Role="Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Categories">
+    <End Type="SilgaramModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Categories">
+    <End Type="SilgaramModel.Category" Role="Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Files">
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="1" />
+    <End Type="SilgaramModel.Country" Role="Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Country">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Country" Role="Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Country">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Countries">
+    <End Type="SilgaramModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="SilgaramModel.Province" Role="Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Province">
+        <PropertyRef Name="FKCountry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Files_FileTypes">
+    <End Type="SilgaramModel.FileType" Role="FileType" Multiplicity="1" />
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FkFileType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Files">
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="1" />
+    <End Type="SilgaramModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Images">
+    <End Type="SilgaramModel.File" Role="File" Multiplicity="1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkImage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Genders">
+    <End Type="SilgaramModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKGender_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Pages">
+    <End Type="SilgaramModel.Page" Role="Page" Multiplicity="1" />
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="FKPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_States">
+    <End Type="SilgaramModel.State" Role="State" Multiplicity="1" />
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="FkState_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryDetails_Histories">
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.HistoryDetail" Role="HistoryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoryDetail">
+        <PropertyRef Name="FkHistory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationsIsRead_Histories">
+    <End Type="SilgaramModel.History" Role="History" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.NotificationsIsRead" Role="NotificationsIsRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotificationsIsRead">
+        <PropertyRef Name="FkHistory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Jobs">
+    <End Type="SilgaramModel.Job" Role="Job" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKJob_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageUsing_Languages">
+    <End Type="SilgaramModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="SilgaramModel.LanguageUsing" Role="LanguageUsing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageUsing">
+        <PropertyRef Name="FKLanguage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Languages">
+    <End Type="SilgaramModel.Language" Role="Language" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKLanguage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageUsing_LanguageTypes">
+    <End Type="SilgaramModel.LanguageType" Role="LanguageType" Multiplicity="1" />
+    <End Type="SilgaramModel.LanguageUsing" Role="LanguageUsing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguageType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageUsing">
+        <PropertyRef Name="FKLanguageType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nationalities_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Nationality" Role="Nationality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nationality">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesAllow_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesAllow" Role="PagesAllow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesAllow">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRole">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.Province" Role="Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Province">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Logs">
+    <End Type="SilgaramModel.Log" Role="Log" Multiplicity="1" />
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubMenu_Menu">
+    <End Type="SilgaramModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="SilgaramModel.SubMenu" Role="SubMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubMenu">
+        <PropertyRef Name="FkMenu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Nationalities">
+    <End Type="SilgaramModel.Nationality" Role="Nationality" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkNationality_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationsIsRead_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.NotificationsIsRead" Role="NotificationsIsRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotificationsIsRead">
+        <PropertyRef Name="FKUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferFavorites_Offers">
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="1" />
+    <End Type="SilgaramModel.OfferFavorite" Role="OfferFavorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferFavorite">
+        <PropertyRef Name="FKOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferFavorites_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.OfferFavorite" Role="OfferFavorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferFavorite">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_SubCategories">
+    <End Type="SilgaramModel.SubCategory" Role="SubCategory" Multiplicity="1" />
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="FkSubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchasesOffers_Offers">
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="1" />
+    <End Type="SilgaramModel.UsersPurchasesOffer" Role="UsersPurchasesOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffer">
+        <PropertyRef Name="FkOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewerOffers_Offers">
+    <End Type="SilgaramModel.Offer" Role="Offer" Multiplicity="1" />
+    <End Type="SilgaramModel.ViewerOffer" Role="ViewerOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewerOffer">
+        <PropertyRef Name="FKOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesAllow_Pages">
+    <End Type="SilgaramModel.Page" Role="Page" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesAllow" Role="PagesAllow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesAllow">
+        <PropertyRef Name="FkPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Pages">
+    <End Type="SilgaramModel.Page" Role="Page" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRole">
+        <PropertyRef Name="FkPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubMenu_Pages">
+    <End Type="SilgaramModel.Page" Role="Page" Multiplicity="1" />
+    <End Type="SilgaramModel.SubMenu" Role="SubMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubMenu">
+        <PropertyRef Name="FKPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_PagesRoles">
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PagesRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRole1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_PagesRoleTypes">
+    <End Type="SilgaramModel.PagesRoleType" Role="PagesRoleType" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PagesRoleType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRole">
+        <PropertyRef Name="FkPageRoleTypes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Roles">
+    <End Type="SilgaramModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="SilgaramModel.PagesRole" Role="PagesRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRole">
+        <PropertyRef Name="FkRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhoneNumbers_PagesRoleTypes">
+    <End Type="SilgaramModel.PhoneType" Role="PhoneType" Multiplicity="1" />
+    <End Type="SilgaramModel.PhoneNumber" Role="PhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhoneType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhoneNumber">
+        <PropertyRef Name="FkPhoneType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhoneNumbers_Phones">
+    <End Type="SilgaramModel.Phone" Role="Phone" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.PhoneNumber" Role="PhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phone">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhoneNumber">
+        <PropertyRef Name="FKPhone_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Phones">
+    <End Type="SilgaramModel.Phone" Role="Phone" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phone">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkPhone_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Type="SilgaramModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="SilgaramModel.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="FkRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_SocialStatuses">
+    <End Type="SilgaramModel.SocialStatu" Role="SocialStatu" Multiplicity="0..1" />
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SocialStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKSocialStatus_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TechnicalSupportRead_TechnicalSupport">
+    <End Type="SilgaramModel.TechnicalSupport" Role="TechnicalSupport" Multiplicity="1" />
+    <End Type="SilgaramModel.TechnicalSupportRead" Role="TechnicalSupportRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TechnicalSupport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TechnicalSupportRead">
+        <PropertyRef Name="FkTechnicalSupport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TechnicalSupportRead_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.TechnicalSupportRead" Role="TechnicalSupportRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TechnicalSupportRead">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.UserInformation" Role="UserInformation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogins_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.UserLogin" Role="UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SilgaramModel.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdViewer_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SilgaramModel.ViewerAd" Role="ViewerAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewerAd">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchases_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.UsersPurchasesAd" Role="UsersPurchasesAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesAd">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchasesOffers_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.UsersPurchasesOffer" Role="UsersPurchasesOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffer">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewerOffers_Users">
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SilgaramModel.ViewerOffer" Role="ViewerOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewerOffer">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

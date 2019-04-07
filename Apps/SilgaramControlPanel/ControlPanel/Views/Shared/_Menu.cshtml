@@ -1,0 +1,71 @@
+﻿ @{
+}
+
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+            <li class="sidebar-toggler-wrapper hide">
+                <div class="sidebar-toggler">
+                    <span></span>
+                </div>
+            </li>
+            <li class="sidebar-search-wrapper">
+                <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
+                    <a href="javascript:;" class="remove">
+                        <i class="icon-close"></i>
+                    </a>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="searchMenu" ng-model="searchMenu" placeholder="@Token.Search...">
+                        <span class="input-group-btn">
+                            <a href="javascript:;" class="btn submit">
+                                <i class="icon-magnifier"></i>
+                            </a>
+                        </span>
+                    </div>
+                </form>
+                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+            </li>
+            <!--Home-->
+            <li class="nav-item start" ng-class="{'active':page==''||page=='Home'}">
+                <a href="/" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">@Token.Home</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <!--Title-->
+            <li class="heading">
+                <h3 class="uppercase">@Token.Setting</h3>
+            </li>
+            <!--Menu-->
+            <li class="nav-item start " ng-repeat="x in AllMenu|filterMenu:'SubMenuName':searchMenu |orderBy:'+OrderNumber'" ng-class="{'active':activeMenu(x.SubMenus)}">
+                <a class="nav-link nav-toggle">
+                    <i class="{{x.ClassIcon}}"></i>
+                    <span class="title">{{x.MenuName}}</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu" ng-class="{'displayBlockImportant':x.isOpen}">
+
+                    <li class="nav-item start " ng-repeat="v in x.SubMenusVr|orderBy:'+OrderNumber'" ng-class="{'open':activeSubMenu(v.SubMenuName)}" ng-if="x.isSubMenusVr">
+                        <a href="~/{{v.Url}}" class="nav-link ">
+                            <i class="{{v.ClassIcon}}"></i>
+                            <span class="title">{{v.SubMenuName}}</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item start " ng-repeat="v in x.SubMenus|orderBy:'+OrderNumber'" ng-class="{'open':activeSubMenu(v.SubMenuName)}" ng-if="!x.isSubMenusVr">
+                        <a href="~/{{v.Url}}" class="nav-link ">
+                            <i class="{{v.ClassIcon}}"></i>
+                            <span class="title">{{v.SubMenuName}}</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>

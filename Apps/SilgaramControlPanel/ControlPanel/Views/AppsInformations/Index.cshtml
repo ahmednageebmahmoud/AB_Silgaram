@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = Token.AppsInformations;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.AppsInformations);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + Token.For + " " + Token.AppsInformations;
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlAppsInformations">
+        <div class="col-md-12">
+            <!--Form-->
+            <div class="profile-content">
+                <form novalidate name="frmAppsInformation">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption caption-md">
+                                        <i class="icon-globe theme-font hide"></i>
+                                        <span class="caption-subject font-blue-madison bold uppercase">@Token.ProfileAccount</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active " ng-class="{'activeError':(
+                                            frmAppsInformation.filed.$invalid||
+                                            frmAppsInformation.filed2.$invalid
+                                            &&IsSubmit
+                                            )}">
+                                            <a href="#Links" data-toggle="tab">@Token.Links</a>
+                                        </li>
+                                        <li class="AboutUS">
+                                            <a href="#AboutUS" data-toggle="tab">@Token.AboutUS</a>
+                                        </li>
+                                        <li class="Terms">
+                                            <a href="#Terms" data-toggle="tab">@Token.Terms</a>
+                                        </li>
+                                        @*<li class="Privecy">
+                                            <a href="#Privacy" data-toggle="tab">@Token.Privacy</a>
+                                        </li>*@
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <!--Links-->
+                                        <div class="tab-pane active row" id="Links">
+                                            <!--ControlPanelLink-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[0].Name}}  :<label class="lableErorr">*</label></label>
+                                                <input type="url" class="form-control" name="filed" ng-model="AppsInformations[0].Value" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed.$error.url&&IsSubmit">@Token.InvalidLink</label>
+                                            </div>
+                                            <!--ApiLink-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[1].Name}}  :<label class="lableErorr">*</label> </label>
+                                                <input type="url" class="form-control" name="filed2" ng-model="AppsInformations[1].Value" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed2.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed2.$error.url&&IsSubmit">@Token.InvalidLink</label>
+                                            </div>
+
+                                            <!--FaceBookLink-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[6].Name}}  :<label class="lableErorr">*</label> </label>
+                                                <input type="url" class="form-control" name="filed3" ng-model="AppsInformations[6].Value" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed3.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed3.$error.url&&IsSubmit">@Token.InvalidLink</label>
+                                            </div>
+                                            <!--TwitterLink-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[7].Name}}  :<label class="lableErorr">*</label> </label>
+                                                <input type="url" class="form-control" name="filed4" ng-model="AppsInformations[7].Value" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed4.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed4.$error.url&&IsSubmit">@Token.InvalidLink</label>
+                                            </div>
+                                            <!--InstagramLink-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[8].Name}}  :<label class="lableErorr">*</label> </label>
+                                                <input type="url" class="form-control" name="filed5" ng-model="AppsInformations[8].Value" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed5.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmAppsInformation.filed5.$error.url&&IsSubmit">@Token.InvalidLink</label>
+                                            </div>
+
+                                            <!--AdPeriodDays-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[9].Name}}  :<label class="lableErorr">*</label> </label>
+                                                <input type="text" class="form-control" name="adPeriodDays" ng-model="AppsInformations[9].Value" pattern="\d{0,}" ng-required="true" />
+                                                <label class="lableErorr" ng-show="frmAppsInformation.adPeriodDays.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                            </div>
+                                        </div>
+                                        <!--AboutUS-->
+                                        <div class="tab-pane   row" id="AboutUS">
+                                            <!--AboutUsAr-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[2].Name}}  :</label>
+                                                <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[2].Value"></textarea>
+                                            </div>
+                                            <!--AboutUsEn-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[3].Name}}  :</label>
+                                                <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[3].Value"></textarea>
+                                            </div>
+                                        </div>
+                                        <!--Terms-->
+                                        <div class="tab-pane   row" id="Terms">
+                                            <!--TermsAr-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[4].Name}}  :</label>
+                                                <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[4].Value"></textarea>
+                                            </div>
+                                            <!--TermsEn-->
+                                            <div class="form-group col-lg-6 col-md-6">
+                                                <label class="control-label">{{AppsInformations[5].Name}}  :</label>
+                                                <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[5].Value"></textarea>
+                                            </div>
+                                        </div>
+                                        <!--Privacy-->
+                                        @*<div class="tab-pane   row" id="Privacy">
+                                            <div class="row">
+                                                <!--PrivecyAr-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">{{AppsInformations[6].Name}}  :</label>
+                                                    <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[6].Value"></textarea>
+                                                </div>
+                                                <!--PrivecyEn-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">{{AppsInformations[7].Name}}  :</label>
+                                                    <textarea rows="6" ng-if="x.Id!=AppInformation.ApiLink&&x.Id!=AppInformation.ControllPanelLink" class="form-control th-90" ng-model="AppsInformations[6].Value"></textarea>
+                                                </div>
+
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="btn btn-default green-stripe " ng-class="{'green':frmAppsInformation.$valid}" ng-click="frmAppsInformation.$valid?saveChange():IsSubmit=true">
+                                    <i class="fas fa-save"></i>
+                                    @Token.SaveChange
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/AppsInformations/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/AppsInformations/Controller.js"></script>
+}
+

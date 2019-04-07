@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = Token.UserProfile;
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar  + " " + Token.For + " " + Token.Profile;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Body-->
+<div class="row" ng-app="ngApp" ng-controller="ctrlUserProfile" >
+    <div class="col-md-12">
+        @Html.Partial("AccountSetting")
+    </div>
+</div>
+ 
+
+
+
+
+@section scripts{
+    
+    @*<script src="../assets/pages/scripts/profile.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/pages/profile.min.js"></script>
+    @*<script src="../assets/pages/scripts/timeline.min.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/metronicJS/pages/timeline.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/Angular/Views/UserProfile/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/UserProfile/ControllerJs.js"></script>
+}
+
+@section styles{
+    <!-- END THEME LAYOUT STYLES -->
+    @*<link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/metronicCss/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    @*<link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/metronicCss/pages/profile.min.css" rel="stylesheet" />
+}

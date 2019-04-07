@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = Token.UserPointPackages;
+    var priv = PageService.GetPageRole(PageEnumVM.UserPointPackages);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--body-->
+@if (priv.IsDisplay)
+{
+
+    <div ng-app="ngApp" ng-controller="ctrlUserPointPackages" >
+        <!--data-->
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bell-o"></i>@Token.PointPackage  
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions()"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bell-o"></i>@Token.UserPointPackage  @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions()"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+                         
+                        
+                        <!--Form Add New And Show And Edit-->
+                        <form name="frmUserPointPackage" novalidate  ng-fop-data="UserPointPackages"  ng-fop-data-repeat="UserPointPackagesRepeat">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.User"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="UserName"
+                                                    ng-fop-type-filter="text"
+                                                    ></ng-fop>
+                                        </th>
+                                        <th class="th-30">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.SerialNumber"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Serial"
+                                                    ng-fop-type-filter="text"
+                                                     ></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.ImageProfile"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="IsSuccess"
+                                                    ng-fop-type-filter="bool"
+                                                     ></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Price"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Price"
+                                                    ng-fop-type-filter="number"></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.BuyDateTime"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="BuyDateTime"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="fals"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.IsPaid"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="IsPaid"
+                                                    ng-fop-type-filter="bool"></ng-fop>
+                                        </th>
+
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  ng-repeat="x in UserPointPackagesRepeat" >
+                                        <td class="highlight" >
+                                            <label >{{x.UserName}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.Serial}}</label>
+                                        </td>
+                                        <td class="hidden-xs" ng-class="{'label-success':x.Serial==UserSerial}">
+                                            <center>
+                                                <img class="img-circle" width="50" height="50" src="{{x.UserImageUrl.replace('~','')}}"/>
+                                            </center>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.Price}}</label>
+                                        </td>
+                                        
+                                        <td class="hidden-xs">
+                                            <label>{{x.BuyDateTime}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <i class="fa" ng-class="{'fa-check':x.IsPaid}"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <!--Paging-->
+                                            <ng-paging-display-more  ng-paging-count-item="50"></ng-paging-display-more>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+
+
+        @section scripts{
+         
+              <script src="~/Scripts/Angular/Views/UserPointPackages/Service.js"></script>
+            <script src="~/Scripts/Angular/Views/UserPointPackages/ControllerJs.js"></script> 
+        }
+

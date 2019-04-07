@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppSetting>
+  <DateSetting>
+    <DateLanguage>en</DateLanguage>
+    <BeforeCurrentYear>1</BeforeCurrentYear>
+    <AfterCurrentYear>1</AfterCurrentYear>
+  </DateSetting>
+</AppSetting>

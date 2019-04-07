@@ -1,0 +1,196 @@
+﻿ @{
+     Layout = null;
+}
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
+Version: 4.7.5
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic Admin Theme #1 | User Login 6</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for " name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+   
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/metronicCss/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/metronicCss/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet" />*@
+
+    <link href="~/Content/Custom/custom.css" rel="stylesheet" />
+
+    @*<link href="~/Content/metronicCss/select2/select2-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/metronicCss/select2/select2.min.css" rel="stylesheet" />*@
+ 
+    <link href="~/Content/metronicCss/global/components.min.css" rel="stylesheet" />
+    @*<link href="~/Content/metronicCss/global/plugins.min.css" rel="stylesheet" />*@
+
+    <!--toastr-->
+    <link href="~/Content/metronicCss/bootstrap-toastr/toastr.min.css" rel="stylesheet" />
+ 
+    <link href="~/Content/metronicCss/global/login-5.min.css" rel="stylesheet" />
+ 
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+
+<body class="login" ng-app="ngApp" ng-controller="ctrlLogin" >
+    <!-- BEGIN : LOGIN PAGE 5-2 -->
+    <div class="user-login-5">
+        <div class="row bs-reset">
+            <div class="col-md-6 login-container bs-reset">
+                <img class="login-logo login-6" src="~/Files/Images/LoginPage/logo.jpg" width="100"/>
+                <div class="login-content">
+                    <h1>@Token.AdminLogin </h1>
+                    <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+                    <!--Form Login-->
+                    <form  class="login-form" novalidate name="frmLogin" ng-submit="frmLogin.$valid?login():IsSubmit=true">
+                        <div class="alert alert-danger " ng-show="showAlertMessage">
+                            <span>{{AlertMessage}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="@Token.UserName *" name="username" ng-model="userDatalogin.UserName" ng-required="true" />
+                            <label class="lableErorr" ng-show="frmLogin.username.$invalid&&IsSubmit">@Token.FiledIsRequired</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="@Token.Password *" name="password" ng-model="userDatalogin.Password"  ng-required="true"/>
+                                <label class="lableErorr" ng-show="frmLogin.password.$invalid&&IsSubmit">@Token.FiledIsRequired</label>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="rememberme mt-checkbox mt-checkbox-outline">
+                                    <input type="checkbox" name="remember" ng-model="userDatalogin.Rememberme" /> @Token.RememberMe
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="col-sm-8 text-right">
+                                <button class="btn" ng-class="{'blue':frmLogin.$valid}" type="submit">@Token.SignIn</button>
+                            </div>
+                        </div>
+                    </form>
+                   
+                </div>
+                <div class="login-footer ">
+                    <div class="row bs-reset">
+                        <div class="col-xs-5 bs-reset">
+                            <ul class="login-social">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-social-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-social-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="icon-social-dribbble"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-7 bs-reset">
+                            <div class="login-copyright text-right">
+                                <p>Copyright &copy; Keenthemes 2015</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 bs-reset">
+                <div class="login-bg">
+                    <img style="position: absolute;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    width: 832px;
+    height: 111%;
+    max-height: none;
+    max-width: none;
+    z-index: -999999;
+    left: 0px;
+    top: -104.4px;" src="~/Files/Images/LoginPage/bg1.jpg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="~/Scripts/metronicJS/plugins/jquery.min.js"></script>
+
+    <script src="~/Scripts/metronicJS/bootstrap/bootstrapThemth.min.js"></script>
+
+  
+    @*<script src="~/Scripts/metronicJS/jquery-slimscroll/jquery.slimscroll.min.js"></script>*@
+    @*<script src="~/Scripts/metronicJS/plugins/jquery.blockui.min.js"></script>*@
+    @*<script src="~/Scripts/metronicJS/bootstrap-switch/bootstrap-switch.min.js"></script>*@
+
+    @*<script src="~/Scripts/metronicJS/select2/select2.full.min.js"></script>*@
+
+    @*<script src="~/Scripts/metronicJS/backstretch/jquery.backstretch.min.js"></script>*@
+    <script src="~/Scripts/metronicJS/global/app.min.js"></script>
+    
+    <!--Token-->
+    <script src="~/Scripts/Custom/EnumsJs.js"></script>
+    <script src="~/Scripts/Custom/MyJavaScript.js"></script>
+    <script src="~/Scripts/Custom/Service.js"></script>
+    <script src="~/Scripts/Custom/Token.js"></script>
+
+       <script src="~/Scripts/metronicJS/bootstrap-toastr/toastr.js"></script>
+
+    @*<script src="~/Scripts/metronicJS/global/login-5.min.js"></script>*@
+
+    <script src="~/Scripts/Custom/MyJavaScript.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <!--ng UplaodImage-->
+    <script src="~/Scripts/ngUplaodImage/ngUplaodImage.js"></script>
+    <script src="~/scripts/ngUplaodImageMultiple/ngUplaodImageMultiple.js"></script>
+    <!--ng date-->
+    <script src="~/Scripts/ngDate/ngDate.js"></script>
+    <script src="~/Scripts/ngFOP/ngFOP.js"></script>
+
+
+    <script src="~/Scripts/Angular/Shared/Module.js"></script>
+    <script src="~/Scripts/Angular/Views/Login/Controller.js"></script>
+    <script src="~/Scripts/Angular/Views/Login/Service.js"></script>
+
+    @Html.Partial("~/Views/Shared/ServiceJS.cshtml")
+    <script>
+            $(document).ready(function()
+            {
+                $('#clickmewow').click(function()
+                {
+                    $('#radio1003').attr('checked', 'checked');
+                });
+            })
+    </script>
+</body>
+
+</html>
+

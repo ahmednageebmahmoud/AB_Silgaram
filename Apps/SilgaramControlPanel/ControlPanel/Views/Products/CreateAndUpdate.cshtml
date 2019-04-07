@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = Token.CreateAndUpdate;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Products);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Product;
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlProductCreateAndUpdate">
+        <div class="col-md-12">
+            <!--Form-->
+            <div class="profile-content">
+                <form novalidate name="frmProduct">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption caption-md">
+                                        <i class="icon-globe theme-font hide"></i>
+                                        <span class="caption-subject font-blue-madison bold uppercase">@Token.ProfileAccount</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active" ng-class="{'activeError':(
+                            frmProduct.nameAr.$invalid||
+                            frmProduct.nameEn.$invalid||
+                            frmProduct.descriptionAr.$invalid||
+                            frmProduct.descriptionEn.$invalid||
+                            frmProduct.price.$invalid
+                            )&&IsSubmit}">
+                                            <a href="#BasicData" data-toggle="tab">@Token.BasicData</a>
+                                        </li>
+                                        <li>
+                                            <a href="#Images" data-toggle="tab">@Token.Images</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <!--Basic Data-->
+                                        <div class="tab-pane active row" id="BasicData">
+                                            <div class="row">
+                                                <!--NameAr-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">@Token.NameAr  <label class="lableErorr">*</label></label>
+                                                    <input type="text" class="form-control" name="nameAr" ng-model="Product.NameAr" ng-maxlength="50" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmProduct.nameAr.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmProduct.nameAr.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                                </div>
+                                                <!--NameEn-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">@Token.NameEn <label class="lableErorr">*</label></label>
+                                                    <input type="text" class="form-control" name="nameEn" ng-model="Product.NameEn" ng-maxlength="50" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmProduct.nameEn.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmProduct.nameEn.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!--DescriptionAr-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">@Token.DescriptionAr  <label class="lableErorr">*</label></label>
+                                                    <textarea class="form-control" name="descriptionAr" ng-model="Product.DescriptionAr " ng-maxlength="1000" ng-required="true"></textarea>
+                                                    <label class="lableErorr" ng-show="frmProduct.descriptionAr.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmProduct.descriptionAr.$error.maxlength&&IsSubmit">@Token.MaxLength 1000</label>
+                                                </div>
+                                                <!--DescriptionEn-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">@Token.DescriptionEn  <label class="lableErorr">*</label></label>
+                                                    <textarea class="form-control" name="descriptionEn" ng-model="Product.DescriptionEn" ng-maxlength="1000" ng-required="true"></textarea>
+                                                    <label class="lableErorr" ng-show="frmProduct.descriptionEn.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmProduct.descriptionEn.$error.maxlength&&IsSubmit">@Token.MaxLength 1000</label>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!--Price-->
+                                                <div class="form-group col-lg-6 col-md-6">
+                                                    <label class="control-label">@Token.Price  <label class="lableErorr">*</label></label>
+                                                    <input type="number" step=".5" class="form-control" name="price" ng-model="Product.Price " ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmProduct.price.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Images-->
+                                        <div class="tab-pane row" id="Images">
+                                            <div class="col-lg-6 col-md-6">
+                                                <!--Upload New Images-->
+                                                <div class="form-group">
+                                                    <label class="control-label">@Token.UploadImages:- </label>
+                                                    <br />
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div>
+                                                            <label ng-show="NewImages.length>0"> @Token.PressDobulClickForRemoveAnyImage :- </label>
+                                                            <center>
+                                                                <img class="img-circle cursorPointer" width="100" height="100" ng-repeat="x in NewImages" ng-if="x.State!=State.Delete" title="{{x.ImageName}}" src="{{x.FileUrl.replace('~','')}}" ng-dblclick="RemoveNewImage($index)">
+                                                            </center>
+                                                            <ng-uplaod-image-multiple up-model-file="newImages" up-model-images="NewImages" up-name="newImages" up-accept=".jpg,.png,jpeg" up-count="5"></ng-uplaod-image-multiple>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="btn btn-default green-stripe " ng-class="{'green':frmProduct.$valid}" ng-click="frmProduct.$valid?saveChange():IsSubmit=true">
+                                    <i class="fas fa-save"></i>
+                                    @Token.SaveChange
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Products/CreateAndUpdateController.js"></script>
+    <script src="~/Scripts/Angular/Views/Products/Service.js"></script>
+}
+

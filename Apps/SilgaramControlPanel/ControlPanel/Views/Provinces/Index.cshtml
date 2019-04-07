@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = Token.Provinces;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Provinces);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " "+Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar+ " " + Token.Delete + " " + Token.For + " " + Token.Provinces;
+
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlProvinces">
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell"></i>@Token.Provinces @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="callFunctions(Province.FkCountry_Id)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmProvince" novalidate>
+                            <!--Country-->
+                            <div class="form-group col-lg-4">
+                                <label class="control-label"> @Token.Country <label class="lableErorr">*</label> </label>
+                                <select class="form-control cursor-pointer" name="country" ng-model="Province.FkCountry_Id" ng-options="x.Id as x.CountryName for x in Countries" ng-change="getProvinces(Province.FkCountry_Id)" ng-required="true"></select>
+                                <label class="lableErorr" ng-show="frmProvince.country.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                            </div>
+                            <table class="table table-striped table-bordered table-advance table-hover" ng-fop-data="Provinces" ng-fop-data-repeat="ProvincesRepeat">
+                                <thead>
+                                    <tr>
+                                        <th class="th-45">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.NameAr"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="NameAr"
+                                                    ng-fop-type-filter="text"
+                                                    @*OrderBY*@
+                                                    ng-fop-order-by-defult="true"
+                                                    ng-fop-order-by-defult-case="true"></ng-fop>
+                                        </th>
+                                        <th class="th-45">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.NameEn"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="NameEn"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (priv.IsCreate)
+                                    {
+                                    <tr>
+                                        <td class="highlight">
+                                            <!--NameAr-->
+                                            <div class="form-group ">
+                                                <input type="text" class="form-control" name="nameAr" ng-model="Province.NameAr" ng-maxlength="50" ng-required="true" />
+                                                <label class="lableErorr" ng-show="Province.NameArDuplicate">{{Token.ErrorDuplicate}}</label>
+                                                <label class="lableErorr" ng-show="frmProvince.nameAr.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmProvince.nameAr.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                            </div>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <!--NameEn-->
+                                            <div class="form-group ">
+                                                <input type="text" class="form-control" name="nameEn" ng-model="Province.NameEn " ng-maxlength="50" ng-required="true" />
+                                                <label class="lableErorr" ng-show="Province.NameEnDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                <label class="lableErorr" ng-show="frmProvince.nameEn.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="frmProvince.nameEn.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-plus cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-click="frmProvince.$valid?create(Province):IsSubmit=true"></i>
+                                            <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="Restart()"></i>
+                                        </td>
+                                    </tr>
+                                    }
+
+                                    <tr ng-repeat="x in ProvincesRepeat track by $index" ng-show="x.State!=State.Delete">
+
+                                        <td class="highlight">
+                                            <input type="text" class="form-control input-redonly" ng-model="x.NameAr" ng-readonly="ShowUpdate!=$index" />
+                                            <label class="lableErorr" ng-show="x.NameArDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                            <label class="lableErorr " ng-show="x.NameAr==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                            <label class="lableErorr" ng-show="x.NameAr.length>50&&IsUpdate">@Token.MaxLength 50</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <input type="text" class="form-control input-redonly" ng-model="x.NameEn" ng-readonly="ShowUpdate!=$index" />
+                                            <label class="lableErorr" ng-show="x.NameEnDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                            <label class="lableErorr" ng-show="x.NameEn==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                            <label class="lableErorr" ng-show="x.NameEn.length>50&&IsUpdate">@Token.MaxLength 50</label>
+                                        </td>
+                                        <td>
+                                            @if (priv.IsUpdate)
+                                            {
+                                            <i class="fas fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="changeForUpdate($index)"></i>
+                                            <i class="fas fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="(x.NameAr!=''&&x.NameAr.length<=50&&x.NameEn!=''&&x.NameEn.length<=50)?update(x):IsUpdate=true"></i>
+                                            <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="restartUpdate(true)"></i>
+
+                                            }
+                                            @if (priv.IsDelete)
+                                            {
+                                            <i class="fas fa-trash cursor-pointer icont-controller" title="@Token.Delete" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="deleteConfirm(x.Id)"></i>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            <!--Paging-->
+                                            <ng-paging></ng-paging>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange(Provinces)">
+                                                @Token.SaveChange
+                                                <i class="fas fa-save"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+            <div class="portlet-body" style="display: block;">
+                <div class="table-scrollable">
+                    <!--Delete Undo-->
+                    <div class="col-lg-3 col-md-3">
+                        <div class="caption">
+                            <i class="fas fa-bell"></i>@Token.Undo       @Token.Delete
+                        </div>
+                        <table class="table table-striped table-bordered table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="th-90">
+                                        <div class="icon-addon addon-sm">
+                                            <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="@Token.Search..." ng-model="ProvinceName">
+                                            <label ng-show="ProvinceName.length==0||ProvinceName==null||ProvinceName==undefined" for="txt2" class="glyphicon glyphicon-search" rel="tooltip"></label>
+                                            <label ng-show="ProvinceName.length>0&amp;&amp;ProvinceName!=null" class="glyphicon glyphicon-remove-circle ng-hide" ng-click="ProvinceName=undefined"></label>
+                                        </div>
+                                    </th>
+                                    <th class="th-10">
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in Provinces|filter:{'ProvinceName':ProvinceName}" ng-show="x.State==State.Delete">
+                                    <td>{{x.ProvinceName}}</td>
+                                    <td><i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="undoDelete(x)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                    </div>
+
+
+                </div>
+                <pre ng-show="false">{{Province|json}}</pre>
+                <pre ng-show="false">{{Provinces|json:4}}</pre>
+
+                @if (priv.IsDelete)
+                {
+       <!-- Delete Confirm -->
+                    <div class="modal fade " id="DeleteConfirm" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>@Token.AreYouSureDelete ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" ng-click="delete( )">
+                                        @Token.YesDelete
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn btn-default" ng-click="cancelDelete( )">
+                                        @Token.Cancel
+                                        <i class="fas fa-undo"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            }
+            else
+            {
+            <h1 class="lableErorr text-center">
+                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                @Token.CanNotDisplay
+            </h1>
+            }
+            @section scripts{
+                <script src="~/Scripts/Angular/Views/Provinces/Controller.js"></script>
+                <script src="~/Scripts/Angular/Views/Provinces/Service.js"></script>
+            }
+

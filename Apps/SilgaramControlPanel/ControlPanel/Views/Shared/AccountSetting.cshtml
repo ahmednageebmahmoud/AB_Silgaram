@@ -1,0 +1,251 @@
+﻿      <!--Account Setting-->
+<div class="profile-content"   >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                        <i class="icon-globe theme-font hide"></i>
+                        <span class="caption-subject font-blue-madison bold uppercase">@Token.ProfileAccount</span>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active" ng-class="{'activeError':(
+                            frmUserProfile.firstName.$invalid||
+                            frmUserProfile.middleName.$invalid||
+                            frmUserProfile.lastName.$invalid||
+                            frmUserProfile.email.$invalid||
+                            frmUserProfile.nationalId.$invalid||
+                            frmUserProfile.day1.$invalid||
+                            frmUserProfile.month1.$invalid||
+                            frmUserProfile.year1.$invalid||
+                            frmUserProfile.jop.$invalid||
+                            frmUserProfile.socialStatus.$invalid||
+                            frmUserProfile.gender.$invalid||
+                            frmUserProfile.phone.$invalid||
+                            
+                            )&&IsSubmit}">
+                            <a href="#PersonalInfo" data-toggle="tab">@Token.PersonalInfo</a>
+                        </li>
+                        <li ng-class="{'activeError':(
+                            frmUserProfile.city.$invalid||
+                            frmUserProfile.country.$invalid||
+                            frmUserProfile.postlCode.$invalid||
+                            frmUserProfile.street.$invalid
+                            )&&IsSubmit}">
+                            <a href="#Address" data-toggle="tab">@Token.Address</a>
+                        </li>
+                        <li >
+                            <a href="#ChangeAvatar" data-toggle="tab">@Token.ChangeAvatar</a>
+                        </li>
+                        <li  ng-class="{'activeError':(
+                            frmUserProfile.currentPassword.$invalid||
+                            frmUserProfile.newPassword.$invalid||
+                            frmUserProfile.confirmPassword.$invalid
+                            )&&IsSubmit}">
+                            <a href="#Setting" data-toggle="tab" >@Token.Setting</a>
+                        </li>
+                    </ul>
+                </div>
+                <form novalidate name="frmUserProfile">
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <!--Personal Info-->
+                            <div class="tab-pane active row" id="PersonalInfo">
+                                <div class="row">
+                                    <!--FristName-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.FirstName <label class="lableErorr">*</label></label>
+                                        <input type="text" class="form-control" name="firstName" ng-model="UserViewModel.FirstName " ng-maxlength="20" ng-required="true" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.firstName.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.firstName.$error.maxlength&&IsSubmit">@Token.MaxLength 20</label>
+                                    </div>
+                                    <!--MediumName-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.MediumName: </label>
+                                        <input type="text" class="form-control" name="middleName " ng-model="UserViewModel.MediumName    " ng-maxlength="20" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.middleName.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.middleName.$error.maxlength&&IsSubmit">@Token.MaxLength 20</label>
+                                    </div>
+                                    <!--LastName-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.LastName <label class="lableErorr">*</label></label>
+                                        <input type="text" class="form-control" name="lastName" ng-model="UserViewModel.LastName " ng-maxlength="20" ng-required="true" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.lastName.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.lastName.$error.maxlength&&IsSubmit">@Token.MaxLength 20</label>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <!--Email-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.Email <label class="lableErorr">*</label></label>
+                                        <input type="email" class="form-control" name="email" ng-model="UserViewModel.Email " ng-required="true" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.email.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.email.$error.email&&IsSubmit">@Token.InvalidEmail</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--NationalId-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.NationalId : </label>
+                                        <input type="text" class="form-control" name="nationalId" ng-model="UserViewModel.NationalId" ng-maxlength="14" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.nationalId.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.nationalId.$error.maxlength&&IsSubmit">@Token.MaxLength 14</label>
+                                    </div>
+
+                                    <!--SocialStatus-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.SocialStatus : </label>
+                                        <select class="form-control cursor-pointer" name="socialStatus" ng-model="UserViewModel.FKSocialStatus_Id" ng-options="x.Id as x.Name for x in SocialStatuses"></select>
+                                    </div>
+                                    <!--Gender-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="control-label">@Token.Gender  : </label>
+                                        <select class="form-control cursor-pointer" name="gender" ng-model="UserViewModel.FKGender_Id" ng-options="x.Id as x.Name for x in Genders"></select>
+                                        <label class="lableErorr" ng-show="frmUserProfile.gender.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Jop-->
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label class="">@Token.Job </label>
+                                        <select class="form-control cursor-pointer" name="jop" ng-model="UserViewModel.FKJob_Id" ng-options="x.Id as x.JobName for x in AllJobs"></select>
+                                        <label class="lableErorr" ng-show="frmUserProfile.jop.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                    </div>
+                                    <!--Phone-->
+                                        <div class="form-group col-lg-4 col-md-4">
+                                            <label class="">@Token.Phone:  </label>
+                                            <input type="text" class="form-control" name="phone" ng-model="UserViewModel.PhoneNumber"  ng-required="true"/>
+                                            <label class="lableErorr" ng-show="frmUserProfile.phone.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+
+                                        </div>
+                                </div>
+                               
+                            </div>
+                            <!--Address-->
+                            <div class="tab-pane row" id="Address">
+                                <div class="col-lg-6 col-md-6">
+                                    <!--Street-->
+                                    <div class="form-group">
+                                        <label class="control-label">@Token.Street : </label>
+                                        <textarea class="form-control" rows="9" name="street" ng-model="UserViewModel.Street" ng-maxlength="500" ></textarea>
+                                        <label class="lableErorr" ng-show="frmUserProfile.street.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                        <label class="lableErorr" ng-show="frmUserProfile.street.$error.maxlength&&IsSubmit">@Token.MaxLength 500</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <!--PostalCode-->
+                                    <div class="form-group">
+                                        <label class="control-label">@Token.PostalCode</label>
+                                        <input type="text" class="form-control" name="postlCode" ng-model="UserViewModel.PostalCode" />
+                                        <label class="lableErorr" ng-show="frmUserProfile.postlCode.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                    </div>
+                                    <!--Gender-->
+                                    <div class="form-group">
+                                        <label class="control-label">@Token.Country : </label>
+                                        <select class="form-control cursor-pointer" name="country" ng-model="UserViewModel.FKCountry_Id" ng-options="x.Id as x.CountryName for x in Countries "  ></select>
+                                        <label class="lableErorr" ng-show="frmUserProfile.country.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                    </div>
+                                    <!--City-->
+                                    <div class="form-group">
+                                        <label class="control-label">@Token.City: </label>
+                                        <select class="form-control cursor-pointer" name="city" ng-model="UserViewModel.FkCity_Id" ng-options="x.Id as x.CityName for x in Cities |FilterIsEqual:'FKCountry_Id':UserViewModel.FKCountry_Id"></select>
+                                        <label class="lableErorr" ng-show="frmUserProfile.city.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                    </div>
+                                </div>
+
+                            </div>  
+                            <!--Change Avatar-->
+                            <div class="tab-pane row" id="ChangeAvatar">
+                                <label>@Token.ImageProfile</label>
+
+                                <div class="profile-userpic">
+                                    <img class="img-responsive" alt="" src="{{imageeReview.replace('~','')}}">
+                                </div>
+                                <ng-uplaod-image up-model-file="myImage" up-model-image="imageeReview" up-name="anyName" up-accept=".jpg,.png,jpeg"></ng-uplaod-image>
+                            </div>
+                            <!--Change Password-->
+                            <div class="tab-pane row" id="Setting">
+                                <div class="row">
+
+                                <!--Current Password-->
+                                <div class="form-group col-lg-3 col-md-3">
+                                    <label class="control-label">@Token.CurrentPassword : </label>
+                                    <input type="password" class="form-control" name="currentPassword" pattern="[A-z,0-9]{6,}" ng-model="UserViewModel.CurrentPassword" />
+                                </div>
+                                <!--New Password-->
+                                <div class="form-group col-lg-3 col-md-3">
+                                    <label class="control-label">@Token.NewPassword</label>
+                                    <input type="password" class="form-control" name="newPassword" pattern="[A-z,0-9]{6,}" ng-model="UserViewModel.NewPassword" ng-disabled="!frmUserProfile.currentPassword.$valid" />
+                                </div>
+                                <!--Confirm Password-->
+                                <div class="form-group  col-lg-3 col-md-3">
+                                    <label class="control-label">@Token.ConfirmPassword <label class="lableErorr" ng-show="UserViewModel.NewPassword!=null">*</label></label>
+                                    <input type="password" class="form-control" name="confirmPassword" pattern="[A-z,0-9]{6,}" ng-model="UserViewModel.ConfirmPassword" ng-disabled="UserViewModel.NewPassword==null" ng-required="UserViewModel.NewPassword!=null" />
+                                    <label class="lableErorr" ng-show="frmUserProfile.confirmPassword.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                </div>
+                            
+                                    </div>       
+
+                                <!--Language-->
+                                <div class="form-group col-lg-6 col-md-6">
+                                            <label class="">@Token.Languages:  </label>
+                                            <ul class="list-group">
+                                                <li class="list-group-item active">
+                                                    <select class="form-control cursorPointer" style="display:inline-block"  ng-model="NewLanguage"  ng-options="lang as lang.Name for lang in Languages"></select>
+                                                    <!--Is Defult-->
+                                                    <span class="cursor-pointer">
+                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control" ng-model="NewLanguage.IsDefault" ng-disabled="!($index==lang.langIndex)">
+                                                            <span></span>
+                                                        </label>
+                                                    </span>
+                                                    <span class="badge badge-success badge-pill cursor-pointer" ng-click="addLanguage()">
+                                                        <i class="fa fa-plus-square-o"></i>
+                                                    </span>
+                                                </li>
+
+                                                <li class="list-group-item" ng-repeat="lang in UserViewModel.Languages">
+                                                    <select  class="input-disabled cursorPointer" style="display:inline-block" ng-model="lang.FKLanguageType_Id" ng-options="langu.Id as langu.Name for langu in Languages" ng-disabled="!($index==lang.langIndex)"></select>
+
+                                                    <!--Is Defult-->
+                                                    <span class="cursor-pointer" >
+                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control" ng-model="lang.IsDefault" ng-disabled="!($index==lang.langIndex)" >
+                                                            <span></span>
+                                                        </label>
+                                                    </span>
+
+
+                                                    <!--Case Delete-->
+                                                    <span class="badge badge-warning badge-pill cursor-pointer " ng-click="lang.State==State.Create?removeLanguage($index):lang.State=State.Delete;lang.langIndex=-1" ng-hide="lang.langIndex>-1||lang.State==State.Delete"><i class="fa fa-trash-o"></i></span>
+                                                    <span class="badge badge-warning badge-pill cursor-pointer " ng-click="lang.State=null" ng-show="lang.State==State.Delete"><i class="fa fa-undo"></i></span>
+                                                    <!--Case Update -->
+                                                    <span class="badge badge-primary badge-pill cursor-pointer" ng-click="lang.langIndex=$index" ng-hide="lang.langIndex>-1||lang.State==State.Delete"><i class="fa fa-edit"></i></span>
+                                                    <span class="badge badge-primary badge-pill cursor-pointer"
+                                                           ng-click="updateLanguage(lang)" ng-show="lang.langIndex>-1">
+                                                    <i class="fa fa-check"></i></span>
+                                                </li>
+                                            </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="frmUserProfile.$valid?SaveChange(UserViewModel):IsSubmit=true">
+                            <i class="fa fa-save"></i>
+                            @Token.SaveChange
+                        </a>
+                        <a class="btn dark green-stripe  ">
+                            <i class="fa fa-undo"></i>
+                            @Token.Undo
+                        </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED58EF33-5103-4630-9939-2745F11E7930}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.3.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.3.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.RegularExpressions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\CommercialBannersData.cs" />
+    <Compile Include="BLL\ChattingData.cs" />
+    <Compile Include="BLL\OffersData.cs" />
+    <Compile Include="BLL\AdsEvaluationData.cs" />
+    <Compile Include="BLL\OffersFovoriteData.cs" />
+    <Compile Include="BLL\OffersViewreData.cs" />
+    <Compile Include="BLL\PointPackagesData.cs" />
+    <Compile Include="BLL\UserPointPackagesData.cs" />
+    <Compile Include="BLL\UsersPurchasesOffersData.cs" />
+    <Compile Include="BLL\UsersPurchasesAdsData.cs" />
+    <Compile Include="BLL\AdsViewreData.cs" />
+    <Compile Include="BLL\AdsFovoriteData.cs" />
+    <Compile Include="BLL\AdsData.cs" />
+    <Compile Include="BLL\NotificationsData.cs" />
+    <Compile Include="BLL\TechnicalSupportData.cs" />
+    <Compile Include="BLL\UserProfileData.cs" />
+    <Compile Include="BLL\UsersData.cs" />
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Models\Ad.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdFavorite.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdsSlider.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdsViewer.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Album.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AlbumFile.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppsInformation.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChatMessage.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chatting.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommercialBanner.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\File.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Following.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gender.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\History.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HistoryDetail.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Job.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LanguageType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LanguageUsing.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nationality.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NotificationsIsRead.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Offer.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfferFavorite.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OffersViewer.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Page.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PagesAllow.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PagesRole.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PagesRoleType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partial.cs" />
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PointPackage.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PositionType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Report.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReportType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SocialStatu.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubCategory.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubMenu.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TechnicalSupport.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TechnicalSupportRead.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInformation.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserPointPackage.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersFollowing.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersPrivateNotify.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersPurchasesAd.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersPurchasesOffer.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\AccessTokenVM.cs" />
+    <Compile Include="Models\ViewModel\AccountBindingModels.cs" />
+    <Compile Include="Models\ViewModel\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModel\AgentVM.cs" />
+    <Compile Include="Models\ViewModel\CahtMessageVM.cs" />
+    <Compile Include="Models\ViewModel\ChatSendVM.cs" />
+    <Compile Include="Models\ViewModel\EmitsVM.cs" />
+    <Compile Include="Models\ViewModel\LanguageTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\LoginVM.cs" />
+    <Compile Include="Models\ViewModel\NotifyVM.cs" />
+    <Compile Include="Models\ViewModel\PaymentVM.cs" />
+    <Compile Include="Models\ViewModel\PositionTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\AdVM.cs" />
+    <Compile Include="Models\ViewModel\AppInformationEnumVM.cs" />
+    <Compile Include="Models\ViewModel\AuctionVM.cs" />
+    <Compile Include="Models\ViewModel\BidderInAuctionVM.cs" />
+    <Compile Include="Models\ViewModel\DateVM.cs" />
+    <Compile Include="Models\ViewModel\DefaultsVM.cs" />
+    <Compile Include="Models\ViewModel\FileSaveVM.cs" />
+    <Compile Include="Models\ViewModel\AdTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\FileTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\FileVM.cs" />
+    <Compile Include="Models\ViewModel\GenderEnumVM.cs" />
+    <Compile Include="Models\ViewModel\HistoryDetailVM.cs" />
+    <Compile Include="Models\ViewModel\PageEnumVM.cs" />
+    <Compile Include="Models\ViewModel\PagesRoleTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\PhoneTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\PointPackageBuyVM.cs" />
+    <Compile Include="Models\ViewModel\ProductBuyVM.cs" />
+    <Compile Include="Models\ViewModel\RecentyViewedVM.cs" />
+    <Compile Include="Models\ViewModel\ReportVM.cs" />
+    <Compile Include="Models\ViewModel\RequestTypeEnumVM.cs" />
+    <Compile Include="Models\ViewModel\ResponseVM.cs" />
+    <Compile Include="Models\ViewModel\RoleEnumVM.cs" />
+    <Compile Include="Models\ViewModel\SocialStatusesEnumVM.cs" />
+    <Compile Include="Models\ViewModel\StateEnumVM.cs" />
+    <Compile Include="Models\ViewModel\TechnicalSupportVM.cs" />
+    <Compile Include="Models\ViewModel\UserChatVM.cs" />
+    <Compile Include="Models\ViewModel\UserDataVM.cs" />
+    <Compile Include="Models\ViewModel\UserVM.cs" />
+    <Compile Include="Models\ViewModel\WebConfigurationVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\Token.ar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Token.ar.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Token.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Token.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AccessToken.cs" />
+    <Compile Include="Service\AdService.cs" />
+    <Compile Include="Service\CheckedService.cs" />
+    <Compile Include="Service\CreateService.cs" />
+    <Compile Include="Service\DateService.cs" />
+    <Compile Include="Service\DeleteService.cs" />
+    <Compile Include="Service\DropDownService.cs" />
+    <Compile Include="Service\DuplicatedService.cs" />
+    <Compile Include="Service\EmailService.cs" />
+    <Compile Include="Service\EvaluationService.cs" />
+    <Compile Include="Service\FileService.cs" />
+    <Compile Include="Service\FireBaseService.cs" />
+    <Compile Include="Service\KnetPpaymentService.cs" />
+    <Compile Include="Service\LanguageService.cs" />
+    <Compile Include="Service\LogService.cs" />
+    <Compile Include="Service\MenuService.cs" />
+    <Compile Include="Service\NotificationService.cs" />
+    <Compile Include="Service\PageService.cs" />
+    <Compile Include="Service\ResourceService.cs" />
+    <Compile Include="Service\TextService.cs" />
+    <Compile Include="Service\UpdateService.cs" />
+    <Compile Include="Service\UserService.cs" />
+    <Compile Include="Service\XMLService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\Token.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Token.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Token.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Token.ar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Models\DataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBase.edmx.diagram">
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FireBaseDAL\FireBaseDAL.csproj">
+      <Project>{4320B2A0-7471-479C-BBAB-6D86E523F8E3}</Project>
+      <Name>FireBaseDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KnPayPayment\TahseeelPayment.csproj">
+      <Project>{34d94460-741e-4341-ab58-e39cd129fa57}</Project>
+      <Name>TahseeelPayment</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

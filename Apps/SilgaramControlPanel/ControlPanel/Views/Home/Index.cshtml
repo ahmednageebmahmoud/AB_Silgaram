@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Description = "";
+}
+
+<div ng-app="ngApp" ng-controller="ctrlHome">
+
+    <!--Ads-->
+    <div class="row">
+        <!--Number of Ads -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsAds">
+            <a class="dashboard-stat dashboard-stat-v2 red">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Ads.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Ads.Count}}" ng-counterup="{{HomeInfromation.Ads.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofAds</div>
+                </div>
+            </a>
+        </div>
+        <!-- Number of New Ads-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsAds">
+            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Ads.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Ads.NewAdsCount}}" ng-counterup="{{HomeInfromation.Ads.NewAdsCount}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfNewAds</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!--Users Purchases Ads-->
+    <div class="row">
+        <!--Number of   Purchases Ads -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsersPurchasesAds">
+            <a class="dashboard-stat dashboard-stat-v2 orange">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.UsersPurchasesAds.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.UsersPurchasesAds.Count}}" ng-counterup="{{HomeInfromation.UsersPurchasesAds.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofPurchasesAds</div>
+                </div>
+            </a>
+        </div>
+        <!-- Number of Users Purchases New Ads-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsersPurchasesAds">
+            <a class="dashboard-stat dashboard-stat-v2 block"    href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.UsersPurchasesAds.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.UsersPurchasesAds.NewAdsCount}}" ng-counterup="{{HomeInfromation.UsersPurchasesAds.NewAdsCount}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofNewPurchasesAds</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!--Offers-->
+    <div class="row">
+        <!--Number of Offers -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsOffers">
+            <a class="dashboard-stat dashboard-stat-v2 blue">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Offers.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Offers.Count}}" ng-counterup="{{HomeInfromation.Offers.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofOffers</div>
+                </div>
+            </a>
+        </div>
+        <!-- Number of New Offers-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsOffers">
+            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Offers.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Offers.NewOffersCount}}" ng-counterup="{{HomeInfromation.Offers.NewOffersCount}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfNewOffers</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--Users Purchases Offers-->
+    <div class="row">
+        <!--Number of   Purchases Offers -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsersPurchasesOffers">
+            <a class="dashboard-stat dashboard-stat-v2 red">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.UsersPurchasesOffers.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.UsersPurchasesOffers.Count}}" ng-counterup="{{HomeInfromation.UsersPurchasesOffers.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofPurchasesOffers</div>
+                </div>
+            </a>
+        </div>
+        <!-- Number of Users Purchases New Offers-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsersPurchasesOffers">
+            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.UsersPurchasesOffers.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.UsersPurchasesOffers.NewOffersCount}}" ng-counterup="{{HomeInfromation.UsersPurchasesOffers.NewOffersCount}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberofNewPurchasesOffers</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+  
+
+    <!--Users-->
+    <div class="row">
+        <!--Number Of Users-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsers">
+            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Users.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Users.Count}}" ng-counterup="{{HomeInfromation.Users.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfUsers</div>
+                </div>
+            </a>
+        </div>
+        <!--Number New User Today-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsUsers">
+            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.Users.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.Users.CountNewUsersToday}}" ng-counterup="{{HomeInfromation.Users.CountNewUsersToday}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfNewUsers</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--Messaes-->
+    <div class="row">
+        <!--Number Of Incoming Messafe -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsTechnicalSupports">
+            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.IncomingMessages.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.IncomingMessages.Count}}" ng-counterup="{{HomeInfromation.IncomingMessages.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfIncomingMessages</div>
+                </div>
+            </a>
+        </div>
+
+        <!--Number of new messages-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-if="HomeInfromation.IsTechnicalSupports">
+            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                <div class="visual">
+                    <i ng-class="HomeInfromation.NewMessages.ClassIcon"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="{{HomeInfromation.NewMessages.Count}}" ng-counterup="{{HomeInfromation.NewMessages.Count}}">0</span>
+                    </div>
+                    <div class="desc"> @Token.NumberOfNewMessages</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    @section scripts{
+        <script src="~/Scripts/Angular/Views/Home/Service.js"></script>
+        <script src="~/Scripts/Angular/Views/Home/Controller.js"></script>
+    }
+
+
+</div>

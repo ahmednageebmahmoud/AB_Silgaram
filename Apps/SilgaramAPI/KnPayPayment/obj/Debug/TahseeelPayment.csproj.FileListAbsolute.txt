@@ -1,0 +1,5 @@
+G:\Projects\FreeProjects\Ahmed Ibrahim\Projects\5--Silgaram\Apps\SilgaramAPI\KnPayPayment\bin\Debug\KnPayPayment.dll
+G:\Projects\FreeProjects\Ahmed Ibrahim\Projects\5--Silgaram\Apps\SilgaramAPI\KnPayPayment\bin\Debug\KnPayPayment.pdb
+G:\Projects\FreeProjects\Ahmed Ibrahim\Projects\5--Silgaram\Apps\SilgaramAPI\KnPayPayment\obj\Debug\TahseeelPayment.csprojResolveAssemblyReference.cache
+G:\Projects\FreeProjects\Ahmed Ibrahim\Projects\5--Silgaram\Apps\SilgaramAPI\KnPayPayment\obj\Debug\KnPayPayment.dll
+G:\Projects\FreeProjects\Ahmed Ibrahim\Projects\5--Silgaram\Apps\SilgaramAPI\KnPayPayment\obj\Debug\KnPayPayment.pdb

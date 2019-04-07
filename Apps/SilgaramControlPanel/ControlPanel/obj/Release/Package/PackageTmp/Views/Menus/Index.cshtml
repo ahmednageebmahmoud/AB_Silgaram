@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = Token.Menus;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Menus);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Menus;
+
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlMenus">
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bell-o"></i>@Token.Menus @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="callFunctions(Menu.FkMenu_Id)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmMenu" novalidate>
+                            <a href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">@Token.ChooesIcons</a>
+                            <table class="table table-striped table-bordered table-advance table-hover" ng-fop-data="Menus" ng-fop-data-repeat="MenusRepeat">
+                                <thead>
+                                    <tr>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Name"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="TokenValue"
+                                                    ng-fop-type-filter="text"
+                                                 ></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.OrdereNumber"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="OrderNumber"
+                                                    ng-fop-type-filter="number"
+                                                       @*OrderBY*@
+                                                    ng-fop-order-by-defult="true"
+                                                    ng-fop-order-by-defult-case="true"></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="false"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Icon"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="OrderNumber"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 <tr ng-repeat="x in MenusRepeat track by $index" >
+
+                                        <td class="highlight">
+                                            <label>{{x.TokenValue}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <input type="number" class="form-control input-redonly" name="orderNumber" ng-model="x.OrderNumber" ng-readonly="ShowUpdate!=$index" />
+                                            <label class="lableErorr" ng-show="x.OrderNumber==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                        </td>
+                                     <td class="hidden-xs">
+                                         <input type="text" class="form-control input-redonly" name="classIcon" ng-model="x.ClassIcon" ng-readonly="ShowUpdate!=$index" />
+                                         <label>@Token.Review : <i class="{{x.ClassIcon}}"></i></label>
+                                         <label class="lableErorr" ng-show="x.ClassIcon==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                         <label class="lableErorr" ng-show="x.ClassIcon.length>50&&IsUpdate">@Token.MaxLengthNumber 50</label>
+                                     </td>
+                                        <td>
+                                            @if (priv.IsUpdate)
+                                            {
+                                                <i class="fa fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="changeForUpdate($index)"></i>
+                                                <i class="fa fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="(x.ClassIcon!=''&&x.ClassIcon.length<=50&&x.OrderNumber!='')?update(x):IsUpdate=true"></i>
+                                                <i class="fa fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="restartUpdate(true)"></i>
+
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <!--Paging-->
+                                            <ng-paging></ng-paging>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange(Menus)">
+                                                @Token.SaveChange
+                                                <i class="fa fa-save"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Menus/Controller.js"></script>
+    <script src="~/Scripts/Angular/Views/Menus/Service.js"></script>
+}
+

@@ -1,0 +1,190 @@
+﻿.ul-li-last :last-child select{
+      border-bottom-right-radius: 4px;
+     border-top-right-radius: 4px;
+ }
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+ /*Pager*/
+
+
+.activePage :nth-child(1),.activePage :nth-child(1):hover{
+color: #fff;
+background-color: #337ab7;
+border-color: #337ab7;
+transition:all .5s ease-in-out;
+}
+
+.pagination  li input,.pagination  li select{
+        position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 72px;
+        height: 34px;
+}
+.pagination li select {
+    cursor:pointer;
+ 
+}
+.ul-CursorPointer li{
+    cursor:pointer
+}
+
+
+/*Sort (OrderBy)*/
+.sort {
+    display: inline;
+}
+
+.sortorder {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+
+
+}
+
+    .sortorder:after {
+   
+        content: "\e113"; /*BLACK UP-POINTING TRIANGLE*/
+    }
+
+    .sortorder.reverse:after {
+   
+ 
+        content: "\e114"; /*BLACK DOWN-POINTING TRIANGLE*/
+     
+         }
+
+
+
+    .cursorPointer{
+        cursor:pointer;
+    }
+    
+
+
+
+
+
+    .iconeSortDive{
+        font-size: 12px;
+    display: inline-block;    padding-left: 5px;
+
+    }
+    .iconeSortDive span:nth-child(1){
+           color: #ff5200;
+    }
+    .opacity-2{
+        opacity: 0.2;
+    }
+
+    /*Input With Icone*/
+        .center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block; 
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+
+
+

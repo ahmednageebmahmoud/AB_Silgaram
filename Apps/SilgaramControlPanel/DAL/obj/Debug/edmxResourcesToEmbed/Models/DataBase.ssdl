@@ -1,0 +1,2167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SilgaramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="FKCountry_Id" Type="int" />
+    <Property Name="FkProvince_Id" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AdFavorites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" />
+    <Property Name="FKAd_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="StartDateTime" Type="datetime" />
+    <Property Name="EndDateTime" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="IsTop" Type="bit" Nullable="false" />
+    <Property Name="IsApprove" Type="bit" Nullable="false" />
+    <Property Name="FkSubCategory_Id" Type="int" />
+    <Property Name="FkCategory_Id" Type="int" Nullable="false" />
+    <Property Name="FkAlbum_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkLocation_Id" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsAllowMessaging" Type="bit" Nullable="false" />
+    <Property Name="IsPostWithOutPhoneNumber" Type="bit" Nullable="false" />
+    <Property Name="IsAutoPost" Type="bit" Nullable="false" />
+    <Property Name="CountAutoPostToNow" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdsSlider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ViewerCount" Type="int" Nullable="false" />
+    <Property Name="FkFile_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="FkPositionType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdsViewers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountViewer" Type="bigint" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" />
+    <Property Name="FKAd_Id" Type="int" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlbumFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkAlbum_Id" Type="int" Nullable="false" />
+    <Property Name="FkFile_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppsInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="SendDateTime" Type="datetime" Nullable="false" />
+    <Property Name="FKChat_Id" Type="int" Nullable="false" />
+    <Property Name="IsOwnar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chatting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkAd_Id" Type="int" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommercialBanners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="CountryKey" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkFile_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="FKAppInformation_Id" Type="int" Nullable="false" />
+    <Property Name="FkFileType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Following">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Histories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="RedirectUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="FkState_Id" Type="int" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" />
+    <Property Name="FKPage_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" />
+    <Property Name="TitleEn" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TitleAr" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoryDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColumResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ColumOldContent" Type="nvarchar(max)" />
+    <Property Name="ColumNewContent" Type="nvarchar(max)" />
+    <Property Name="FkHistory_Id" Type="int" Nullable="false" />
+    <Property Name="CoulmIsSingl" Type="bit" Nullable="false" />
+    <Property Name="CoulmIsEn" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LanguageTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageUsing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="FKLanguageType_Id" Type="int" Nullable="false" />
+    <Property Name="FKLanguage_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="ClassIcon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nationalities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationsIsRead">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkHistory_Id" Type="int" Nullable="false" />
+    <Property Name="FKUser_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferFavorites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FKOffer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+    <Property Name="EndDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="IsTop" Type="bit" Nullable="false" />
+    <Property Name="FkAlbum_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="DiscountRate" Type="int" Nullable="false" />
+    <Property Name="SmallDiscription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="FkCategory_Id" Type="int" Nullable="false" />
+    <Property Name="FkSubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OffersViewers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountViewer" Type="bigint" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" />
+    <Property Name="FKOffer_Id" Type="int" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsControlPanel" Type="bit" Nullable="false" />
+    <Property Name="IsFronEnd" Type="bit" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PagesAllow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsAllowNotify" Type="bit" Nullable="false" />
+    <Property Name="IsAllowLog" Type="bit" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="FkPage_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PagesRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsDisplay" Type="bit" Nullable="false" />
+    <Property Name="IsCreate" Type="bit" Nullable="false" />
+    <Property Name="IsUpdate" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="FkPage_Id" Type="int" Nullable="false" />
+    <Property Name="FkRole_Id" Type="int" Nullable="false" />
+    <Property Name="FkPageRoleTypes_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PagesRoleTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GatewayName" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReferenceNumber" Type="nvarchar" MaxLength="200" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Result" Type="nvarchar" MaxLength="200" />
+    <Property Name="GatewayAccount" Type="nvarchar" MaxLength="200" />
+    <Property Name="PostDate" Type="nvarchar" MaxLength="200" />
+    <Property Name="TrackID" Type="nvarchar" MaxLength="200" />
+    <Property Name="TranID" Type="nvarchar" MaxLength="200" />
+    <Property Name="Eci" Type="nvarchar" MaxLength="200" />
+    <Property Name="Responsecode" Type="nvarchar" MaxLength="200" />
+    <Property Name="PaymentID" Type="nvarchar" MaxLength="200" />
+    <Property Name="AuthCode" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PointPackages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PositionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FKCountry_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkAd_Id" Type="int" Nullable="false" />
+    <Property Name="FkReportType_Id" Type="int" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsControlPanel" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocialStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CssClassStyle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CssClassIcon" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameAr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="FkCategory_Id" Type="int" Nullable="false" />
+    <Property Name="FkFile_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubMenus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="ClassIcon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FkMenu_Id" Type="int" Nullable="false" />
+    <Property Name="FKPage_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TechnicalSupport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TechnicalSupportRead">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkTechnicalSupport_Id" Type="int" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MediumName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NationalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="FkImage_Id" Type="int" Nullable="false" />
+    <Property Name="FKAddress_Id" Type="int" />
+    <Property Name="FkNationality_Id" Type="int" />
+    <Property Name="FKGender_Id" Type="int" />
+    <Property Name="FKSocialStatus_Id" Type="int" />
+    <Property Name="FKJob_Id" Type="int" />
+    <Property Name="FKLanguage_Id" Type="int" />
+    <Property Name="FkFollowing_Id" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLogins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginDate" Type="datetime" Nullable="false" />
+    <Property Name="IsSuccess" Type="bit" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPointPackages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyDateTime" Type="datetime" Nullable="false" />
+    <Property Name="FKPointPackage_Id" Type="int" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="FkPayment_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkRole_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="Serial" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="FkLog_Id" Type="int" Nullable="false" />
+    <Property Name="Points" Type="int" Nullable="false" />
+    <Property Name="IsAgent" Type="bit" Nullable="false" />
+    <Property Name="FireBaseToken" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UsersFollowing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkFollowing_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersPrivateNotifies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkHistory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersPurchasesAds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkAd_Id" Type="int" Nullable="false" />
+    <Property Name="AdPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BayDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersPurchasesOffers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUser_Id" Type="int" Nullable="false" />
+    <Property Name="FkOffer_Id" Type="int" Nullable="false" />
+    <Property Name="OfferPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OfferDiscountRate" Type="int" Nullable="false" />
+    <Property Name="OfferNetPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BayDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Addresses_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="FKCountry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="FkProvince_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdFavorites_Ads">
+    <End Role="Ads" Type="Self.Ads" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AdFavorites" Type="Self.AdFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdFavorites">
+        <PropertyRef Name="FKAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdFavorites_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AdFavorites" Type="Self.AdFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdFavorites">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Location">
+    <End Role="Location" Type="Self.Location" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkLocation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_SubCategories">
+    <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="0..1" />
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkSubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ads_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ads">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdsSlider_Files">
+    <End Role="Files" Type="Self.Files" Multiplicity="1" />
+    <End Role="AdsSlider" Type="Self.AdsSlider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdsSlider">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdsSlider_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="AdsSlider" Type="Self.AdsSlider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdsSlider">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdsSlider_PositionTypes">
+    <End Role="PositionTypes" Type="Self.PositionTypes" Multiplicity="1" />
+    <End Role="AdsSlider" Type="Self.AdsSlider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PositionTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdsSlider">
+        <PropertyRef Name="FkPositionType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdViewer_Ads">
+    <End Role="Ads" Type="Self.Ads" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AdsViewers" Type="Self.AdsViewers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdsViewers">
+        <PropertyRef Name="FKAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdViewer_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AdsViewers" Type="Self.AdsViewers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdsViewers">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlbumFiles_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AlbumFiles" Type="Self.AlbumFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlbumFiles">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlbumFiles_Files">
+    <End Role="Files" Type="Self.Files" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AlbumFiles" Type="Self.AlbumFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AlbumFiles">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppsInformation_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="AppsInformation" Type="Self.AppsInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppsInformation">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatMessages_Chatting">
+    <End Role="Chatting" Type="Self.Chatting" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chatting">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChatMessages">
+        <PropertyRef Name="FKChat_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chatting_Ads">
+    <End Role="Ads" Type="Self.Ads" Multiplicity="1" />
+    <End Role="Chatting" Type="Self.Chatting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chatting">
+        <PropertyRef Name="FkAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chatting_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="Chatting" Type="Self.Chatting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chatting">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chatting_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Chatting" Type="Self.Chatting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chatting">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Files">
+    <End Role="Files" Type="Self.Files" Multiplicity="1" />
+    <End Role="Countries" Type="Self.Countries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Countries" Type="Self.Countries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Files_FileTypes">
+    <End Role="FileTypes" Type="Self.FileTypes" Multiplicity="1" />
+    <End Role="Files" Type="Self.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Files">
+        <PropertyRef Name="FkFileType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Followers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersFollowing" Type="Self.UsersFollowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersFollowing">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Histories" Type="Self.Histories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Pages">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="1" />
+    <End Role="Histories" Type="Self.Histories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="FKPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_States">
+    <End Role="States" Type="Self.States" Multiplicity="1" />
+    <End Role="Histories" Type="Self.Histories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="FkState_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Histories_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Histories" Type="Self.Histories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryDetails_Histories">
+    <End Role="Histories" Type="Self.Histories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HistoryDetails" Type="Self.HistoryDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Histories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoryDetails">
+        <PropertyRef Name="FkHistory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_AppInformation">
+    <End Role="AppsInformation" Type="Self.AppsInformation" Multiplicity="1" />
+    <End Role="Files" Type="Self.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppsInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Files">
+        <PropertyRef Name="FKAppInformation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageUsing_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="LanguageUsing" Type="Self.LanguageUsing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageUsing">
+        <PropertyRef Name="FKLanguage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageUsing_LanguageTypes">
+    <End Role="LanguageTypes" Type="Self.LanguageTypes" Multiplicity="1" />
+    <End Role="LanguageUsing" Type="Self.LanguageUsing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguageTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageUsing">
+        <PropertyRef Name="FKLanguageType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nationalities_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nationalities" Type="Self.Nationalities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nationalities">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationsIsRead_Histories">
+    <End Role="Histories" Type="Self.Histories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NotificationsIsRead" Type="Self.NotificationsIsRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Histories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotificationsIsRead">
+        <PropertyRef Name="FkHistory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationsIsRead_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="NotificationsIsRead" Type="Self.NotificationsIsRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotificationsIsRead">
+        <PropertyRef Name="FKUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferFavorites_Offers">
+    <End Role="Offers" Type="Self.Offers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferFavorites" Type="Self.OfferFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferFavorites">
+        <PropertyRef Name="FKOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferFavorites_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="OfferFavorites" Type="Self.OfferFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferFavorites">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Albums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="FkAlbum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offers_SubCategories">
+    <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="FkSubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesAllow_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="PagesAllow" Type="Self.PagesAllow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesAllow">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesAllow_Pages">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="1" />
+    <End Role="PagesAllow" Type="Self.PagesAllow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesAllow">
+        <PropertyRef Name="FkPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="PagesRoles" Type="Self.PagesRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRoles">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Pages">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="1" />
+    <End Role="PagesRoles" Type="Self.PagesRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRoles">
+        <PropertyRef Name="FkPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_PagesRoles">
+    <End Role="PagesRoles" Type="Self.PagesRoles" Multiplicity="1" />
+    <End Role="PagesRoles1" Type="Self.PagesRoles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PagesRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRoles1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_PagesRoleTypes">
+    <End Role="PagesRoleTypes" Type="Self.PagesRoleTypes" Multiplicity="1" />
+    <End Role="PagesRoles" Type="Self.PagesRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PagesRoleTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRoles">
+        <PropertyRef Name="FkPageRoleTypes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagesRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="PagesRoles" Type="Self.PagesRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PagesRoles">
+        <PropertyRef Name="FkRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PointPackages_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="PointPackages" Type="Self.PointPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PointPackages">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provinces">
+        <PropertyRef Name="FKCountry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provinces">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Ads">
+    <End Role="Ads" Type="Self.Ads" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="FkAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_ReportTypes">
+    <End Role="ReportTypes" Type="Self.ReportTypes" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="FkReportType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportTypes_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="ReportTypes" Type="Self.ReportTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportTypes">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategories">
+        <PropertyRef Name="FkCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Files">
+    <End Role="Files" Type="Self.Files" Multiplicity="1" />
+    <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategories">
+        <PropertyRef Name="FkFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategories_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategories">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubMenu_Menu">
+    <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
+    <End Role="SubMenus" Type="Self.SubMenus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubMenus">
+        <PropertyRef Name="FkMenu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubMenu_Pages">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="1" />
+    <End Role="SubMenus" Type="Self.SubMenus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubMenus">
+        <PropertyRef Name="FKPage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TechnicalSupportRead_TechnicalSupport">
+    <End Role="TechnicalSupport" Type="Self.TechnicalSupport" Multiplicity="1" />
+    <End Role="TechnicalSupportRead" Type="Self.TechnicalSupportRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TechnicalSupport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TechnicalSupportRead">
+        <PropertyRef Name="FkTechnicalSupport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TechnicalSupportRead_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="TechnicalSupportRead" Type="Self.TechnicalSupportRead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TechnicalSupportRead">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Addresses">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKAddress_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Following">
+    <End Role="Following" Type="Self.Following" Multiplicity="1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Following">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkFollowing_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKGender_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Images">
+    <End Role="Files" Type="Self.Files" Multiplicity="1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkImage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Jobs">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKJob_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKLanguage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Nationalities">
+    <End Role="Nationalities" Type="Self.Nationalities" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationalities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FkNationality_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_SocialStatuses">
+    <End Role="SocialStatus" Type="Self.SocialStatus" Multiplicity="0..1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SocialStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="FKSocialStatus_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogins_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserLogins" Type="Self.UserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogins">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPointPackages_Payments">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="1" />
+    <End Role="UserPointPackages" Type="Self.UserPointPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPointPackages">
+        <PropertyRef Name="FkPayment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPointPackages_PointPackages">
+    <End Role="PointPackages" Type="Self.PointPackages" Multiplicity="1" />
+    <End Role="UserPointPackages" Type="Self.UserPointPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointPackages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPointPackages">
+        <PropertyRef Name="FKPointPackage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPointPackages_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserPointPackages" Type="Self.UserPointPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPointPackages">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="FkRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Logs">
+    <End Role="Logs" Type="Self.Logs" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="FkLog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersFollowing_Users">
+    <End Role="Following" Type="Self.Following" Multiplicity="1" />
+    <End Role="UsersFollowing" Type="Self.UsersFollowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Following">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersFollowing">
+        <PropertyRef Name="FkFollowing_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPrivateNotifies_Histories">
+    <End Role="Histories" Type="Self.Histories" Multiplicity="1" />
+    <End Role="UsersPrivateNotifies" Type="Self.UsersPrivateNotifies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Histories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPrivateNotifies">
+        <PropertyRef Name="FkHistory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPrivateNotifies_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersPrivateNotifies" Type="Self.UsersPrivateNotifies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPrivateNotifies">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchases_Ads">
+    <End Role="Ads" Type="Self.Ads" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsersPurchasesAds" Type="Self.UsersPurchasesAds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesAds">
+        <PropertyRef Name="FkAd_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchases_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersPurchasesAds" Type="Self.UsersPurchasesAds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesAds">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchasesOffers_Offers">
+    <End Role="Offers" Type="Self.Offers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsersPurchasesOffers" Type="Self.UsersPurchasesOffers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffers">
+        <PropertyRef Name="FkOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersPurchasesOffers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersPurchasesOffers" Type="Self.UsersPurchasesOffers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffers">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewerOffers_Offers">
+    <End Role="Offers" Type="Self.Offers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OffersViewers" Type="Self.OffersViewers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OffersViewers">
+        <PropertyRef Name="FKOffer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewerOffers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="OffersViewers" Type="Self.OffersViewers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OffersViewers">
+        <PropertyRef Name="FkUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SilgaramModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdFavorites" EntityType="Self.AdFavorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ads" EntityType="Self.Ads" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdsSlider" EntityType="Self.AdsSlider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdsViewers" EntityType="Self.AdsViewers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlbumFiles" EntityType="Self.AlbumFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppsInformation" EntityType="Self.AppsInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chatting" EntityType="Self.Chatting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommercialBanners" EntityType="Self.CommercialBanners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileTypes" EntityType="Self.FileTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Following" EntityType="Self.Following" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Histories" EntityType="Self.Histories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoryDetails" EntityType="Self.HistoryDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LanguageTypes" EntityType="Self.LanguageTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LanguageUsing" EntityType="Self.LanguageUsing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nationalities" EntityType="Self.Nationalities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationsIsRead" EntityType="Self.NotificationsIsRead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferFavorites" EntityType="Self.OfferFavorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offers" EntityType="Self.Offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OffersViewers" EntityType="Self.OffersViewers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PagesAllow" EntityType="Self.PagesAllow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PagesRoles" EntityType="Self.PagesRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PagesRoleTypes" EntityType="Self.PagesRoleTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointPackages" EntityType="Self.PointPackages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PositionTypes" EntityType="Self.PositionTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportTypes" EntityType="Self.ReportTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocialStatus" EntityType="Self.SocialStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategories" EntityType="Self.SubCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubMenus" EntityType="Self.SubMenus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TechnicalSupport" EntityType="Self.TechnicalSupport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TechnicalSupportRead" EntityType="Self.TechnicalSupportRead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPointPackages" EntityType="Self.UserPointPackages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersFollowing" EntityType="Self.UsersFollowing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersPrivateNotifies" EntityType="Self.UsersPrivateNotifies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersPurchasesAds" EntityType="Self.UsersPurchasesAds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersPurchasesOffers" EntityType="Self.UsersPurchasesOffers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Addresses_Countries" Association="Self.FK_Addresses_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_Provinces" Association="Self.FK_Addresses_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdFavorites_Ads" Association="Self.FK_AdFavorites_Ads">
+      <End Role="Ads" EntitySet="Ads" />
+      <End Role="AdFavorites" EntitySet="AdFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdFavorites_Users" Association="Self.FK_AdFavorites_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AdFavorites" EntitySet="AdFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Albums" Association="Self.FK_Ads_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Categories" Association="Self.FK_Ads_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Location" Association="Self.FK_Ads_Location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Logs" Association="Self.FK_Ads_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_SubCategories" Association="Self.FK_Ads_SubCategories">
+      <End Role="SubCategories" EntitySet="SubCategories" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ads_Users" Association="Self.FK_Ads_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Ads" EntitySet="Ads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdsSlider_Files" Association="Self.FK_AdsSlider_Files">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="AdsSlider" EntitySet="AdsSlider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdsSlider_Logs" Association="Self.FK_AdsSlider_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="AdsSlider" EntitySet="AdsSlider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdsSlider_PositionTypes" Association="Self.FK_AdsSlider_PositionTypes">
+      <End Role="PositionTypes" EntitySet="PositionTypes" />
+      <End Role="AdsSlider" EntitySet="AdsSlider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdViewer_Ads" Association="Self.FK_AdViewer_Ads">
+      <End Role="Ads" EntitySet="Ads" />
+      <End Role="AdsViewers" EntitySet="AdsViewers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdViewer_Users" Association="Self.FK_AdViewer_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AdsViewers" EntitySet="AdsViewers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlbumFiles_Albums" Association="Self.FK_AlbumFiles_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="AlbumFiles" EntitySet="AlbumFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlbumFiles_Files" Association="Self.FK_AlbumFiles_Files">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="AlbumFiles" EntitySet="AlbumFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppsInformation_Logs" Association="Self.FK_AppsInformation_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="AppsInformation" EntitySet="AppsInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_Logs" Association="Self.FK_Categories_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatMessages_Chatting" Association="Self.FK_ChatMessages_Chatting">
+      <End Role="Chatting" EntitySet="Chatting" />
+      <End Role="ChatMessages" EntitySet="ChatMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chatting_Ads" Association="Self.FK_Chatting_Ads">
+      <End Role="Ads" EntitySet="Ads" />
+      <End Role="Chatting" EntitySet="Chatting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chatting_Logs" Association="Self.FK_Chatting_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Chatting" EntitySet="Chatting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chatting_Users" Association="Self.FK_Chatting_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Chatting" EntitySet="Chatting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Files" Association="Self.FK_Countries_Files">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Logs" Association="Self.FK_Countries_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Files_FileTypes" Association="Self.FK_Files_FileTypes">
+      <End Role="FileTypes" EntitySet="FileTypes" />
+      <End Role="Files" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Followers_Users" Association="Self.FK_Followers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersFollowing" EntitySet="UsersFollowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Logs" Association="Self.FK_Histories_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Pages" Association="Self.FK_Histories_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_States" Association="Self.FK_Histories_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Histories_Users" Association="Self.FK_Histories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryDetails_Histories" Association="Self.FK_HistoryDetails_Histories">
+      <End Role="Histories" EntitySet="Histories" />
+      <End Role="HistoryDetails" EntitySet="HistoryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_AppInformation" Association="Self.FK_Images_AppInformation">
+      <End Role="AppsInformation" EntitySet="AppsInformation" />
+      <End Role="Files" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Logs" Association="Self.FK_Jobs_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageUsing_Languages" Association="Self.FK_LanguageUsing_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LanguageUsing" EntitySet="LanguageUsing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageUsing_LanguageTypes" Association="Self.FK_LanguageUsing_LanguageTypes">
+      <End Role="LanguageTypes" EntitySet="LanguageTypes" />
+      <End Role="LanguageUsing" EntitySet="LanguageUsing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nationalities_Logs" Association="Self.FK_Nationalities_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Nationalities" EntitySet="Nationalities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationsIsRead_Histories" Association="Self.FK_NotificationsIsRead_Histories">
+      <End Role="Histories" EntitySet="Histories" />
+      <End Role="NotificationsIsRead" EntitySet="NotificationsIsRead" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationsIsRead_Users" Association="Self.FK_NotificationsIsRead_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="NotificationsIsRead" EntitySet="NotificationsIsRead" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferFavorites_Offers" Association="Self.FK_OfferFavorites_Offers">
+      <End Role="Offers" EntitySet="Offers" />
+      <End Role="OfferFavorites" EntitySet="OfferFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferFavorites_Users" Association="Self.FK_OfferFavorites_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OfferFavorites" EntitySet="OfferFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Albums" Association="Self.FK_Offers_Albums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Categories" Association="Self.FK_Offers_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_Logs" Association="Self.FK_Offers_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offers_SubCategories" Association="Self.FK_Offers_SubCategories">
+      <End Role="SubCategories" EntitySet="SubCategories" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesAllow_Logs" Association="Self.FK_PagesAllow_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="PagesAllow" EntitySet="PagesAllow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesAllow_Pages" Association="Self.FK_PagesAllow_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="PagesAllow" EntitySet="PagesAllow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Logs" Association="Self.FK_PagesRoles_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="PagesRoles" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Pages" Association="Self.FK_PagesRoles_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="PagesRoles" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_PagesRoles" Association="Self.FK_PagesRoles_PagesRoles">
+      <End Role="PagesRoles" EntitySet="PagesRoles" />
+      <End Role="PagesRoles1" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_PagesRoleTypes" Association="Self.FK_PagesRoles_PagesRoleTypes">
+      <End Role="PagesRoleTypes" EntitySet="PagesRoleTypes" />
+      <End Role="PagesRoles" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagesRoles_Roles" Association="Self.FK_PagesRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="PagesRoles" EntitySet="PagesRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PointPackages_Logs" Association="Self.FK_PointPackages_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="PointPackages" EntitySet="PointPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Countries" Association="Self.FK_Provinces_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Provinces" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Logs" Association="Self.FK_Provinces_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Provinces" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Ads" Association="Self.FK_Reports_Ads">
+      <End Role="Ads" EntitySet="Ads" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Logs" Association="Self.FK_Reports_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_ReportTypes" Association="Self.FK_Reports_ReportTypes">
+      <End Role="ReportTypes" EntitySet="ReportTypes" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Users" Association="Self.FK_Reports_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportTypes_Logs" Association="Self.FK_ReportTypes_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="ReportTypes" EntitySet="ReportTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Categories" Association="Self.FK_SubCategories_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="SubCategories" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Files" Association="Self.FK_SubCategories_Files">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="SubCategories" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategories_Logs" Association="Self.FK_SubCategories_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="SubCategories" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenu_Menu" Association="Self.FK_SubMenu_Menu">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="SubMenus" EntitySet="SubMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenu_Pages" Association="Self.FK_SubMenu_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="SubMenus" EntitySet="SubMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TechnicalSupportRead_TechnicalSupport" Association="Self.FK_TechnicalSupportRead_TechnicalSupport">
+      <End Role="TechnicalSupport" EntitySet="TechnicalSupport" />
+      <End Role="TechnicalSupportRead" EntitySet="TechnicalSupportRead" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TechnicalSupportRead_Users" Association="Self.FK_TechnicalSupportRead_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TechnicalSupportRead" EntitySet="TechnicalSupportRead" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Addresses" Association="Self.FK_UserInformation_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Following" Association="Self.FK_UserInformation_Following">
+      <End Role="Following" EntitySet="Following" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Genders" Association="Self.FK_UserInformation_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Images" Association="Self.FK_UserInformation_Images">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Jobs" Association="Self.FK_UserInformation_Jobs">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Languages" Association="Self.FK_UserInformation_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Nationalities" Association="Self.FK_UserInformation_Nationalities">
+      <End Role="Nationalities" EntitySet="Nationalities" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_SocialStatuses" Association="Self.FK_UserInformation_SocialStatuses">
+      <End Role="SocialStatus" EntitySet="SocialStatus" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_Users" Association="Self.FK_UserInformation_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogins_Users" Association="Self.FK_UserLogins_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserLogins" EntitySet="UserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPointPackages_Payments" Association="Self.FK_UserPointPackages_Payments">
+      <End Role="Payments" EntitySet="Payments" />
+      <End Role="UserPointPackages" EntitySet="UserPointPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPointPackages_PointPackages" Association="Self.FK_UserPointPackages_PointPackages">
+      <End Role="PointPackages" EntitySet="PointPackages" />
+      <End Role="UserPointPackages" EntitySet="UserPointPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPointPackages_Users" Association="Self.FK_UserPointPackages_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPointPackages" EntitySet="UserPointPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="Self.FK_UserRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Logs" Association="Self.FK_Users_Logs">
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersFollowing_Users" Association="Self.FK_UsersFollowing_Users">
+      <End Role="Following" EntitySet="Following" />
+      <End Role="UsersFollowing" EntitySet="UsersFollowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPrivateNotifies_Histories" Association="Self.FK_UsersPrivateNotifies_Histories">
+      <End Role="Histories" EntitySet="Histories" />
+      <End Role="UsersPrivateNotifies" EntitySet="UsersPrivateNotifies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPrivateNotifies_Users" Association="Self.FK_UsersPrivateNotifies_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersPrivateNotifies" EntitySet="UsersPrivateNotifies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchases_Ads" Association="Self.FK_UsersPurchases_Ads">
+      <End Role="Ads" EntitySet="Ads" />
+      <End Role="UsersPurchasesAds" EntitySet="UsersPurchasesAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchases_Users" Association="Self.FK_UsersPurchases_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersPurchasesAds" EntitySet="UsersPurchasesAds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Offers" Association="Self.FK_UsersPurchasesOffers_Offers">
+      <End Role="Offers" EntitySet="Offers" />
+      <End Role="UsersPurchasesOffers" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Users" Association="Self.FK_UsersPurchasesOffers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersPurchasesOffers" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewerOffers_Offers" Association="Self.FK_ViewerOffers_Offers">
+      <End Role="Offers" EntitySet="Offers" />
+      <End Role="OffersViewers" EntitySet="OffersViewers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewerOffers_Users" Association="Self.FK_ViewerOffers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OffersViewers" EntitySet="OffersViewers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

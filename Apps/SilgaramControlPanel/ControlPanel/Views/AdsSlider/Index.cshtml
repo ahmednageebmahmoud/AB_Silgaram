@@ -1,0 +1,224 @@
+﻿
+@{
+    ViewBag.Title = Token.AdsSlider;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.AdsSlider);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.AdsSlider;
+
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlAdsSlider">
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell"></i>@Token.AdsSlider @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="callFunctions(AdSlider.FkAdSlider_Id)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmAdSlider" novalidate>
+                            <table class="table table-striped table-bordered table-advance table-hover" ng-fop-data="AdsSlider" ng-fop-data-repeat="AdsSliderRepeat">
+                                <thead>
+                                    <tr>
+                                        <th class="th-45">
+                                            <ng-fop ng-fop-filter="false"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Image"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="NameAr"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.PositionType"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="FkPositionType_Id"
+                                                       ng-fop-type-filter="select"
+                                                    ng-fop-options="x.Id as x.Name for x in PositionTypes" 
+                                                    ></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.ViewersCount"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="ViewerCount"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (priv.IsCreate)
+                                    {
+                                        <tr>
+                                            <td class="highlight">
+                                                <!--Image-->
+                                                <div class="form-group ">
+                                                    <div class="profile-userpic">
+                                                        <img alt="" src="{{AdSliderImageReview}}" width="400" height="100">
+                                                    </div>
+                                                    <ng-uplaod-image up-model-file="AdSliderImage" up-model-image="AdSliderImageReview" up-name="anyName" up-accept=".jpg,.png,jpeg"></ng-uplaod-image>
+                                                    <label class="lableErorr" ng-show="AdSlider.ImageFieldReuierd&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <!--Position Type-->
+                                                <div class="form-group ">
+                                                    <select class="form-control cursor-pointer" name="positionType" ng-model="AdSlider.FkPositionType_Id" 
+                                                            ng-options="po.Id as po.Name for po in PositionTypes" ng-required="true">
+                                                    </select>
+                                                    <label class="lableErorr" ng-show="frmAdSlider.positionType.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <i class="fas fa-plus cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-click="frmAdSlider.$valid?create():IsSubmit=true"></i>
+                                                <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="AdSlider={};IsSubmit=false"></i>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    <tr ng-repeat="x in AdsSliderRepeat track by $index" ng-show="x.State!=State.Delete">
+                                        <td class="highlight">
+                                            <div ng-show="ShowUpdate==$index">
+                                                <img alt="" src="{{AdSliderImageUpdateReview}}" width="400" height="100">
+                                                <ng-uplaod-image up-model-file="AdSliderImageUpdate" up-model-image="AdSliderImageUpdateReview" up-accept=".jpg,.png,jpeg"></ng-uplaod-image>
+                                            </div>
+                                            <img ng-if="ShowUpdate!=$index" src="{{x.Image}}" width="400" height="100" />
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <select class="form-control cursor-pointer input-disabled" name="positionType" ng-model="x.FkPositionType_Id" ng-disabled="ShowUpdate!=$index"
+                                                            ng-options="po.Id as po.Name for po in PositionTypes">
+                                            </select>
+                                            <label class="lableErorr" ng-show="x.FkPositionType_Id==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                        </td>
+                                        <td>
+                                            {{x.ViewerCount}}
+                                        </td>
+                                        <td>
+                                            @if (priv.IsUpdate)
+                                            {
+                                                <i class="fas fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="changeForUpdate($index)"></i>
+                                                <i class="fas fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="(x.FkPositionType_Id!='')?update(x,AdSliderImageUpdate,AdSliderImageUpdateReview):IsUpdate=true"></i>
+                                                <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="restartUpdate(true)"></i>
+                                            }
+                                            @if (priv.IsDelete)
+                                            {
+                                                <i class="fas fa-trash cursor-pointer icont-controller" title="@Token.Delete" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="deleteConfirm(x.Id)"></i>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <!--Paging-->
+                                            <ng-paging></ng-paging>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange(AdsSlider)">
+                                                @Token.SaveChange
+                                                <i class="fas fa-save"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+            <div class="portlet-body" style="display: block;">
+                <div class="table-scrollable">
+                    <!--Delete Undo-->
+                    <div class="col-lg-3 col-md-3">
+                        <div class="caption">
+                            <i class="fas fa-bell"></i>@Token.Undo       @Token.Delete
+                        </div>
+                        <table class="table table-striped table-bordered table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="th-90">
+                                    </th>
+                                    <th class="th-10">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in AdsSlider|filter:{'AdSliderName':AdSliderName}" ng-show="x.State==State.Delete">
+                                    <td><img src="{{x.Image}}" width="400" height="100" /></td>
+                                    <td><i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="undoDelete(x)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre ng-show="false">{{AdSlider|json}}</pre>
+        <pre ng-show="false">{{AdsSlider|json:4}}</pre>
+
+        @if (priv.IsDelete)
+                {
+       <!-- Delete Confirm -->
+            <div class="modal fade " id="DeleteConfirm" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>@Token.AreYouSureDelete ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" ng-click="delete( )">
+                                @Token.YesDelete
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button class="btn btn-default" ng-click="cancelDelete( )">
+                                @Token.Cancel
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/AdsSlider/Controller.js"></script>
+    <script src="~/Scripts/Angular/Views/AdsSlider/Service.js"></script>
+}
+

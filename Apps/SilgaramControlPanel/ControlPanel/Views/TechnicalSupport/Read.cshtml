@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = Token.TechnicalSupport;
+    ViewBag.Description = Token.ThisPageFor + Token.Display+ " " + Token.TechnicalSupport;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv =PageService.GetPageRole(PageEnumVM.TechnicalSupports);
+}
+
+<!--body-->
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlTechnicalSupport" >
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell"></i>@Token.TechnicalSupport 
+                    </div>
+                    <div class="tools">
+
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" id="getData" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions(this)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-50">
+                                        </th>
+                                        <th class="th-50">
+                                            
+                                        </th>
+                                  
+
+                                    </tr>
+                                </thead>
+                                <tbody  >
+                                    <tr>
+                                        
+                                        <td>@Token.Name</td>
+                                        <td class="hidden-xs">
+                                            <label>{{TechnicalSupport.UserName}}</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Token.Email</td>
+                                        <td class="hidden-xs">
+                                            <label>{{TechnicalSupport.Email}}</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Token.Mobile</td>
+                                        <td class="hidden-xs">
+                                            <label>{{TechnicalSupport.Phone}}</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Token.Date</td>
+                                        <td class="hidden-xs">
+                                            <label>{{TechnicalSupport.Date}}</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Token.Message</td>
+                                        <td class="hidden-xs">
+                                            <pre class="input-disabled" >{{TechnicalSupport.Message}}</pre>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                 
+                            </table>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+        </div>
+
+        
+    </div>
+
+
+
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+@section scripts{
+
+    <script src="~/Scripts/Angular/Views/TechnicalSupport/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/TechnicalSupport/ControllerRead.js"></script>
+
+
+
+}
+

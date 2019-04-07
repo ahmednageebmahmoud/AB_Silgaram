@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>TrendSetter</title>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="assets/css/master.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  </head>
+  <body>
+       <!-- Loader--> 
+  <div class="screen-loader">
+       <div class="loading"> 
+        <span class="loader_span"> 
+            <span class="loader_right"></span> 
+            <span class="loader_left"></span> 
+        </span>
+    </div>
+      <div class="sl-top"></div>
+      <div class="sl-bottom"></div>
+   </div>      
+    <!-- Loader end-->
+    
+    <div  class="l-theme">
+      <!-- ==========================-->
+      <!-- SEARCH MODAL-->
+      <!-- ==========================-->
+      <div class="header-search open-search">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="navbar-search">
+                <form class="search-global">
+                  <input type="text" placeholder="Type to search" autocomplete="off" name="s" value="" class="search-global__input"/>
+                  <button class="search-global__btn"><i class="icon fa fa-search"></i></button>
+                  <div class="search-global__note">Begin typing your search above and press return to search.</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="search-close close"><i class="fa fa-times"></i></button>
+      </div>
+      <!-- ==========================-->
+      <!-- MOBILE MENU-->
+      <!-- ==========================-->
+      <div data-off-canvas="mobile-slidebar left overlay" class="mobile-slidebar ">
+          
+         <ul class="nav navbar-nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalog-list.html" >Shop</a></li>
+                <li ><a href="gallery-1.html" >Portfolio</a></li>
+                <li><a href="blog-post.html" >Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+          
+          
+          
+           </div>
+        
+      <!-- ==========================-->
+      <!-- POPAP MENU-->
+      <!-- ==========================-->
+        
+        
+        <div class="wrap-fixed-menu" id="fixedMenu" >
+	<nav class="fullscreen-center-menu">
+
+		<div class="menu-main-menu-container">
+            
+         <ul class="nav navbar-nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalog-list.html" >Shop</a></li>
+                <li ><a href="gallery-1.html" >Portfolio</a></li>
+                <li><a href="blog-post.html" >Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+         
+        
+        
+        </div>    </nav>
+	<button type="button" class="fullmenu-close"><i class="fa fa-times"></i></button>
+</div>
+      <div data-canvas="container">
+        <header class="header header-2 header-topbar-view header-normal-width navbar-fixed-top header-logo-black header-topbarbox-1-left header-topbarbox-2-right header-navibox-1-left header-navibox-2-right header-navibox-3-right">
+          <div class="top-bar clearfix">
+            <div class="header-topbarbox-1 clearfix">
+              <div class="header-topbarbox__item btn-group">
+                <button type="button" data-toggle="dropdown" class="header-topbarbox__btn dropdown-toggle">English<span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">language 1</a></li>
+                  <li><a href="#">language 2</a></li>
+                  <li><a href="#">language 3</a></li>
+                </ul>
+              </div>
+              <div class="header-topbarbox__item btn-group">
+                <button type="button" data-toggle="dropdown" class="header-topbarbox__btn dropdown-toggle">USD / $<span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">currency 1</a></li>
+                  <li><a href="#">currency 2</a></li>
+                  <li><a href="#">currency 3</a></li>
+                </ul>
+              </div>
+              <div class="header-topbarbox__item header-topbarbox__item_bd-top">ORDER ONLINE OR CALL US  8 800 777-23-22</div>
+            </div>
+            <div class="header-topbarbox-2 clearfix">
+              <div class="header-topbarbox__item"><a href="home-1.html"><i class="icon fa fa-random"></i>compare<span class="badge">3</span></a></div>
+              <div class="header-topbarbox__item"><a href="home-1.html"><i class="icon fa fa-heart-o"></i>My favorites<span class="badge">8</span></a></div>
+              <div class="header-topbarbox__item"><a href="home-1.html">Login</a> or<a href="home-1.html"> Register</a></div>
+            </div>
+          </div>
+          <nav id="nav" class="navbar">
+            <div class="container">
+              <div class="header-navibox-1">
+                <!-- Mobile Trigger Start-->
+                <button class="menu-mobile-button visible-xs-block js-toggle-mobile-slidebar toggle-menu-button"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button>
+                <!-- Mobile Trigger End--><a href="home.html" class="navbar-brand scroll"><img src="assets/media/general/logo.png" alt="logo" class="normal-logo"/><img src="assets/media/general/logo-dark.png" alt="logo" class="scroll-logo hidden-xs"/></a>
+              </div>
+              <div class="header-navibox-3">
+                <button class="js-toggle-screen toggle-menu-button hidden-xs"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button><a href="#" class="btn_header_search"><i class="fa fa-search"></i></a>
+                <div class="header-cart"><a href="#"><i aria-hidden="true" class="fa fa-shopping-cart"></i></a><span class="header-cart-count bg-primary">3</span></div>
+              </div>
+              <div class="header-navibox-2">
+              <nav id="nav" class="navbar">
+              <ul class="yamm main-menu nav navbar-nav hidden-xs">
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Home<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="home.html" >Home ver 01</a></li>
+                    <li><a href="home-2.html" >Home ver 02</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="catalog-list.html" >Catalog list</a></li>
+                    <li><a href="catalog-5col.html" >Catalog 5 columns</a></li>
+                    <li><a href="catalog-full-width.html" >Catalog full width</a></li>
+                    <li><a href="catalog-product.html" >Catalog product ver 01</a></li>
+                    <li><a href="catalog-product-2.html" >Catalog product ver 02</a></li>
+                    <li><a href="catalog-product-3.html" >Catalog product ver 03</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="gallery-1.html" >Gallery ver 01</a></li>
+                    <li><a href="gallery-2.html" >Gallery ver 02</a></li>
+                    <li><a href="gallery-3.html" >Gallery ver 03</a></li>
+                    <li><a href="gallery-single.html" >Gallery single</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="blog-main.html" >Blog main ver 01</a></li>
+                    <li><a href="blog-main-2.html" >Blog main ver 02</a></li>
+                    <li><a href="blog-post.html" >Blog post ver 01</a></li>
+                    <li><a href="blog-post-2.html" >Blog post ver 02</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="about.html" >About us</a></li>
+                       <li><a href="privacy-policy.html" >Privacy policy</a></li>
+                       <li><a href="terms-of-use.html" >Terms of use</a></li>
+                        <li><a href="typography.html" >Typography</a></li>
+                    <li class="divider"></li>
+                      <li><a href="cart.html" >Cart</a></li>
+                      <li><a href="checkout.html" >Checkout</a></li>
+                      <li><a href="order-received.html" >Order received</a></li>
+                        <li class="divider"></li>
+                       <li><a href="my-account.html" >Account Login</a></li>
+                      <li><a href="lost-password.html" >Lost password</a></li>
+                     <li><a href="dashboard.html" >Dashboard</a></li>
+                      <li><a href="orders.html" >All orders</a></li>
+                      <li><a href="details.html" >Details</a></li>
+                              <li class="divider"></li>
+                      <li><a href="headers.html" >Headers</a></li>
+                    <li><a href="footers.html" >Footers</a></li>
+                         <li><a href="404.html" >404 page</a></li>
+
+                      
+                  </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav> </div>
+            </div>
+          </nav>
+        </header>
+        <!-- end .header-->
+        
+        
+      </div>
+      <div class="wrap-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <ol class="breadcrumb">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Catalog</a></li>
+                <li><a href="home.html">Clothong</a></li>
+                <li class="active">raincoats</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="b-title-page b-title-page_w_bg">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <h1 class="b-title-page__title shuffle">My account</h1>
+                <ul class="b-title-page__list list-inline">
+                  <li><a href="dashboard.html">my account</a></li>
+                 <li><a href="orders.html">my order</a></li>
+                  <li><a href="addresses.html">my address</a></li>
+                  <li><a href="details.html">my details</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end b-title-page-->
+        
+        <div class="container">
+          
+          <div class="row">
+            <div class="col-md-12 ">
+              
+                
+         <div class="woocommerce">
+	
+		<p class="woocommerce-thankyou-order-received">Thank you. Your order has been received.</p>
+
+		<ul class="woocommerce-thankyou-order-details order_details">
+			<li class="order">
+				Order Number:				<strong>3007</strong>
+			</li>
+			<li class="date">
+				Date:				<strong>October 21, 2016</strong>
+			</li>
+			<li class="total">
+				Total:				<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>875.00</span></strong>
+			</li>
+						<li class="method">
+				Payment Method:				<strong>Check Payments</strong>
+			</li>
+					</ul>
+		<div class="clear"></div>
+
+	
+	<p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+             
+             
+             <div class="row">
+	
+             
+                 
+                 <div class="col-lg-4">
+             
+             <h2>Order Details</h2>
+<table class="shop_table order_details">
+	<thead>
+		<tr>
+			<th class="product-name">Product</th>
+			<th class="product-total">Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="order_item">
+	<td class="product-name">
+		<a href="catalog-product.html">Product name</a> <strong class="product-quantity">× 1</strong>	</td>
+	<td class="product-total">
+		<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>875.00</span>	</td>
+</tr>
+			</tbody>
+	<tfoot>
+						<tr>
+					<th scope="row">Subtotal:</th>
+					<td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>875.00</span></td>
+				</tr>
+								<tr>
+					<th scope="row">Payment Method:</th>
+					<td>Check Payments</td>
+				</tr>
+								<tr>
+					<th scope="row">Total:</th>
+					<td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>875.00</span></td>
+				</tr>
+					</tfoot>
+</table>
+             
+             
+             
+
+</div>
+	
+   <div class="col-lg-4">
+       
+       <header><h2>Customer Details</h2></header>
+       
+<table class="shop_table customer_details">
+			<tbody><tr>
+			<th>Note:</th>
+			<td>Hello world !!!!</td>
+		</tr>
+	
+			<tr>
+			<th>Email:</th>
+			<td>noreply@templines.com</td>
+		</tr>
+	
+			<tr>
+			<th>Telephone:</th>
+			<td>345345 234 2345</td>
+		</tr>
+	
+	</tbody></table>
+       
+                 </div>
+                 
+                    <div class="col-lg-4">
+
+
+<header class="title">
+	<h3>Billing Address</h3>
+</header>
+<address>
+	alex zaymund<br>templines<br>king<br>21<br>Minsk<br>123<br>211389</address>
+                 
+                 </div>     </div>
+
+
+</div>
+                
+                
+            </div>
+              
+          
+          </div>
+        </div>
+        <div class="b-form-newsletter bg-grey">
+          <form class="b-form-newsletter__form">
+            <div class="b-form-newsletter__title">Newsletter</div>
+            <input type="email" placeholder="Enter your email" required="required" class="form-control"/>
+            <button class="btn btn-primary btn-effect">subscribe</button>
+          </form>
+        </div>
+        <!-- end b-form-newsletter-->
+        <footer class="footer footer-type-1 bg-grey">
+          <div class="footer__main">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-push-4">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">About</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="about.html">About Us</a></li>
+                          <li><a href="home.html">Careers</a></li>
+                          <li><a href="home.html">International</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Support</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="contact.html">Contact</a></li>
+                          <li><a href="contact.html">Returns</a></li>
+                          <li><a href="contact.html">Warranty</a></li>
+                          <li><a href="contact.html">Help</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Legal</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="privacy-policy.html">Privacy</a></li>
+                          <li><a href="terms-of-use.html">Terms</a></li>
+                          <li><a href="privacy-policy.html">Patents</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Other</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="home.html">Account</a></li>
+                          <li><a href="home.html">Newsletter</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-md-pull-8">
+                  <ul class="social-net list-inline">
+                    <li class="social-net__item"><a href="facebook.com" class="social-net__link"><i class="icon fa fa-facebook"></i></a></li>
+                    <li class="social-net__item"><a href="twitter.com" class="social-net__link"><i class="icon fa fa-twitter"></i></a></li>
+                    <li class="social-net__item"><a href="pinterest-p.com" class="social-net__link"><i class="icon fa fa-pinterest-p"></i></a></li>
+                    <li class="social-net__item"><a href="vk.com" class="social-net__link"><i class="icon fa fa-vk"></i></a></li>
+                    <li class="social-net__item"><a href="vine.com" class="social-net__link"><i class="icon fa fa-vine"></i></a></li>
+                  </ul>
+                  <!-- end social-list-->
+                  <div class="copyright">©  2017 TrendSetter  ® All Right Reserved</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end .footer-type-1-->
+        
+        
+      </div>
+      <!-- end layout-theme-->
+    </div>
+    
+  <!-- ++++++++++++-->
+    <!-- MAIN SCRIPTS-->
+    <!-- ++++++++++++-->
+    <script src="assets/libs/jquery-1.12.4.min.js"></script>
+    <script src="assets/libs/jquery-migrate-1.2.1.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/libs/bootstrap/bootstrap.min.js"></script>
+    <!-- User customization-->
+    <script src="assets/js/custom.js"></script>
+    <!-- Other slider-->
+    <script src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- Pop-up window-->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Headers scripts-->
+    <script src="assets/plugins/headers/slidebar.js"></script>
+    <script src="assets/plugins/headers/header.js"></script>
+    <!-- Select customization-->
+    <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <!-- Mail scripts-->
+    <script src="assets/plugins/jqBootstrapValidation.js"></script>
+    <script src="assets/plugins/contact_me.js"></script>
+    <!-- Filter and sorting images-->
+    <script src="assets/plugins/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/plugins/isotope/imagesLoaded.js"></script>
+        <!-- Shuffle-->
+    <script src="assets/plugins/letters/jquery.shuffleLetters.js"></script>
+    <!-- Progress numbers-->
+    <script src="assets/plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/plugins/rendro-easy-pie-chart/waypoints.min.js"></script>
+    <!-- Animations-->
+    <script src="assets/plugins/scrollreveal/scrollreveal.min.js"></script>
+    <!-- Main slider-->
+    <script src="assets/plugins/slider-pro/jquery.sliderPro.min.js"></script>
+    <!-- Price filter-->
+    <script src="assets/plugins/nouislider/jquery.nouislider.all.min.js"></script>
+  </body>
+</html>

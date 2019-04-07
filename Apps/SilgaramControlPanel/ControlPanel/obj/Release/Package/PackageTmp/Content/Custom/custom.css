@@ -1,0 +1,347 @@
+.lableErorr{
+        color: #f00;
+}
+.cursor-pointer{
+    cursor:pointer
+}
+
+.th-5{
+    width:5%;
+    max-width:5%;
+}
+.th-10{
+    width:10%;
+    max-width:10%;
+}
+.th-15{
+    width:15%;
+    max-width:15%;
+}
+.th-20{
+    width:20%;
+    max-width:20%;
+}
+.th-25{
+    width:25%;
+    max-width:25%;
+
+}
+.th-30{
+    width:30%;
+    max-width:30%;
+}
+.th-35{
+    width:35%;
+    max-width:35%;
+}
+.th-40{
+    width:40%;
+    max-width:40%;
+}
+.th-45{
+    width:45%;
+    max-width:45%;
+}
+.th-50{
+    width:50%;
+    max-width:50%;
+}
+.th-55{
+    width:55%;
+    max-width:55%;
+}
+.th-60{
+    width:60%;
+    max-width:60%;
+}
+.th-65{
+    width:65%;
+    max-width:65%;
+}
+.th-70{
+    width:70%;
+    max-width:70%;
+}
+.th-75{
+    width:75%;
+    max-width:75%;
+}
+.th-80 {
+    width: 80%;
+    max-width: 80%;
+}
+    .th-85
+{
+    width: 85%;
+    max-width: 85%;
+}
+    .th-90{
+    width:90%;
+    max-width:90%;
+
+
+
+}
+.icont-controller{
+    font-size:25px;
+    margin-left:10px;
+    margin-top  :10px;
+}
+.icont-controller:hover{
+    color:#ff6a00
+}
+.icont-controller.fa-edit {
+color:#36c6d3
+}
+.icont-controller.fa-plus {
+color:#d33636
+}
+.icont-controller.fa-save {
+color:#1aa91e
+}
+.icont-controller.fa-undo {
+color:#2a848c
+}
+.icont-controller.fa-trash-o {
+color:#ff0000
+}
+
+
+.input-redonly:read-only{
+        background: none;
+    border: none;
+}
+.input-disabled:disabled{
+        background: none;
+    border: none;
+}
+.input-redonly:read-only,.input-disabled:disabled{
+      -webkit-appearance: none;
+}
+textarea.input-redonly:read-only,textarea.input-disabled:disabled{
+      resize: none;
+}
+
+.fade-scale {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.fade-scale.in {
+  opacity: 1;
+  transform: scale(1);
+}
+.tabbable-line>.nav-tabs>li.active.activeError{
+        background: 0 0;
+    border-bottom: 4px solid #e43a45;
+    position: relative;
+
+}
+.tabbable-line>.nav-tabs>li.activeError a{ 
+  color:red !important;
+
+}
+
+.activeRow{
+    border-left: 9px solid #2b3643;
+}
+/***************/
+.ul-li-last :last-child select{
+      border-bottom-right-radius: 4px;
+     border-top-right-radius: 4px;
+ }
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+ /*Pager*/
+
+
+.activePage :nth-child(1),.activePage :nth-child(1):hover{
+color: #fff;
+background-color: #337ab7;
+border-color: #337ab7;
+transition:all .5s ease-in-out;
+}
+
+.pagination  li input,.pagination  li select{
+        position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 72px;
+        height: 34px;
+}
+.pagination li select {
+    cursor:pointer;
+ 
+}
+.ul-CursorPointer li{
+    cursor:pointer
+}
+
+
+/*Sort (OrderBy)*/
+.sort {
+    display: inline;
+}
+
+.sortorder {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+
+
+}
+
+    .sortorder:after {
+   
+        content: "\e113"; /*BLACK UP-POINTING TRIANGLE*/
+    }
+
+    .sortorder.reverse:after {
+   
+ 
+        content: "\e114"; /*BLACK DOWN-POINTING TRIANGLE*/
+     
+         }
+
+
+
+    .cursorPointer{
+        cursor:pointer;
+    }
+    
+
+
+
+
+
+    .iconeSortDive{
+        font-size: 12px;
+    display: inline-block;    padding-left: 5px;
+
+    }
+    .iconeSortDive span:nth-child(1){
+           color: #ff5200;
+    }
+    .opacity-2{
+        opacity: 0.2;
+    }
+
+    /*Input With Icone*/
+        .center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block; 
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+
+
+.faRed{
+    color:red;
+}
+
+.faGreen{
+    color:greenyellow
+}

@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = Token.CreateAndUpdate;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Ads);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Ad;
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlAdCreateAndUpdate">
+        <div class="col-md-12">
+            <!--Form-->
+            <div class="profile-content">
+                <form novalidate name="frmAd">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption caption-md">
+                                        <i class="icon-globe theme-font hide"></i>
+                                        <span class="caption-subject font-blue-madison bold uppercase">@Token.ProfileAccount</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active" ng-class="{'activeError':(
+                            frmAd.title.$invalid||
+                            frmAd.description.$invalid||
+                            frmAd.price.$invalid||
+                            frmAd.endDateTime.$invalid||
+                            frmAd.startDateTime.$invalid||
+                            frmAd.endDateTime.$invalid||
+                            frmAd.category.$invalid||
+                            frmAd.SubCategory.$invalid
+
+                                            )&&IsSubmit}">
+                                            <a href="#BasicData" data-toggle="tab">@Token.BasicData</a>
+                                        </li>
+                                        <li>
+                                            <a href="#Images" data-toggle="tab">@Token.Images</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <!--Basic Data-->
+                                        <div class="tab-pane active row" id="BasicData">
+                                            <div class="row">
+                                                <!--Title-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Title  <label class="lableErorr">*</label></label>
+                                                    <input type="text" class="form-control input-disabled" name="title" ng-model="Ad.Title" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmAd.title.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--Description-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Description  <label class="lableErorr">*</label></label>
+                                                    <input type="text" class="form-control input-disabled" name="description" ng-model="Ad.Description" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmAd.description.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--Price-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Price  <label class="lableErorr">*</label></label>
+                                                    <input type="number" class="form-control input-disabled" name="price" ng-model="Ad.Price" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmAd.price.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!--StartDateTime
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.StartDateTime  <label class="lableErorr">*</label></label>
+                                                    <input type="datetime-local" class="form-control input-disabled" name="startDateTime" ng-model="Ad.StartDateTime" ng-required="true" ng-disabled="(Ad.IsFinshed)" />
+                                                    <label class="lableErorr" ng-show="frmAd.startDateTime.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmAd.startDateTime.$invalid&&frmAd.startDateTime.$dirty&&IsSubmit">@Token.InvalidDate</label>
+                                                </div>-->
+                                                <!--EndDateTime-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.EndDateTime  <label class="lableErorr">*</label></label>
+                                                    <input type="datetime-local" class="form-control input-disabled" name="endDateTime" ng-model="Ad.EndDateTime" ng-required="true" ng-disabled="(Ad.IsFinshed)" />
+                                                    <label class="lableErorr" ng-show="frmAd.endDateTime.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmAd.endDateTime.$invalid&&frmAd.endDateTime.$dirty&&IsSubmit">@Token.InvalidDate</label>
+                                                </div>
+                                                <!--IsTop-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.IsTop</label>
+                                                    <div class="form-group ">
+                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control input-redonly ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="Ad.IsTop">
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!--Is Started-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.IsStarted</label>
+                                                    <div class="form-group ">
+                                                     <i class="fa fa-check" ng-show="Ad.IsStarted"></i>
+                                                           @*<label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control input-redonly ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="Ad.IsStarted">
+                                                            <span></span>
+                                                        </label>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!--IsApprove-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.IsApprove  </label>
+                                                    <div class="form-group ">
+                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control input-redonly ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="Ad.IsApprove">
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!--Category-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Category  </label>
+                                             <select class="form-control cursor-pointer" name="category" ng-model="Ad.FkCategory_Id" ng-options="x.Id as x.CategoryName for x in Categories"></select>
+                                                    <label class="lableErorr" ng-show="frmAd.category.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--SubCategory-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.SubCategory  <label class="lableErorr">*</label></label>
+                                                    <select class="form-control cursor-pointer" name="SubCategory" ng-model="Ad.FkSubCategory_Id" ng-options="x.Id as x.SubCategoryName for x in SubCategories|FilterIsEqual:'FkCategory_Id':Offer.FkCategory_Id"></select>
+                                                    <label class="lableErorr" ng-show="frmAd.subCategory.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Images-->
+                                        <div class="tab-pane   row" id="Images">
+                                            <center>
+                                                <img class="img-circle" width="100" height="100" ng-repeat="img in Ad.Images" src="{{img}}" />
+                                            </center>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div>
+                                    <a class="btn btn-default green-stripe " ng-class="{'green':frmAd.$valid" ng-click="frmAd.$valid?saveChange():IsSubmit=true">
+                                        <i class="fa fa-save"></i>
+                                        @Token.SaveChange
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Ad/CreateAndUpdateController.js"></script>
+    <script src="~/Scripts/Angular/Views/Ad/Service.js"></script>
+}
+

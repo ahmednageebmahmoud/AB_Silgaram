@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewBag.Title = Token.Countries;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Countries);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Countries;
+
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlCountries">
+
+
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell-o"></i>@Token.Countries @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="callFunctions(Country.FkCountry_Id)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmCountry" novalidate>
+                            <table class="table table-striped table-bordered table-advance table-hover" ng-fop-data="Countries" ng-fop-data-repeat="CountriesRepeat">
+                                <thead>
+                                    <tr>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.NameAr"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="NameAr"
+                                                    ng-fop-type-filter="text"
+                                                    @*OrderBY*@
+                                                    ng-fop-order-by-defult="true"
+                                                    ng-fop-order-by-defult-case="true"></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.NameEn"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="NameEn"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-15">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Key"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="CountryKey"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-25">
+                                            <ng-fop ng-fop-filter="false"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Flag"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (priv.IsCreate)
+                                    {
+                                        <tr>
+                                            <td class="highlight">
+                                                <!--NameAr-->
+                                                <div class="form-group ">
+                                                    <input type="text" class="form-control" name="nameAr" ng-model="Country.NameAr" ng-maxlength="50" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="Country.NameArDuplicate">{{Token.ErrorDuplicate}}</label>
+                                                    <label class="lableErorr" ng-show="frmCountry.nameAr.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmCountry.nameAr.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                                </div>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <!--NameEn-->
+                                                <div class="form-group ">
+                                                    <input type="text" class="form-control" name="nameEn" ng-model="Country.NameEn" ng-maxlength="50" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="Country.NameEnDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                    <label class="lableErorr" ng-show="frmCountry.nameEn.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmCountry.nameEn.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                                </div>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <!--Key-->
+                                                <div class="form-group ">
+                                                    <input type="text" class="form-control" name="key" ng-model="Country.CountryKey" ng-maxlength="10" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="Country.CountryKeyDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                    <label class="lableErorr" ng-show="frmCountry.key.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmCountry.key.$error.maxlength&&IsSubmit">@Token.MaxLength 10</label>
+                                                </div>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <!--Flags-->
+                                                <div class="form-group ">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" ng-model="flagSearch" placeholder="@Token.Search..." />
+                                                    </div>
+                                                    <div style="height: 100px;max-height: 100px;overflow-y: auto;">
+                                                        <img class="flag cursor-pointer img-circle" ng-repeat="img in Flags|filter:flagSearch track by $index" src="{{img}}" ng-click="Country.FlagUrl=img" ng-class="{'border-5-green-important':Country.FlagUrl==img}"/>
+                                                    </div>
+                                                    <label class="lableErorr" ng-show="Country.FlagUrlDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                    <label class="lableErorr" ng-show="frmCountry.flagUrl.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmCountry.flagUrl.$error.maxlength&&IsSubmit">@Token.MaxLength 50</label>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <i class="fas fa-plus cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-click="frmCountry.$valid?create(Country):IsSubmit=true"></i>
+                                                <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="Restart()"></i>
+                                            </td>
+                                        </tr>
+                                        }
+
+                                        <tr ng-repeat="x in CountriesRepeat track by $index" ng-show="x.State!=State.Delete">
+
+                                            <td class="highlight">
+                                                <input type="text" class="form-control input-redonly" ng-model="x.NameAr" ng-readonly="ShowUpdate!=$index" />
+                                                <label class="lableErorr" ng-show="x.NameArDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                <label class="lableErorr " ng-show="x.NameAr==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="x.NameAr.length>50&&IsUpdate">@Token.MaxLength 50</label>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <input type="text" class="form-control input-redonly" ng-model="x.NameEn" ng-readonly="ShowUpdate!=$index" />
+                                                <label class="lableErorr" ng-show="x.NameEnDuplicate">{{Token.ErrorDuplicate}}</label>
+
+                                                <label class="lableErorr" ng-show="x.NameEn==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                                <label class="lableErorr" ng-show="x.NameEn.length>50&&IsUpdate">@Token.MaxLength 50</label>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <!--Key-->
+
+                                                <div class="form-group ">
+
+                                                    <input type="text" class="form-control input-redonly" ng-model="x.CountryKey" ng-readonly="ShowUpdate!=$index" />
+                                                    <label class="lableErorr" ng-show="x.CountryKeyDuplicate">{{Token.ErrorDuplicate}}</label>
+                                                    <label class="lableErorr" ng-show="x.CountryKey==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="x.CountryKey.length>50&&IsUpdate">@Token.MaxLength 50</label>
+                                                </div>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <div class="form-group " ng-if="ShowUpdate==$index">
+                                                    <input type="text" class="form-control" ng-model="x.KeySearch" placeholder="@Token.Search..." />
+                                                </div>
+                                                <img class="flag cursor-pointer img-circle" src="{{x.FlagUrl}}" ng-if="ShowUpdate!=$index" />
+                                                <div style="height: 100px;max-height: 100px;overflow-y: auto;" ng-if="ShowUpdate==$index">
+                                                    <img class="flag cursor-pointer img-circle" ng-repeat="img in Flags  |filter :x.KeySearch track by $index" src="{{img}}" ng-click="x.FlagUrl=img" ng-class="{'border-5-green-important':x.FlagUrl==img}" />
+                                                </div>
+                                                <label class="lableErorr" ng-show="x.FlagUrlDuplicate">{{Token.ErrorDuplicate}}</label>
+                                                <label class="lableErorr" ng-show="x.FlagUrl==''&&IsUpdate">@Token.FiledIsRequired</label>
+                                            </td>
+
+                                            <td>
+                                                @if (priv.IsUpdate)
+                                                {
+                                                    <i class="fas fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="changeForUpdate($index)"></i>
+                                                    <i class="fas fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="(x.NameAr!=''&&x.NameAr.length<=50&&x.NameEn!=''&&x.NameEn.length<=50&&x.FlagUrl!='')?update(x):IsUpdate=true"></i>
+                                                    <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="restartUpdate(true)"></i>
+
+                                                }
+                                                @if (priv.IsDelete)
+                                                {
+                                                    <i class="fas fa-trash cursor-pointer icont-controller" title="@Token.Delete" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="deleteConfirm(x.Id)"></i>
+                                                }
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <!--Paging-->
+                                                <ng-paging></ng-paging>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-default green-stripe' ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange(Countries)">
+                                                    @Token.SaveChange
+                                                    <i class="fas fa-save"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+                                        <div class="portlet-body" style="display: block;">
+                                            <div class="table-scrollable">
+                                                <!--Delete Undo-->
+                                                <div class="col-lg-3 col-md-3">
+                                                    <div class="caption">
+                                                        <i class="fas fa-bell-o"></i>@Token.Undo       @Token.Delete
+                                                    </div>
+                                                    <table class="table table-striped table-bordered table-advance table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="th-90">
+                                                                    <div class="icon-addon addon-sm">
+                                                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="@Token.Search..." ng-model="CountryName">
+                                                                        <label ng-show="CountryName.length==0||CountryName==null||CountryName==undefined" for="txt2" class="glyphicon glyphicon-search" rel="tooltip"></label>
+                                                                        <label ng-show="CountryName.length>0&amp;&amp;CountryName!=null" class="glyphicon glyphicon-remove-circle ng-hide" ng-click="CountryName=undefined"></label>
+                                                                    </div>
+                                                                </th>
+                                                                <th class="th-10">
+
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="x in Countries|filter:{'CountryName':CountryName}" ng-show="x.State==State.Delete">
+                                                                <td>{{x.CountryName}}</td>
+                                                                <td><i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="undoDelete(x)"></i></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <pre ng-show="false">{{Country|json}}</pre>
+                                    <pre ng-show="false">{{Countries|json:4}}</pre>
+
+                                    @if (priv.IsDelete)
+                                    {
+       <!-- Delete Confirm -->
+                                        <div class="modal fade' id="DeleteConfirm" role="dialog">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>@Token.AreYouSureDelete ?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-danger" ng-click="delete( )">
+                                                            @Token.YesDelete
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                        <button class="btn btn-default" ng-click="cancelDelete( )">
+                                                            @Token.Cancel
+                                                            <i class="fas fa-undo"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                    }
+                                    else
+                                    {
+                                        <h1 class="lableErorr text-center">
+                                            <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                                            @Token.CanNotDisplay
+                                        </h1>
+                                    }
+                                    @section scripts{
+                                        <script src="~/Scripts/Angular/Views/Countries/Controller.js"></script>
+                                        <script src="~/Scripts/Angular/Views/Countries/Service.js"></script>
+                                    }
+

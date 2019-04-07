@@ -1,0 +1,16 @@
+﻿.red{
+    color:red
+}
+.displayBlock{
+    display:block
+}
+.displayListItem{
+        display: list-item;
+}
+.cursorPointer{
+    cursor:pointer
+}
+
+.dateGroub input[type=number]{
+       width: 80px;
+}

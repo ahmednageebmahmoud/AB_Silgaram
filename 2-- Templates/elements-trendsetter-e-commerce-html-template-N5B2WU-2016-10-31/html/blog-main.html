@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>TrendSetter</title>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="assets/css/master.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  </head>
+  <body>
+       <!-- Loader--> 
+  <div class="screen-loader">
+       <div class="loading"> 
+        <span class="loader_span"> 
+            <span class="loader_right"></span> 
+            <span class="loader_left"></span> 
+        </span>
+    </div>
+      <div class="sl-top"></div>
+      <div class="sl-bottom"></div>
+   </div>      
+    <!-- Loader end-->
+    
+    <div  class="l-theme">
+      <!-- ==========================-->
+      <!-- SEARCH MODAL-->
+      <!-- ==========================-->
+      <div class="header-search open-search">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="navbar-search">
+                <form class="search-global">
+                  <input type="text" placeholder="Type to search" autocomplete="off" name="s" value="" class="search-global__input"/>
+                  <button class="search-global__btn"><i class="icon fa fa-search"></i></button>
+                  <div class="search-global__note">Begin typing your search above and press return to search.</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="search-close close"><i class="fa fa-times"></i></button>
+      </div>
+      <!-- ==========================-->
+      <!-- MOBILE MENU-->
+      <!-- ==========================-->
+      <div data-off-canvas="mobile-slidebar left overlay" class="mobile-slidebar ">
+          
+         <ul class="nav navbar-nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalog-list.html" >Shop</a></li>
+                <li ><a href="gallery-1.html" >Portfolio</a></li>
+                <li><a href="blog-post.html" >Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+          
+          
+          
+           </div>
+        
+      <!-- ==========================-->
+      <!-- POPAP MENU-->
+      <!-- ==========================-->
+        
+        
+        <div class="wrap-fixed-menu" id="fixedMenu" >
+	<nav class="fullscreen-center-menu">
+
+		<div class="menu-main-menu-container">
+            
+         <ul class="nav navbar-nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalog-list.html" >Shop</a></li>
+                <li ><a href="gallery-1.html" >Portfolio</a></li>
+                <li><a href="blog-post.html" >Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+         
+        
+        
+        </div>    </nav>
+	<button type="button" class="fullmenu-close"><i class="fa fa-times"></i></button>
+</div>
+      <div data-canvas="container">
+        <header class="header header-2 header-topbar-view header-normal-width navbar-fixed-top header-logo-black header-topbarbox-1-left header-topbarbox-2-right header-navibox-1-left header-navibox-2-right header-navibox-3-right">
+          <div class="top-bar clearfix">
+            <div class="header-topbarbox-1 clearfix">
+              <div class="header-topbarbox__item btn-group">
+                <button type="button" data-toggle="dropdown" class="header-topbarbox__btn dropdown-toggle">English<span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">language 1</a></li>
+                  <li><a href="#">language 2</a></li>
+                  <li><a href="#">language 3</a></li>
+                </ul>
+              </div>
+              <div class="header-topbarbox__item btn-group">
+                <button type="button" data-toggle="dropdown" class="header-topbarbox__btn dropdown-toggle">USD / $<span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">currency 1</a></li>
+                  <li><a href="#">currency 2</a></li>
+                  <li><a href="#">currency 3</a></li>
+                </ul>
+              </div>
+              <div class="header-topbarbox__item header-topbarbox__item_bd-top">ORDER ONLINE OR CALL US  8 800 777-23-22</div>
+            </div>
+            <div class="header-topbarbox-2 clearfix">
+              <div class="header-topbarbox__item"><a href="home-1.html"><i class="icon fa fa-random"></i>compare<span class="badge">3</span></a></div>
+              <div class="header-topbarbox__item"><a href="home-1.html"><i class="icon fa fa-heart-o"></i>My favorites<span class="badge">8</span></a></div>
+              <div class="header-topbarbox__item"><a href="home-1.html">Login</a> or<a href="home-1.html"> Register</a></div>
+            </div>
+          </div>
+          <nav id="nav" class="navbar">
+            <div class="container">
+              <div class="header-navibox-1">
+                <!-- Mobile Trigger Start-->
+                <button class="menu-mobile-button visible-xs-block js-toggle-mobile-slidebar toggle-menu-button"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button>
+                <!-- Mobile Trigger End--><a href="home.html" class="navbar-brand scroll"><img src="assets/media/general/logo.png" alt="logo" class="normal-logo"/><img src="assets/media/general/logo-dark.png" alt="logo" class="scroll-logo hidden-xs"/></a>
+              </div>
+              <div class="header-navibox-3">
+                <button class="js-toggle-screen toggle-menu-button hidden-xs"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button><a href="#" class="btn_header_search"><i class="fa fa-search"></i></a>
+                <div class="header-cart"><a href="#"><i aria-hidden="true" class="fa fa-shopping-cart"></i></a><span class="header-cart-count bg-primary">3</span></div>
+              </div>
+              <div class="header-navibox-2">
+            <nav id="nav" class="navbar">
+              <ul class="yamm main-menu nav navbar-nav hidden-xs">
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Home<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="home.html" >Home ver 01</a></li>
+                    <li><a href="home-2.html" >Home ver 02</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="catalog-list.html" >Catalog list</a></li>
+                    <li><a href="catalog-5col.html" >Catalog 5 columns</a></li>
+                    <li><a href="catalog-full-width.html" >Catalog full width</a></li>
+                    <li><a href="catalog-product.html" >Catalog product ver 01</a></li>
+                    <li><a href="catalog-product-2.html" >Catalog product ver 02</a></li>
+                    <li><a href="catalog-product-3.html" >Catalog product ver 03</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="gallery-1.html" >Gallery ver 01</a></li>
+                    <li><a href="gallery-2.html" >Gallery ver 02</a></li>
+                    <li><a href="gallery-3.html" >Gallery ver 03</a></li>
+                    <li><a href="gallery-single.html" >Gallery single</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="blog-main.html" >Blog main ver 01</a></li>
+                    <li><a href="blog-main-2.html" >Blog main ver 02</a></li>
+                    <li><a href="blog-post.html" >Blog post ver 01</a></li>
+                    <li><a href="blog-post-2.html" >Blog post ver 02</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages<b class="caret"></b>
+                    <!-- Classic Dropdown--></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="about.html" >About us</a></li>
+                       <li><a href="privacy-policy.html" >Privacy policy</a></li>
+                       <li><a href="terms-of-use.html" >Terms of use</a></li>
+                        <li><a href="typography.html" >Typography</a></li>
+                    <li class="divider"></li>
+                      <li><a href="cart.html" >Cart</a></li>
+                      <li><a href="checkout.html" >Checkout</a></li>
+                      <li><a href="order-received.html" >Order received</a></li>
+                        <li class="divider"></li>
+                       <li><a href="my-account.html" >Account Login</a></li>
+                      <li><a href="lost-password.html" >Lost password</a></li>
+                     <li><a href="dashboard.html" >Dashboard</a></li>
+                      <li><a href="orders.html" >All orders</a></li>
+                      <li><a href="details.html" >Details</a></li>
+                              <li class="divider"></li>
+                      <li><a href="headers.html" >Headers</a></li>
+                    <li><a href="footers.html" >Footers</a></li>
+                         <li><a href="404.html" >404 page</a></li>
+
+                      
+                  </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav> </div>
+            </div>
+          </nav>
+        </header>
+        <!-- end .header-->
+        
+        
+      </div>
+      <div class="wrap-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <ol class="breadcrumb">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html">Catalog</a></li>
+                <li><a href="home.html">Clothong</a></li>
+                <li class="active">raincoats</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="b-title-page b-title-page_w_bg">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="b-title-page__label color-primary">It is interesting</div>
+                <h1 class="b-title-page__title">Our Blog</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end b-title-page-->
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="l-main-content l-main-content_pd-rgt l-main-content_pd-top_lg">
+                <div class="posts-group">
+                  <article class="b-post b-post-1 clearfix">
+                    <div class="entry-media"><a href="assets/media/content/posts/820x480/1.jpg" class="js-zoom-images"><img src="assets/media/content/posts/820x480/1.jpg" alt="Foto" class="img-responsive"/></a>
+                      <div class="entry-category">Category</div>
+                    </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h2 class="entry-title entry-title_spacing ui-title-inner">Donec diam nulla, condimentum ut nunc maximus</h2>
+                      </div>
+                      <div class="entry-content">
+                        <p>Phasellus justo ligula, dictum sit amet tortor eu, iaculis tristique turpis. Mauris non orci sed est suscipit tempor ut quis felis. Praesent pellentesque at metus eget luctus. Mauris in sem id sapien porta consectetur a sed orci. Donec vitae condimentum mauris, at viverra mi.</p>
+                      </div>
+                      <div class="entry-footer"><a href="blog-post.html" class="btn btn-default btn-effect"><i class="icon color-primary fa fa-arrow-circle-right"></i> read more</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><a href="blog-post.html" class="entry-meta__date">24 Sep 2017</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">18</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">3</a></span></div>
+                      </div>
+                    </div>
+                  </article>
+                  <!-- end post-->
+                  
+                  <article class="b-post b-post-1 clearfix">
+                    <div class="entry-media"><a href="assets/media/content/posts/820x480/2.jpg" class="js-zoom-images"><img src="assets/media/content/posts/820x480/2.jpg" alt="Foto" class="img-responsive"/></a>
+                      <div class="entry-category">Category</div>
+                    </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h2 class="entry-title entry-title_spacing ui-title-inner">Vestibulum pretium tortor ipsum</h2>
+                      </div>
+                      <div class="entry-content">
+                        <p>Suspendisse ultrices tortor imperdiet massa facilisis venenatis. Aliquam in tortor turpis. Mauris et ex at justo varius sagittis vitae et tortor. Donec vel tortor commodo, congue lacus vulputate, porta lacus. Phasellus dictum augue hendrerit ante ullamcorper volutpat.</p>
+                      </div>
+                      <div class="entry-footer"><a href="blog-post.html" class="btn btn-default btn-effect"><i class="icon color-primary fa fa-arrow-circle-right"></i> read more</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><a href="blog-post.html" class="entry-meta__date">24 Sep 2017</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">18</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">3</a></span></div>
+                      </div>
+                    </div>
+                  </article>
+                  <!-- end post-->
+                  
+                </div>
+                <ul class="pagination">
+                  <li><a href="#">1</a></li>
+                  <li class="active"><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+              <aside class="l-sidebar sidebar_right">
+                <section class="widget widget-author">
+                  <h3 class="widget-title ui-title-inner">ABOUT AUTHOR</h3>
+                  <div class="widget-content"><img src="assets/media/components/sidebar/author-1.jpg" alt="author" class="widget-author__img img-responsive"/>
+                    <div class="widget-author__name">Johannes Kepler</div>
+                    <div class="widget-author__description">Ligula id condimentum hendrerit, metus tortor tristique quam.</div>
+                          <ul class="social-net list-inline">
+                            <li class="social-net__item"><a href="facebook.com" class="social-net__link"><i class="icon fa fa-facebook"></i></a></li>
+                            <li class="social-net__item"><a href="twitter.com" class="social-net__link"><i class="icon fa fa-twitter"></i></a></li>
+                            <li class="social-net__item"><a href="pinterest-p.com" class="social-net__link"><i class="icon fa fa-pinterest-p"></i></a></li>
+                            <li class="social-net__item"><a href="vk.com" class="social-net__link"><i class="icon fa fa-vk"></i></a></li>
+                          </ul>
+                          <!-- end social-list-->
+                  </div>
+                </section>
+                <!-- end .widget-->
+                <section class="widget">
+                  <h3 class="widget-title ui-title-inner">categories</h3>
+                  <div class="ui-decor-1"></div>
+                  <div class="widget-content">
+                    <ul class="widget-list list">
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">98</span> All Categories</a></li>
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">25</span> Fashion</a></li>
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">23</span> WebDesign</a></li>
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">49</span> Illustration</a></li>
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">18</span> Typography</a></li>
+                      <li class="widget-list__item"><a href="service-1.html" class="widget-list__link"><span class="badge pull-right">97</span> Photography</a></li>
+                    </ul>
+                  </div>
+                </section>
+                <!-- end .widget-->
+                
+                <section class="widget">
+                  <h3 class="widget-title ui-title-inner">POPULAR posts</h3>
+                  <div class="widget-content">
+                    <div class="post-widget clearfix">
+                      <div class="entry-media"><a href="blog-post.html"><img src="assets/media/content/posts/60x60/1.jpg" alt="foto" class="img-responsive"/></a></div>
+                      <div class="entry-main"><a href="blog-post.html" class="entry-title ui-title-inner">Donec nec odio a dolor lobortis </a>
+                        <div class="entry-meta"><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">18</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">3</a></span></div>
+                      </div>
+                      <!-- end .widget-post-->
+                      
+                    </div>
+                    <div class="post-widget clearfix">
+                      <div class="entry-media"><a href="blog-post.html"><img src="assets/media/content/posts/60x60/2.jpg" alt="foto" class="img-responsive"/></a></div>
+                      <div class="entry-main"><a href="blog-post.html" class="entry-title ui-title-inner">Proin ullamcorper ex neque</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">12</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">5</a></span></div>
+                      </div>
+                      <!-- end .widget-post-->
+                      
+                    </div>
+                    <div class="post-widget clearfix">
+                      <div class="entry-media"><a href="blog-post.html"><img src="assets/media/content/posts/60x60/3.jpg" alt="foto" class="img-responsive"/></a></div>
+                      <div class="entry-main"><a href="blog-post.html" class="entry-title ui-title-inner">Nullam laoreet</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">15</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">24</a></span></div>
+                      </div>
+                      <!-- end .widget-post-->
+                      
+                    </div>
+                    <div class="post-widget clearfix">
+                      <div class="entry-media"><a href="blog-post.html"><img src="assets/media/content/posts/60x60/4.jpg" alt="foto" class="img-responsive"/></a></div>
+                      <div class="entry-main"><a href="blog-post.html" class="entry-title ui-title-inner">Donec diam nulla, condimentum</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">2</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">84</a></span></div>
+                      </div>
+                      <!-- end .widget-post-->
+                      
+                    </div>
+                    <div class="post-widget clearfix">
+                      <div class="entry-media"><a href="blog-post.html"><img src="assets/media/content/posts/60x60/5.jpg" alt="foto" class="img-responsive"/></a></div>
+                      <div class="entry-main"><a href="blog-post.html" class="entry-title ui-title-inner">Cras suscipit, dui sed pellentesque</a>
+                        <div class="entry-meta"><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-heart-o"></i><a href="blog-post.html" class="entry-meta__link">61</a></span><span class="entry-meta__item"><i class="entry-meta__icon color-primary fa fa-comment-o"></i><a href="blog-post.html" class="entry-meta__link">8</a></span></div>
+                      </div>
+                      <!-- end .widget-post-->
+                      
+                    </div>
+                  </div>
+                </section>
+                <!-- end .widget-->
+                
+                <section class="widget">
+                  <h3 class="widget-title ui-title-inner">Tags</h3>
+                  <div class="ui-decor-1"></div>
+                  <div class="widget-content">
+                    <ul class="list-tags list-unstyled">
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">fashion</a></li>
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">image</a></li>
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">people</a></li>
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">clothes</a></li>
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">footwear</a></li>
+                      <li class="list-tags__item"><a href="blog-main.html" class="list-tags__link">meditation</a></li>
+                    </ul>
+                  </div>
+                </section>
+                <!-- end .widget-->
+                <section class="widget widget-searce">
+                  <h3 class="widget-title ui-title-inner">Search</h3>
+                  <div class="ui-decor-1"></div>
+                  <div class="widget-content">
+                    <form id="search-global-form" class="form-sidebar">
+                      <input type="text" placeholder="Search..." class="form-sidebar__input"/>
+                      <button class="form-sidebar__btn"><i class="icon fa fa-search"></i></button>
+                    </form>
+                  </div>
+                </section>
+                <!-- end .widget-->
+              </aside>
+              <!-- end .sidebar-->
+              
+            </div>
+          </div>
+        </div>
+        <div class="b-form-newsletter bg-grey">
+          <form class="b-form-newsletter__form">
+            <div class="b-form-newsletter__title">Newsletter</div>
+            <input type="email" placeholder="Enter your email" required="required" class="form-control"/>
+            <button class="btn btn-primary btn-effect">subscribe</button>
+          </form>
+        </div>
+        <!-- end b-form-newsletter-->
+        <footer class="footer footer-type-1 bg-grey">
+          <div class="footer__main">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-push-4">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">About</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="about.html">About Us</a></li>
+                          <li><a href="home.html">Careers</a></li>
+                          <li><a href="home.html">International</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Support</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="contact.html">Contact</a></li>
+                          <li><a href="contact.html">Returns</a></li>
+                          <li><a href="contact.html">Warranty</a></li>
+                          <li><a href="contact.html">Help</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Legal</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="privacy-policy.html">Privacy</a></li>
+                          <li><a href="terms-of-use.html">Terms</a></li>
+                          <li><a href="privacy-policy.html">Patents</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                    <div class="col-sm-3">
+                      <section class="footer-section">
+                        <h3 class="footer-section__title">Other</h3>
+                        <ul class="footer__list list-unstyled">
+                          <li><a href="home.html">Account</a></li>
+                          <li><a href="home.html">Newsletter</a></li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-md-pull-8">
+                        <ul class="social-net list-inline">
+                          <li class="social-net__item"><a href="facebook.com" class="social-net__link"><i class="icon fa fa-facebook"></i></a></li>
+                          <li class="social-net__item"><a href="twitter.com" class="social-net__link"><i class="icon fa fa-twitter"></i></a></li>
+                          <li class="social-net__item"><a href="pinterest-p.com" class="social-net__link"><i class="icon fa fa-pinterest-p"></i></a></li>
+                          <li class="social-net__item"><a href="vk.com" class="social-net__link"><i class="icon fa fa-vk"></i></a></li>
+                          <li class="social-net__item"><a href="vine.com" class="social-net__link"><i class="icon fa fa-vine"></i></a></li>
+                        </ul>
+                        <!-- end social-list-->
+                  <div class="copyright">©  2017 TrendSetter  ® All Right Reserved</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- end .footer-type-1-->
+        
+        
+      </div>
+      <!-- end layout-theme-->
+    </div>
+    
+    
+   <!-- ++++++++++++-->
+    <!-- MAIN SCRIPTS-->
+    <!-- ++++++++++++-->
+    <script src="assets/libs/jquery-1.12.4.min.js"></script>
+    <script src="assets/libs/jquery-migrate-1.2.1.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/libs/bootstrap/bootstrap.min.js"></script>
+    <!-- User customization-->
+    <script src="assets/js/custom.js"></script>
+    <!-- Other slider-->
+    <script src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- Pop-up window-->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Headers scripts-->
+    <script src="assets/plugins/headers/slidebar.js"></script>
+    <script src="assets/plugins/headers/header.js"></script>
+    <!-- Select customization-->
+    <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <!-- Mail scripts-->
+    <script src="assets/plugins/jqBootstrapValidation.js"></script>
+    <script src="assets/plugins/contact_me.js"></script>
+    <!-- Filter and sorting images-->
+    <script src="assets/plugins/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/plugins/isotope/imagesLoaded.js"></script>
+        <!-- Shuffle-->
+    <script src="assets/plugins/letters/jquery.shuffleLetters.js"></script>
+    <!-- Progress numbers-->
+    <script src="assets/plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/plugins/rendro-easy-pie-chart/waypoints.min.js"></script>
+    <!-- Animations-->
+    <script src="assets/plugins/scrollreveal/scrollreveal.min.js"></script>
+  </body>
+</html>

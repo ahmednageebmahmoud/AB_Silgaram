@@ -1,0 +1,18 @@
+Dear Mr. Ahmed
+
+Kindly 
+
+find the attached Test Environment API Document
+
+Test 
+
+Credentials as follows
+
+API 
+
+
+Secret Key - Insi@112233
+API 
+Username - Insi@112233
+API 
+Password -Insi@112233

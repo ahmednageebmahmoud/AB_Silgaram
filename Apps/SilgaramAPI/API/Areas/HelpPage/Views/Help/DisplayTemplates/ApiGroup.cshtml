@@ -1,0 +1,48 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using API.Areas.HelpPage
+@using API.Areas.HelpPage.Models
+@model IGrouping<HttpControllerDescriptor, ApiDescription>
+
+@{
+    var controllerDocumentation = ViewBag.DocumentationProvider != null ? 
+        ViewBag.DocumentationProvider.GetDocumentation(Model.Key) : 
+        null;
+}
+<a href="~/Help#@Model.Key.ControllerName">
+
+<h1 id="@Model.Key.ControllerName" > <b>
+    @Model.Key.ControllerName
+    </b>
+    </h1>
+</a>
+@if (!String.IsNullOrEmpty(controllerDocumentation))
+{
+    <p>@controllerDocumentation</p>
+}
+<table class="table-striped table-hover table-bordered  table-responsive table">
+    <thead>
+        <tr><th>Http Method</th><th>API</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var api in Model.OrderByDescending(c=> c.HttpMethod.Method))
+    {
+
+        <tr>
+        <td>@api.HttpMethod.Method</td>
+                <td class="api-name"><a href="@Url.Action("Api", "Help", new { apiId = api.GetFriendlyId() })"> @api.RelativePath</a></td>
+            <td class="api-documentation">
+            @if (api.Documentation != null)
+            {
+                <p>@api.Documentation</p>
+            }
+            else
+            {
+                <p>No documentation available. </p>
+            }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

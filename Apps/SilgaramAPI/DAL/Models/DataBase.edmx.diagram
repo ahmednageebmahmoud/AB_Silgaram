@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dae3251c08cb4481896a6131bb749f1c" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="SilgaramModel.Address" Width="1.5" PointX="10.75" PointY="45" />
+        <EntityTypeShape EntityType="SilgaramModel.AdFavorite" Width="1.5" PointX="10.5" PointY="56.125" />
+        <EntityTypeShape EntityType="SilgaramModel.Ad" Width="1.5" PointX="8.25" PointY="53.875" />
+        <EntityTypeShape EntityType="SilgaramModel.AdsSlider" Width="1.5" PointX="7.5" PointY="41" />
+        <EntityTypeShape EntityType="SilgaramModel.AdsViewer" Width="1.5" PointX="10.5" PointY="59" />
+        <EntityTypeShape EntityType="SilgaramModel.AlbumFile" Width="1.5" PointX="7.5" PointY="37.625" />
+        <EntityTypeShape EntityType="SilgaramModel.Album" Width="1.5" PointX="5.25" PointY="33.625" />
+        <EntityTypeShape EntityType="SilgaramModel.AppsInformation" Width="1.5" PointX="3" PointY="37.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Category" Width="1.5" PointX="3" PointY="67.25" />
+        <EntityTypeShape EntityType="SilgaramModel.ChatMessage" Width="1.5" PointX="12.75" PointY="52.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Chatting" Width="1.5" PointX="10.5" PointY="52.375" />
+        <EntityTypeShape EntityType="SilgaramModel.CommercialBanner" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Country" Width="1.5" PointX="8.5" PointY="44.875" />
+        <EntityTypeShape EntityType="SilgaramModel.File" Width="1.5" PointX="5.25" PointY="37.125" />
+        <EntityTypeShape EntityType="SilgaramModel.FileType" Width="1.5" PointX="3" PointY="31.875" />
+        <EntityTypeShape EntityType="SilgaramModel.Following" Width="1.5" PointX="15.75" PointY="51.25" />
+        <EntityTypeShape EntityType="SilgaramModel.Gender" Width="1.5" PointX="15.75" PointY="60.875" />
+        <EntityTypeShape EntityType="SilgaramModel.History" Width="1.5" PointX="5.25" PointY="56.625" />
+        <EntityTypeShape EntityType="SilgaramModel.HistoryDetail" Width="1.5" PointX="7.5" PointY="65.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Job" Width="1.5" PointX="3" PointY="34.625" />
+        <EntityTypeShape EntityType="SilgaramModel.Language" Width="1.5" PointX="15.75" PointY="63.125" />
+        <EntityTypeShape EntityType="SilgaramModel.LanguageType" Width="1.5" PointX="18.75" PointY="72.125" />
+        <EntityTypeShape EntityType="SilgaramModel.LanguageUsing" Width="1.5" PointX="21" PointY="63" />
+        <EntityTypeShape EntityType="SilgaramModel.Location" Width="1.5" PointX="6" PointY="73.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Log" Width="1.5" PointX="0.75" PointY="44.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Menu" Width="1.5" PointX="7.75" PointY="34.125" />
+        <EntityTypeShape EntityType="SilgaramModel.Nationality" Width="1.5" PointX="3" PointY="78.125" />
+        <EntityTypeShape EntityType="SilgaramModel.NotificationsIsRead" Width="1.5" PointX="13.5" PointY="62.5" />
+        <EntityTypeShape EntityType="SilgaramModel.OfferFavorite" Width="1.5" PointX="18" PointY="62.625" />
+        <EntityTypeShape EntityType="SilgaramModel.Offer" Width="1.5" PointX="15.75" PointY="54.875" />
+        <EntityTypeShape EntityType="SilgaramModel.OffersViewer" Width="1.5" PointX="18" PointY="59.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Page" Width="1.5" PointX="0.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SilgaramModel.PagesAllow" Width="1.5" PointX="3" PointY="46" />
+        <EntityTypeShape EntityType="SilgaramModel.PagesRole" Width="1.5" PointX="6" PointY="45.25" />
+        <EntityTypeShape EntityType="SilgaramModel.PagesRoleType" Width="1.5" PointX="3.75" PointY="28.875" />
+        <EntityTypeShape EntityType="SilgaramModel.Payment" Width="1.5" PointX="18.75" PointY="66.375" />
+        <EntityTypeShape EntityType="SilgaramModel.PointPackage" Width="1.5" PointX="3" PointY="40.5" />
+        <EntityTypeShape EntityType="SilgaramModel.PositionType" Width="1.5" PointX="5.25" PointY="41.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Province" Width="1.5" PointX="10.75" PointY="48.875" />
+        <EntityTypeShape EntityType="SilgaramModel.Report" Width="1.5" PointX="10.5" PointY="62.5" />
+        <EntityTypeShape EntityType="SilgaramModel.ReportType" Width="1.5" PointX="3" PointY="81" />
+        <EntityTypeShape EntityType="SilgaramModel.Role" Width="1.5" PointX="3.75" PointY="25.25" />
+        <EntityTypeShape EntityType="SilgaramModel.SocialStatu" Width="1.5" PointX="15.75" PointY="48.875" />
+        <EntityTypeShape EntityType="SilgaramModel.State" Width="1.5" PointX="3" PointY="56.625" />
+        <EntityTypeShape EntityType="SilgaramModel.SubCategory" Width="1.5" PointX="7.5" PointY="49.875" />
+        <EntityTypeShape EntityType="SilgaramModel.SubMenu" Width="1.5" PointX="10" PointY="41" />
+        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupport" Width="1.5" PointX="3" PointY="52.875" />
+        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupportRead" Width="1.5" PointX="5.25" PointY="62.125" />
+        <EntityTypeShape EntityType="SilgaramModel.UserInformation" Width="1.5" PointX="18" PointY="50.625" />
+        <EntityTypeShape EntityType="SilgaramModel.UserLogin" Width="1.5" PointX="5.25" PointY="70.25" />
+        <EntityTypeShape EntityType="SilgaramModel.UserPointPackage" Width="1.5" PointX="5.25" PointY="52" />
+        <EntityTypeShape EntityType="SilgaramModel.UserRole" Width="1.5" PointX="5.25" PointY="65.125" />
+        <EntityTypeShape EntityType="SilgaramModel.User" Width="1.5" PointX="3" PointY="59.75" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersFollowing" Width="1.5" PointX="8.25" PointY="62.125" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPrivateNotify" Width="1.5" PointX="10.5" PointY="66.5" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesAd" Width="1.5" PointX="13.5" PointY="59" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesOffer" Width="1.5" PointX="21" PointY="59.125" />
+        <AssociationConnector Association="SilgaramModel.FK_Addresses_Countries" />
+        <AssociationConnector Association="SilgaramModel.FK_Addresses_Provinces" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Addresses" />
+        <AssociationConnector Association="SilgaramModel.FK_AdFavorites_Ads" />
+        <AssociationConnector Association="SilgaramModel.FK_AdFavorites_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_Albums" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_Categories" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_Location" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_SubCategories" />
+        <AssociationConnector Association="SilgaramModel.FK_Ads_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_AdViewer_Ads" />
+        <AssociationConnector Association="SilgaramModel.FK_Chatting_Ads" />
+        <AssociationConnector Association="SilgaramModel.FK_Reports_Ads" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchases_Ads" />
+        <AssociationConnector Association="SilgaramModel.FK_AdsSlider_Files" />
+        <AssociationConnector Association="SilgaramModel.FK_AdsSlider_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_AdsSlider_PositionTypes" />
+        <AssociationConnector Association="SilgaramModel.FK_AdViewer_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_AlbumFiles_Albums" />
+        <AssociationConnector Association="SilgaramModel.FK_AlbumFiles_Files" />
+        <AssociationConnector Association="SilgaramModel.FK_Offers_Albums" />
+        <AssociationConnector Association="SilgaramModel.FK_AppsInformation_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Images_AppInformation" />
+        <AssociationConnector Association="SilgaramModel.FK_Categories_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Offers_Categories" />
+        <AssociationConnector Association="SilgaramModel.FK_SubCategories_Categories" />
+        <AssociationConnector Association="SilgaramModel.FK_ChatMessages_Chatting" />
+        <AssociationConnector Association="SilgaramModel.FK_Chatting_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Chatting_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_Countries_Files" />
+        <AssociationConnector Association="SilgaramModel.FK_Countries_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Provinces_Countries" />
+        <AssociationConnector Association="SilgaramModel.FK_Files_FileTypes" />
+        <AssociationConnector Association="SilgaramModel.FK_SubCategories_Files" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Images" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Following" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersFollowing_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Genders" />
+        <AssociationConnector Association="SilgaramModel.FK_Histories_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Histories_Pages" />
+        <AssociationConnector Association="SilgaramModel.FK_Histories_States" />
+        <AssociationConnector Association="SilgaramModel.FK_Histories_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_HistoryDetails_Histories" />
+        <AssociationConnector Association="SilgaramModel.FK_NotificationsIsRead_Histories" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPrivateNotifies_Histories" />
+        <AssociationConnector Association="SilgaramModel.FK_Jobs_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Jobs" />
+        <AssociationConnector Association="SilgaramModel.FK_LanguageUsing_Languages" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Languages" />
+        <AssociationConnector Association="SilgaramModel.FK_LanguageUsing_LanguageTypes" />
+        <AssociationConnector Association="SilgaramModel.FK_Nationalities_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Offers_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesAllow_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesRoles_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_PointPackages_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Provinces_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Reports_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_ReportTypes_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_SubCategories_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_Users_Logs" />
+        <AssociationConnector Association="SilgaramModel.FK_SubMenu_Menu" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Nationalities" />
+        <AssociationConnector Association="SilgaramModel.FK_NotificationsIsRead_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_OfferFavorites_Offers" />
+        <AssociationConnector Association="SilgaramModel.FK_OfferFavorites_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_Offers_SubCategories" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchasesOffers_Offers" />
+        <AssociationConnector Association="SilgaramModel.FK_ViewerOffers_Offers" />
+        <AssociationConnector Association="SilgaramModel.FK_ViewerOffers_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesAllow_Pages" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesRoles_Pages" />
+        <AssociationConnector Association="SilgaramModel.FK_SubMenu_Pages" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesRoles_PagesRoles" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesRoles_PagesRoleTypes" />
+        <AssociationConnector Association="SilgaramModel.FK_PagesRoles_Roles" />
+        <AssociationConnector Association="SilgaramModel.FK_UserPointPackages_Payments" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchasesOffers_Payments" />
+        <AssociationConnector Association="SilgaramModel.FK_UserPointPackages_PointPackages" />
+        <AssociationConnector Association="SilgaramModel.FK_Reports_ReportTypes" />
+        <AssociationConnector Association="SilgaramModel.FK_Reports_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserRoles_Roles" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_SocialStatuses" />
+        <AssociationConnector Association="SilgaramModel.FK_TechnicalSupportRead_TechnicalSupport" />
+        <AssociationConnector Association="SilgaramModel.FK_TechnicalSupportRead_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserInformation_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserLogins_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserPointPackages_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UserRoles_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_Followers_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPrivateNotifies_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchases_Users" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchasesOffers_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

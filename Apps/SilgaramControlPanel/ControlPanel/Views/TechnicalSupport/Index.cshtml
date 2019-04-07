@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = Token.TechnicalSupport;
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.TechnicalSupport;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.TechnicalSupports);
+}
+
+<!--body-->
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlTechnicalSupport">
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas fa-bell"></i>@Token.TechnicalSupport @Token.Table
+                    </div>
+                    <div class="tools">
+
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" id="getData" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions(this)"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+
+                        <!--Form Add New And Show And Edit-->
+                        <form name="frmTechnicalSupport" novalidate ng-fop-data="TechnicalSupport" ng-fop-data-repeat="TechnicalSupportRepeat">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.UserName"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Name"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Email"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Email"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Phone"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Mobile"
+                                                    ng-fop-type-filter="text"></ng-fop>  
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Date"
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Date"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                        </th>
+                                        <th class="th-20">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="true"
+                                                    ng-fop-requierd="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label=""
+                                                    ng-fop-placeholder="@Token.Search..."
+                                                    ng-fop-model="Message"
+                                                    ng-fop-type-filter="text"></ng-fop>
+                                            @Token.Message
+                                        </th>
+                                 <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="x in TechnicalSupportRepeat track by $index" ng-show="x.State!='Delete'">
+                                    <tr>
+                                        <td class="hidden-xs">
+                                            <label>{{x.UserName}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.Email}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.Phone}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <label>{{x.Date}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <textarea class="form-control input-disabled" ng-model="x.Message" ng-disabled="true"></textarea>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-search cursor-pointer icont-controller" title="@Token.ShowMore" data-placement="top" data-toggle="tooltip" ng-show="!x.isDetails" ng-click="x.isDetails=true"></i>
+                                            <i class="fas fa-toggle-up cursor-pointer icont-controller" ng-show="x.isDetails" ng-click="x.isDetails=false"></i>
+                                        </td>
+                                    </tr>
+                                    <tr ng-if="x.isDetails">
+                                        <td colspan="6">
+                                            <label>@Token.UsersRead :-</label>
+                                            <img class="img-circle" width="100" height="100" ng-repeat="user in x.UsreReadMessage" title="{{user.FullName}}" src="{{user.ImageUrl.replace('~','')}}" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <!--Paging-->
+                                            <ng-paging-display-more function-data="GetTechnicalSupport"></ng-paging-display-more>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+
+        </div>
+
+        <!--Delete Undo-->
+        <div class="col-lg-3 col-md-3" ng-show="false">
+            <div class="caption">
+                <i class="fas fa-bell"></i>@Token.Undo       @Token.Delete
+            </div>
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th class="th-90">
+                            <div class="icon-addon addon-sm">
+                                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="@Token.Search..." ng-model="TechnicalSupportName">
+                                <label ng-show="TechnicalSupportName.length==0||TechnicalSupportName==null||TechnicalSupportName==undefined" for="txt2" class="glyphicon glyphicon-search" rel="tooltip"></label>
+                                <label ng-show="TechnicalSupportName.length>0&amp;&amp;TechnicalSupportName!=null" class="glyphicon glyphicon-remove-circle ng-hide" ng-click="TechnicalSupportName=undefined"></label>
+                            </div>
+                        </th>
+                        <th class="th-10">
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in TechnicalSupport|filter:{'TechnicalSupportName':TechnicalSupportName}" ng-show="x.State=='Delete'">
+                        <td>{{x.TechnicalSupportName}}</td>
+                        <td><i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="x.State=null"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <pre ng-show="false"> {{TechnicalSupport|json}}</pre>
+        <pre ng-show="false">{{TechnicalSupport|json:4}}</pre>
+
+
+
+        <!-- Delete Confirm -->
+        <div class="modal fade " id="DeleteConfirm" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>@Token.AreYouSureDelete ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" ng-click="Delete( )">
+                            @Token.YesDelete
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-default" ng-click="CancelDelete( )">
+                            @Token.Cancel
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+@section scripts{
+
+    <script src="~/Scripts/Angular/Views/TechnicalSupport/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/TechnicalSupport/Controller.js"></script>
+
+
+
+}
+

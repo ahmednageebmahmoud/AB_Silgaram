@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = Token.CreateAndUpdate;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Offers);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.Offer;
+}
+<!--body-->
+
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlOfferCreateAndUpdate">
+        <div class="col-md-12">
+            <!--Form-->
+            <div class="profile-content">
+                <form novalidate name="frmOffer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption caption-md">
+                                        <i class="icon-globe theme-font hide"></i>
+                                        <span class="caption-subject font-blue-madison bold uppercase">@Token.ProfileAccount</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active" ng-class="{'activeError':(
+                            frmOffer.title.$invalid||
+                            frmOffer.description.$invalid||
+                            frmOffer.smallDescription.$invalid||
+                                            
+                            frmOffer.price.$invalid||
+                            frmOffer.endDateTime.$invalid||
+                            frmOffer.startDateTime.$invalid||
+                            frmOffer.endDateTime.$invalid
+                                            )&&IsSubmit}">
+                                            <a href="#BasicData" data-toggle="tab">@Token.BasicData</a>
+                                        </li>
+                                        <li ng-class="{'activeError':(
+                            NewImages.length==0 )&&IsSubmit}">
+                                            <a href="#Images" data-toggle="tab">@Token.Images</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <!--Basic Data-->
+                                        <div class="tab-pane active row" id="BasicData">
+                                            <div class="row">
+                                                <!--Title-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Title  <label class="lableErorr">*</label></label>
+                                                    <input type="text" class="form-control input-disabled" name="title" ng-model="Offer.Title" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmOffer.title.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--Description-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Description  <label class="lableErorr">*</label></label>
+                                                    <textarea class="form-control input-disabled" rows="5" name="description" ng-model="Offer.Description" ng-required="true" ></textarea>
+                                                    <label class="lableErorr" ng-show="frmOffer.description.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--Description-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.SmallDescription  <label class="lableErorr">*</label></label>
+                                                     
+                                                    <textarea class="form-control input-disabled" rows="5" name="smallDescription" ng-model="Offer.SmallDiscription " ng-maxlength="200" ng-required="true"></textarea>
+                                                    <label class="lableErorr" ng-show="frmOffer.smallDescription.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmOffer.smallDescription.$error.maxlength&&IsSubmit">@Token.MaxLength 200</label>
+                                                </div>
+                                        
+                                            </div>
+                                            <div class="row">
+                                                <!--Price-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Price  <label class="lableErorr">*</label></label>
+                                                    <input type="number" class="form-control input-disabled" name="price" ng-model="Offer.Price" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmOffer.price.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--DiscountRate-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Discount  <label class="lableErorr">*</label></label>
+                                                    <input type="number" class="form-control input-disabled" name="discountRate" ng-model="Offer.DiscountRate" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmOffer.discountRate.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--StartDateTime -->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.StartDateTime  <label class="lableErorr">*</label></label>
+                                                    <input type="datetime-local" class="form-control input-disabled"   name="startDateTime" ng-model="Offer.StartDateTime" ng-required="true"  ng-change="IsEditInStartDate==true"/>
+                                                    <label class="lableErorr" ng-show="frmOffer.startDateTime.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmOffer.startDateTime.$invalid&&frmOffer.startDateTime.$dirty&&IsSubmit">@Token.InvalidDate</label>
+                                                </div>
+                                              
+                                       
+                                            </div>
+                                            <div class="row">
+                                                <!--EndDateTime-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.EndDateTime  <label class="lableErorr">*</label></label>
+                                                    <input type="datetime-local" class="form-control input-disabled" name="endDateTime" ng-model="Offer.EndDateTime" ng-required="true" />
+                                                    <label class="lableErorr" ng-show="frmOffer.endDateTime.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                    <label class="lableErorr" ng-show="frmOffer.endDateTime.$invalid&&frmOffer.endDateTime.$dirty&&IsSubmit">@Token.InvalidDate</label>
+                                                </div>
+                                              
+                                                <!--Category-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.Category  <label class="lableErorr">*</label></label>
+                                                    <select class="form-control cursor-pointer" name="category" ng-model="Offer.FkCategory_Id" ng-options="x.Id as x.CategoryName for x in Categories" ng-required="true"></select>
+                                                    <label class="lableErorr" ng-show="frmOffer.category.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                <!--SubCategory-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.SubCategory  <label class="lableErorr">*</label></label>
+                                                    <select class="form-control cursor-pointer" name="SubCategory" ng-model="Offer.FkSubCategory_Id" ng-options="x.Id as x.SubCategoryName for x in SubCategories|FilterIsEqual:'FkCategory_Id':Offer.FkCategory_Id" ng-required="true"></select>
+                                                    <label class="lableErorr" ng-show="frmOffer.subCategory.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                                </div>
+                                                  <!--IsTop-->
+                                                <div class="form-group col-lg-4 col-md-4">
+                                                    <label class="control-label">@Token.IsTop</label>
+                                                    <div class="form-group ">
+                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                            <input type="checkbox" class="form-control input-redonly ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="Offer.IsTop">
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!--Is Started-->
+                                                <div class="form-group col-lg-4 col-md-4" ng-show="OfferId!=null&&OfferId!=''">
+                                                    <label class="control-label">@Token.IsStarted</label>
+                                                    <div class="form-group ">
+                                                        <i class="fa fa-check" ng-show="Offer.IsStarted"></i>
+                                                        @*<label class="mt-checkbox mt-checkbox-outline">
+                    <input type="checkbox" class="form-control input-redonly ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="Offer.IsStarted">
+                    <span></span>
+                </label>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Images-->
+                                        <div class="tab-pane   row" id="Images">
+                                            <div class="col-lg-6 col-md-6">
+                                                <!--Upload New Images-->
+                                                <div class="form-group">
+                                                    <label class="control-label">@Token.UploadImages:- </label>
+                                                    <br />
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div>
+                                                            <label ng-show="NewImages.length>0"> @Token.PressDobulClickForRemoveAnyImage :- </label>
+                                                            <center>
+                                                                <img class="img-circle cursorPointer" width="100" height="100" ng-repeat="x in NewImages" ng-if="x.State!=State.Delete" title="{{x.ImageName}}" src="{{x.FileUrl.replace('~','')}}" ng-dblclick="RemoveNewImage($index)">
+                                                            </center>
+                                                            <ng-uplaod-image-multiple up-model-file="newImages" up-model-images="NewImages" up-name="newImages" up-accept=".jpg,.png,jpeg" up-count="10"></ng-uplaod-image-multiple>
+                                                      <label class="lableErorr" ng-show="NewImages.length==0&&IsSubmit">@Token.FiledIsRequired</label>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       </div>
+                                </div>
+                                <div>
+                                    <a class="btn btn-default green-stripe " ng-class="{'green':(frmOffer.$valid&&NewImages.length>0)" ng-click="frmOffer.$valid&&NewImages.length>0?saveChange():IsSubmit=true">
+                                        <i class="fa fa-save"></i>
+                                        @Token.SaveChange
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Offers/CreateAndUpdateController.js"></script>
+    <script src="~/Scripts/Angular/Views/Offers/Service.js"></script>
+}
+

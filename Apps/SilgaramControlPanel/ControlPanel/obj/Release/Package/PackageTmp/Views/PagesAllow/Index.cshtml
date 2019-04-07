@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = Token.PagesAllow;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.PagesAllow);
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar + " " + Token.Delete + " " + Token.For + " " + Token.PagesAllow;
+}
+
+<!--body-->
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlPagesAllow"  >
+        <div class="">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bell-o"></i>@Token.PagesAllow @Token.Table
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="@Token.Collapse" title="@Token.Collapse"> </a>
+                        <a class="reload" data-original-title="@Token.ReloadData" title="@Token.ReloadData" ng-click="CallFunctions()"> </a>
+                        <a href="javascript:;" class="remove" data-original-title="@Token.Remove" title="@Token.Remove"> </a>
+                    </div>
+                </div>
+
+                <!--Div Form Table-->
+                <div class="portlet-body" style="display: block;">
+                    <div class="table-scrollable">
+                        <!--Form Add New And Show And Update-->
+                        <form name="frmPagesAllow" novalidate ng-fop-data="PagesAllow"  ng-fop-data-repeat="PagesAllowRepeat">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-30">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-requierd="true"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.Page"
+                                                    ng-fop-model="PageName"
+                                                  ng-fop-type-filter="select"
+                                                    ng-fop-options="x.Name as x.Name for x in Pages" 
+                                                    ></ng-fop>
+                                        </th>
+                                        <th class="th-30">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.IsAllowNotify"
+                                                     ng-fop-model="IsAllowNotify"
+                                                    ng-fop-type-filter="bool"
+                                                 ></ng-fop>
+                                        </th>
+                                        <th class="th-30">
+                                            <ng-fop ng-fop-filter="true"
+                                                    ng-fop-order-by="false"
+                                                    ng-fop-class-icon="fa fa-pencil"
+                                                    ng-fop-label="@Token.IsAllowLog"
+                                                    ng-fop-model="IsAllowLog"
+                                                    ng-fop-type-filter="bool"></ng-fop>
+                                        </th>
+                                        <th class="th-10"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                              
+                                    <tr ng-repeat="x in PagesAllowRepeat track by $index" >
+                                        <td class="highlight">
+                                            <label>{{x.PageName}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <!--IsLink-->
+                                            <div class="form-group ">
+                                                <label class="mt-checkbox mt-checkbox-outline">
+                                                    <input type="checkbox" class="form-control input-redonly" ng-model="x.IsAllowNotify" ng-disabled="!(ShowUpdate==$index)"/>
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <!--IsLink-->
+                                            <div class="form-group ">
+                                                <label class="mt-checkbox mt-checkbox-outline">
+                                                    <input type="checkbox" class="form-control input-redonly" ng-model="x.IsAllowLog" ng-disabled="!(ShowUpdate==$index)" />
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </td> 
+                                         
+                                        
+                                       
+                                     
+                                        <td>
+                                            @if (priv.IsUpdate)
+                                            {
+                                                <i class="fa fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate!=$index" ng-click="changeForUpdate($index)"></i>
+                                                <i class="fa fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="update(x)"></i>
+                                                <i class="fa fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowUpdate==$index" ng-click="restartUpdate(true)"></i>
+                                            }
+                                       
+                                                                         </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <!--Paging-->
+                                            <ng-paging ></ng-paging>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="saveChange( )">
+                                                @Token.SaveChange
+                                                <i class="fa fa-save"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+        </div>
+        @*<pre>{{PagesAllow|json}}</pre>*@
+        @*<pre>{{AllPagesAllow|json:4}}</pre>
+        <pre>
+{{frmPagesAllow.$error|json:4}}
+</pre>*@
+
+         
+    </div>
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+@section scripts{
+    <script src="~/Scripts/Angular/Views/PagesAllow/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/PagesAllow/Controller.js"></script>
+}
+

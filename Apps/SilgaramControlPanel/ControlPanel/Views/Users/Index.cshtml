@@ -1,0 +1,443 @@
+﻿
+@{
+    ViewBag.Title = Token.Users;
+    ViewBag.Description = Token.ThisPageFor + Token.Display + " " + Token.AndChar + " " + Token.Create + " " + Token.AndChar + " " + Token.Update + " " + Token.AndChar  + " " + Token.For + " " + Token.Users;
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var priv = PageService.GetPageRole(PageEnumVM.Users);
+}
+
+<!--Body-->
+@if (priv.IsCreate)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fas  fa-users  font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">
+                            @Token.All @Token.Users
+                            <a href="~/Users/CreateAndUpdate" class="btn btn-default green-stripe">
+                                @Token.CreateNewUser
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (priv.IsDisplay)
+{
+    <div ng-app="ngApp" ng-controller="ctrlUsers">
+        <!--Users-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light portlet-fit bordered">
+                    <!--checkbox filter-->
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <label><i class="fas fa-eye"></i> @Token.Display :</label>
+                        </div>
+                        <!--UserName-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.UserName
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.UserName">
+                                <span></span>
+                            </label>
+                        </div>
+                            <!--FirstName-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.FirstName
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.FirstName">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--MediumName-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.MediumName
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.MediumName">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--LastName-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.LastName
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.LastName">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--Job-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.Job
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.Job">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--Country-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.Country
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.Country">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--Province-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.Province
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.Province">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--Gender-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.Gender
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.Gender">
+                                <span></span>
+                            </label>
+                        </div>
+                        <!--SocialStatus-->
+                        <div class="col-lg-2 col-md-2">
+                            <label class="mt-checkbox mt-checkbox-outline">
+                                @Token.SocialStatus
+                                <input type="checkbox" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="Display.SocialStatus">
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <!--search-->
+                      <div class="row" ng-fop-data="Users"  ng-fop-data-repeat="UsersRepeat">
+                          <div class="col-lg-12 col-md-12">
+                              <label><i class="fas fa-search"></i> @Token.Filter :</label>
+                          </div>
+                          <div class="col-lg-2 col-md-2 form-group">
+    <ng-fop ng-fop-filter="true"
+            ng-fop-sort="true"
+            ng-fop-requierd="false"
+            ng-fop-label="@Token.Serial"
+            ng-fop-placeholder="@Token.Search..."
+            ng-fop-model="Serial"
+            ng-fop-type-filter="text"></ng-fop>
+</div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.FirstName"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FirstName"
+                                    ng-fop-type-filter="text"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.MediumName"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="MediumName"
+                                    ng-fop-type-filter="text"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.LastName"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="LastName"
+                                    ng-fop-type-filter="text"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.FullName"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FullName"
+                                    ng-fop-type-filter="text"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.UserName"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="UserName"
+                                    ng-fop-type-filter="text"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.Jobs"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FKJob_Id"
+                                    ng-fop-type-filter="select"
+                                    @*if select*@
+                                    ng-fop-options="x.Id as x.JobName for x in Jobs"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.Country"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FKCountry_Id"
+                                    ng-fop-type-filter="select"
+                                    @*if select*@
+                                    ng-fop-options="x.Id as x.CountryName for x in Countries"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.Province "  
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FkProvince_Id"
+                                    ng-fop-type-filter="select"
+                                    ng-fop-options="x.Id as x.ProvinceName for x in Provinces|FilterIsEqual:'FKCountry_Id':FKCountry_Id"></ng-fop>
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group" ng-init="AllGender=[
+                             {'Id':1,'Name':'@Token.Male'},
+                             {'Id':2,'Name':'@Token.Female'}]">
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.Gender"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FKGender_Id"
+                                    ng-fop-type-filter="select"
+                                    @*if select*@
+                                    ng-fop-options="x.Id as x.Name for x in Genders"></ng-fop>
+
+                        </div>
+                        <div class="col-lg-2 col-md-2 form-group" >
+                            <ng-fop ng-fop-filter="true"
+                                    ng-fop-sort="true"
+                                    ng-fop-requierd="false"
+                                    ng-fop-label="@Token.SocialStatus"
+                                     ng-fop-placeholder="@Token.Search..."
+                                    ng-fop-model="FKSocialStatus_Id"
+                                    ng-fop-type-filter="select"
+                                    @*if select*@
+                                    ng-fop-options="x.Id as x.Name for x in SocialStatus"></ng-fop>
+                        </div>
+                    </div>
+                    <!--All Users-->
+                    <div class="portlet-body " >
+                        <div class="mt-element-card mt-card-round mt-element-overlay">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12" ng-repeat="x in UsersRepeat track by $index">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1" ng-class-even="'mt-scroll-down'" ng-class-odd="'mt-scroll-up'">
+                                            <img src="{{x.ImageUrl}}" width="100" height="120" />
+                                            <div class="mt-overlay">
+                                                <ul class="mt-info">
+                                                    <li>
+@if (priv.IsDisplay)
+{
+                                                        <a class="btn default btn-outline" href="~/UserLogins?userSerial={{x.Serial}}" title="@Token.UserLogin" data-toggle="tooltip" data-placement="top">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+}
+                                                                                                       </li>
+                                                    <li>
+                                                        @if (priv.IsUpdate)
+                                                        {
+                                                            <a class="btn default btn-outline" href="~/Users/CreateAndUpdate?userSerial={{x.Serial}}" title="@Token.Update {{x.UserName}}" >
+                                                                <i class="fas fa-pencil"></i>
+                                                            </a>
+                                                        }
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-card-content ">
+                                                <p ng-show="Display.UserName">{{x.UserName}}</p>
+                                            <h3 class="mt-card-name">
+                                                
+                                                <label ng-show="Display.FirstName">{{x.FirstName}}</label>
+                                                <label ng-show="Display.MediumName">{{x.MediumName}}</label>
+                                                <label ng-show="Display.LastName">{{x.LastName}}</label>
+                                            </h3>
+                                            <p class="mt-card-desc font-grey-mint" ng-show="Display.Job&&c.Id==x.FKJob_Id" ng-repeat="c in Jobs  track by $index">@Token.Job: {{c.JobName}} </p>
+                                            <p class="mt-card-desc font-grey-mint" ng-show="Display.Country&&c.Id==x.FKCountry_Id" ng-repeat="c in Countries  track by $index">@Token.Country: {{c.CountryName}} </p>
+                                            <p class="mt-card-desc font-grey-mint" ng-show="Display.Province&&c.Id==x.FkProvince_Id" ng-repeat="c in Provinces  track by $index">@Token.Province: {{c.ProvinceName}} </p>
+                                            <p class="mt-card-desc font-grey-mint" ng-show="Display.Gender&&c.Id==x.FKGender_Id" ng-repeat="c in Genders  track by $index">@Token.Gender: {{c.Name}} </p>
+                                            
+                                            <p class="mt-card-desc font-grey-mint" ng-show="Display.SocialStatus&&x.FKSocialStatus_Id==c.Id" ng-repeat="c in SocialStatus  track by $index">@Token.Job: {{c.Name}} </p>
+                                            @*<div class="mt-card-social" ng-show="false">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:;">
+                                                                <i class="icon-social-facebook"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:;">
+                                                                <i class="icon-social-twitter"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:;">
+                                                                <i class="icon-social-dribbble"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <center>
+                            <a   class="btn btn-default green-stripe" ng-click="getUsers()">
+                          @Token.ShowMore
+                                <i class="fas fa-search" ></i>
+                            </a>
+                        </center>
+                    </div>
+                    <!--Paging-->
+                    @*<ng-paging ng-paging-count-item="50"></ng-paging>*@
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Change Role -->
+        <div class="modal fade bs-modal-lg in" id="userRoles" tabindex="-1" role="dialog" aria-hidden="true">
+            <form name="frmRole" novalidate>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title">@Token.Change @Token.Role</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th-45">
+                                            <i class="fas fa-pencil"></i> <label class="control-label">@Token.Role <label class="lableErorr">*</label></label>
+                                        </th>
+                                        <th class="th-10"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="highlight">
+                                            <!--Role-->
+                                            <div class="form-group ">
+                                                <select class="form-control" name="roleEdit" ng-model="UserRole.FkRole_Id" ng-required="true" ng-options="x.Id as x.Name for x in AllRole">
+                                                </select>
+                                                <label class="lableErorr" ng-show="RoleDuplicate">{{errorDuplicate}}</label>
+                                                <label class="lableErorr" ng-show="frmRole.nameAr.$error.required&&IsSubmit">@Token.FiledIsRequired</label>
+                                            </div>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <!--Notes-->
+                                            <div class="form-group ">
+                                                <textarea class="form-control" name="notes" ng-model="UserRole.Notes" ng-maxlength="500"></textarea>
+                                                <label class="lableErorr" ng-show="frmRole.notes.$error.maxlength&&IsSubmit">@Token.MaxLength 500</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-plus  cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-click="frmRole.$valid?CreateRole(UserRole):IsSubmit=true"></i>
+                                            <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-click="CancelCreateRrole()"></i>
+                                        </td>
+                                    </tr>
+                                    <tr ng-repeat="x in UserRoles track by $index" ng-show="x.State!='Delete'">
+                                        <td class="highlight">
+                                            <select class="form-control input-disabled" name="roleEdit" ng-model="x.FkRole_Id" ng-options="x.Id as x.Name for x in AllRole" ng-disabled="ShowEdit!=$index">
+                                            </select>
+                                            <label class="lableErorr" ng-show="x.RoleDuplicate">{{errorDuplicate}}</label>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <textarea class="form-control input-disabled" ng-model="x.Notes" rows="2" ng-disabled="ShowEdit!=$index"></textarea>
+                                            <label class="lableErorr" ng-show="frmJob.notes.$error.maxlength&&IsEdit">@Token.MaxLength 500</label>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-edit cursor-pointer icont-controller" title="@Token.Update" data-placement="top" data-toggle="tooltip" ng-show="ShowEdit!=$index" ng-click="ChangeRole($index)"></i>
+                                            <i class="fas fa-trash cursor-pointer icont-controller" title="@Token.Delete" data-placement="top" data-toggle="tooltip" ng-show="ShowEdit!=$index" ng-click="DeleteConfirmRole($index)"></i>
+                                            <i class="fas fa-save cursor-pointer icont-controller" title="@Token.Save" data-placement="top" data-toggle="tooltip" ng-show="ShowEdit==$index" ng-click="(x.Notes.length<=500)?EditRole(x,$index):IsEdit=true"></i>
+                                            <i class="fas fa-undo cursor-pointer icont-controller" title="@Token.Undo" data-placement="top" data-toggle="tooltip" ng-show="ShowEdit==$index" ng-click="RestartEditRole(true)"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-default green-stripe " ng-class="{'green':frmUserProfile.$valid}" ng-click="SaveRoleChenage(UserRoles)">
+                                @Token.SaveChange
+                                <i class="fas fa-save"></i>
+                            </a>
+                            <a class="btn dark green-stripe " ng-click="CancelChangRrole()">
+                                <i class="fas fa-undo"></i>
+                                @Token.Undo
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+            </form>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- Delete Confirm -->
+        <div class="modal fade " id="DeleteConfirm" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@Token.DeleteConfirm</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>@Token.AreYouSureDelete ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" ng-click="Delete( )">
+                            @Token.YesDelete
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-default" ng-click="CancelDelete( )">
+                            @Token.Cancel
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+}
+else
+{
+    <h1 class="lableErorr text-center">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        @Token.CanNotDisplay
+    </h1>
+}
+
+@section scripts{
+    <script src="~/Scripts/Angular/Views/Users/Service.js"></script>
+    <script src="~/Scripts/Angular/Views/Users/Controller.js"></script>
+}
+
+
+<style>
+    .control-label {
+    display: block;
+}
+</style>
