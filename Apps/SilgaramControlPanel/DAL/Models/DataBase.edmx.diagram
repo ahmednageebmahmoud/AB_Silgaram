@@ -5,63 +5,63 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="196f0aa0b26d415bab2e7534ff03ff4c" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="SilgaramModel.Address" Width="1.5" PointX="12" PointY="52" />
-        <EntityTypeShape EntityType="SilgaramModel.AdFavorite" Width="1.5" PointX="7.5" PointY="71" />
-        <EntityTypeShape EntityType="SilgaramModel.Ad" Width="1.5" PointX="5.25" PointY="55.25" />
-        <EntityTypeShape EntityType="SilgaramModel.AdsSlider" Width="1.5" PointX="3" PointY="41.625" />
-        <EntityTypeShape EntityType="SilgaramModel.AdsViewer" Width="1.5" PointX="7.5" PointY="68" />
-        <EntityTypeShape EntityType="SilgaramModel.AlbumFile" Width="1.5" PointX="7.5" PointY="58.25" />
-        <EntityTypeShape EntityType="SilgaramModel.Album" Width="1.5" PointX="3" PointY="84" />
-        <EntityTypeShape EntityType="SilgaramModel.AppsInformation" Width="1.5" PointX="3" PointY="62.125" />
-        <EntityTypeShape EntityType="SilgaramModel.Category" Width="1.5" PointX="3" PointY="34.375" />
-        <EntityTypeShape EntityType="SilgaramModel.ChatMessage" Width="1.5" PointX="12.75" PointY="58.625" />
-        <EntityTypeShape EntityType="SilgaramModel.Chatting" Width="1.5" PointX="10.5" PointY="58.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Address" Width="1.5" PointX="10.75" PointY="46.875" />
+        <EntityTypeShape EntityType="SilgaramModel.AdFavorite" Width="1.5" PointX="10.5" PointY="69.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Ad" Width="1.5" PointX="5.25" PointY="63.375" />
+        <EntityTypeShape EntityType="SilgaramModel.AdsSlider" Width="1.5" PointX="6" PointY="41.625" />
+        <EntityTypeShape EntityType="SilgaramModel.AdsViewer" Width="1.5" PointX="10.5" PointY="72.625" />
+        <EntityTypeShape EntityType="SilgaramModel.AlbumFile" Width="1.5" PointX="7.5" PointY="50.5" />
+        <EntityTypeShape EntityType="SilgaramModel.Album" Width="1.5" PointX="5.25" PointY="53.5" />
+        <EntityTypeShape EntityType="SilgaramModel.AppsInformation" Width="1.5" PointX="3" PointY="48.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Category" Width="1.5" PointX="3" PointY="80.375" />
+        <EntityTypeShape EntityType="SilgaramModel.ChatMessage" Width="1.5" PointX="12.75" PointY="55.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Chatting" Width="1.5" PointX="10.5" PointY="55.125" />
         <EntityTypeShape EntityType="SilgaramModel.CommercialBanner" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SilgaramModel.Country" Width="1.5" PointX="7.5" PointY="54.25" />
-        <EntityTypeShape EntityType="SilgaramModel.File" Width="1.5" PointX="5.25" PointY="63.75" />
-        <EntityTypeShape EntityType="SilgaramModel.FileType" Width="1.5" PointX="3" PointY="65.5" />
-        <EntityTypeShape EntityType="SilgaramModel.Following" Width="1.5" PointX="15" PointY="56.125" />
-        <EntityTypeShape EntityType="SilgaramModel.Gender" Width="1.5" PointX="15" PointY="53.875" />
-        <EntityTypeShape EntityType="SilgaramModel.History" Width="1.5" PointX="8.25" PointY="61.75" />
-        <EntityTypeShape EntityType="SilgaramModel.HistoryDetail" Width="1.5" PointX="10.5" PointY="62.5" />
-        <EntityTypeShape EntityType="SilgaramModel.Job" Width="1.5" PointX="3" PointY="37.75" />
-        <EntityTypeShape EntityType="SilgaramModel.Language" Width="1.5" PointX="15" PointY="50.75" />
-        <EntityTypeShape EntityType="SilgaramModel.LanguageType" Width="1.5" PointX="15" PointY="47.75" />
-        <EntityTypeShape EntityType="SilgaramModel.LanguageUsing" Width="1.5" PointX="17.25" PointY="50.5" />
-        <EntityTypeShape EntityType="SilgaramModel.Location" Width="1.5" PointX="3" PointY="56.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Country" Width="1.5" PointX="8.5" PointY="46.875" />
+        <EntityTypeShape EntityType="SilgaramModel.File" Width="1.5" PointX="5.25" PointY="48.875" />
+        <EntityTypeShape EntityType="SilgaramModel.FileType" Width="1.5" PointX="3" PointY="51.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Following" Width="1.5" PointX="12.75" PointY="72.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Gender" Width="1.5" PointX="12.75" PointY="58.75" />
+        <EntityTypeShape EntityType="SilgaramModel.History" Width="1.5" PointX="5.25" PointY="58.375" />
+        <EntityTypeShape EntityType="SilgaramModel.HistoryDetail" Width="1.5" PointX="7.5" PointY="61.875" />
+        <EntityTypeShape EntityType="SilgaramModel.Job" Width="1.5" PointX="3" PointY="56.125" />
+        <EntityTypeShape EntityType="SilgaramModel.Language" Width="1.5" PointX="12.75" PointY="51.25" />
+        <EntityTypeShape EntityType="SilgaramModel.LanguageType" Width="1.5" PointX="12.75" PointY="37.25" />
+        <EntityTypeShape EntityType="SilgaramModel.LanguageUsing" Width="1.5" PointX="15" PointY="50" />
+        <EntityTypeShape EntityType="SilgaramModel.Location" Width="1.5" PointX="3" PointY="65.875" />
         <EntityTypeShape EntityType="SilgaramModel.Log" Width="1.5" PointX="0.75" PointY="44.5" />
-        <EntityTypeShape EntityType="SilgaramModel.Menu" Width="1.5" PointX="9.75" PointY="53" />
-        <EntityTypeShape EntityType="SilgaramModel.Nationality" Width="1.5" PointX="3" PointY="59.25" />
-        <EntityTypeShape EntityType="SilgaramModel.NotificationsIsRead" Width="1.5" PointX="10.5" PointY="73.375" />
-        <EntityTypeShape EntityType="SilgaramModel.OfferFavorite" Width="1.5" PointX="15" PointY="58.875" />
-        <EntityTypeShape EntityType="SilgaramModel.Offer" Width="1.5" PointX="9.75" PointY="40.875" />
-        <EntityTypeShape EntityType="SilgaramModel.OffersViewer" Width="1.5" PointX="13" PointY="61.75" />
-        <EntityTypeShape EntityType="SilgaramModel.Page" Width="1.5" PointX="3.75" PointY="50.625" />
+        <EntityTypeShape EntityType="SilgaramModel.Menu" Width="1.5" PointX="3.75" PointY="33.25" />
+        <EntityTypeShape EntityType="SilgaramModel.Nationality" Width="1.5" PointX="3" PointY="39.125" />
+        <EntityTypeShape EntityType="SilgaramModel.NotificationsIsRead" Width="1.5" PointX="10.5" PointY="66.375" />
+        <EntityTypeShape EntityType="SilgaramModel.OfferFavorite" Width="1.5" PointX="16" PointY="70.75" />
+        <EntityTypeShape EntityType="SilgaramModel.Offer" Width="1.5" PointX="12.75" PointY="61.375" />
+        <EntityTypeShape EntityType="SilgaramModel.OffersViewer" Width="1.5" PointX="16" PointY="67.625" />
+        <EntityTypeShape EntityType="SilgaramModel.Page" Width="1.5" PointX="0.75" PointY="36.875" />
         <EntityTypeShape EntityType="SilgaramModel.PagesAllow" Width="1.5" PointX="6" PointY="45.75" />
-        <EntityTypeShape EntityType="SilgaramModel.PagesRole" Width="1.5" PointX="3" PointY="45" />
-        <EntityTypeShape EntityType="SilgaramModel.PagesRoleType" Width="1.5" PointX="0.75" PointY="53.625" />
-        <EntityTypeShape EntityType="SilgaramModel.Payment" Width="1.5" PointX="3" PointY="87.375" />
-        <EntityTypeShape EntityType="SilgaramModel.PointPackage" Width="1.5" PointX="3" PointY="70" />
-        <EntityTypeShape EntityType="SilgaramModel.PositionType" Width="1.5" PointX="0.75" PointY="41" />
-        <EntityTypeShape EntityType="SilgaramModel.Province" Width="1.5" PointX="9.75" PointY="49.625" />
-        <EntityTypeShape EntityType="SilgaramModel.Report" Width="1.5" PointX="10.5" PointY="66.25" />
-        <EntityTypeShape EntityType="SilgaramModel.ReportType" Width="1.5" PointX="3" PointY="73.25" />
-        <EntityTypeShape EntityType="SilgaramModel.Role" Width="1.5" PointX="0.75" PointY="50.75" />
-        <EntityTypeShape EntityType="SilgaramModel.SocialStatu" Width="1.5" PointX="15" PointY="66.25" />
-        <EntityTypeShape EntityType="SilgaramModel.State" Width="1.5" PointX="6" PointY="42.75" />
-        <EntityTypeShape EntityType="SilgaramModel.SubCategory" Width="1.5" PointX="7.5" PointY="49" />
-        <EntityTypeShape EntityType="SilgaramModel.SubMenu" Width="1.5" PointX="12" PointY="48.75" />
-        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupport" Width="1.5" PointX="3" PointY="92.375" />
-        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupportRead" Width="1.5" PointX="5.25" PointY="79.625" />
-        <EntityTypeShape EntityType="SilgaramModel.UserInformation" Width="1.5" PointX="17.25" PointY="55.5" />
-        <EntityTypeShape EntityType="SilgaramModel.UserLogin" Width="1.5" PointX="5.25" PointY="84" />
-        <EntityTypeShape EntityType="SilgaramModel.UserPointPackage" Width="1.5" PointX="5.25" PointY="75" />
-        <EntityTypeShape EntityType="SilgaramModel.UserRole" Width="1.5" PointX="8.25" PointY="78.625" />
-        <EntityTypeShape EntityType="SilgaramModel.User" Width="1.5" PointX="3" PointY="76.125" />
-        <EntityTypeShape EntityType="SilgaramModel.UsersFollowing" Width="1.5" PointX="8.25" PointY="75.625" />
-        <EntityTypeShape EntityType="SilgaramModel.UsersPrivateNotify" Width="1.5" PointX="13.5" PointY="71.375" />
-        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesAd" Width="1.5" PointX="10.5" PointY="70" />
-        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesOffer" Width="1.5" PointX="16" PointY="62.5" />
+        <EntityTypeShape EntityType="SilgaramModel.PagesRole" Width="1.5" PointX="3" PointY="43" />
+        <EntityTypeShape EntityType="SilgaramModel.PagesRoleType" Width="1.5" PointX="0.75" PointY="50.375" />
+        <EntityTypeShape EntityType="SilgaramModel.Payment" Width="1.5" PointX="12.75" PointY="75.625" />
+        <EntityTypeShape EntityType="SilgaramModel.PointPackage" Width="1.5" PointX="3" PointY="77.125" />
+        <EntityTypeShape EntityType="SilgaramModel.PositionType" Width="1.5" PointX="3.75" PointY="36" />
+        <EntityTypeShape EntityType="SilgaramModel.Province" Width="1.5" PointX="10.75" PointY="42.875" />
+        <EntityTypeShape EntityType="SilgaramModel.Report" Width="1.5" PointX="7.5" PointY="58" />
+        <EntityTypeShape EntityType="SilgaramModel.ReportType" Width="1.5" PointX="3" PointY="59.125" />
+        <EntityTypeShape EntityType="SilgaramModel.Role" Width="1.5" PointX="0.75" PointY="41" />
+        <EntityTypeShape EntityType="SilgaramModel.SocialStatu" Width="1.5" PointX="12.75" PointY="40.125" />
+        <EntityTypeShape EntityType="SilgaramModel.State" Width="1.5" PointX="3" PointY="62.5" />
+        <EntityTypeShape EntityType="SilgaramModel.SubCategory" Width="1.5" PointX="10.5" PointY="59.125" />
+        <EntityTypeShape EntityType="SilgaramModel.SubMenu" Width="1.5" PointX="6" PointY="37.125" />
+        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupport" Width="1.5" PointX="3" PointY="83.75" />
+        <EntityTypeShape EntityType="SilgaramModel.TechnicalSupportRead" Width="1.5" PointX="5.25" PointY="72" />
+        <EntityTypeShape EntityType="SilgaramModel.UserInformation" Width="1.5" PointX="15" PointY="53.125" />
+        <EntityTypeShape EntityType="SilgaramModel.UserLogin" Width="1.5" PointX="5.25" PointY="80.125" />
+        <EntityTypeShape EntityType="SilgaramModel.UserPointPackage" Width="1.5" PointX="8.25" PointY="75.125" />
+        <EntityTypeShape EntityType="SilgaramModel.UserRole" Width="1.5" PointX="5.25" PointY="75" />
+        <EntityTypeShape EntityType="SilgaramModel.User" Width="1.5" PointX="3" PointY="69.625" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersFollowing" Width="1.5" PointX="8.25" PointY="72" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPrivateNotify" Width="1.5" PointX="7.5" PointY="66.375" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesAd" Width="1.5" PointX="13.5" PointY="68.625" />
+        <EntityTypeShape EntityType="SilgaramModel.UsersPurchasesOffer" Width="1.5" PointX="15" PointY="63.25" />
         <AssociationConnector Association="SilgaramModel.FK_Addresses_Countries" />
         <AssociationConnector Association="SilgaramModel.FK_Addresses_Provinces" />
         <AssociationConnector Association="SilgaramModel.FK_UserInformation_Addresses" />
@@ -139,6 +139,7 @@
         <AssociationConnector Association="SilgaramModel.FK_PagesRoles_PagesRoleTypes" />
         <AssociationConnector Association="SilgaramModel.FK_PagesRoles_Roles" />
         <AssociationConnector Association="SilgaramModel.FK_UserPointPackages_Payments" />
+        <AssociationConnector Association="SilgaramModel.FK_UsersPurchasesOffers_Payments" />
         <AssociationConnector Association="SilgaramModel.FK_UserPointPackages_PointPackages" />
         <AssociationConnector Association="SilgaramModel.FK_Reports_ReportTypes" />
         <AssociationConnector Association="SilgaramModel.FK_Reports_Users" />

@@ -81,7 +81,6 @@ namespace DAL.Bll
                 db.SaveChanges();
 
             Ads = Ads.Where(c => c.IsStarted)
-
                 .OrderByDescending(c => c.StartDateTime)
                 .Skip(skip).Take(take)
                 .ToList();

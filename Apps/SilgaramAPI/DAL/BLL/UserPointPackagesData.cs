@@ -67,16 +67,15 @@ namespace DAL.Bll
                     return new ResponseVM { RequestType = RequestTypeEnumVM.Error, Message = Token.PointPackageFound };
 
                 //generate payment url
-                PaymentInfromation PayInformation =
-                PaymentService.InitializePayment_Email(
-                     PointPackage.Price, Usere.UserName, Usere.Email, isCredit);
+             //   PaymentInfromation PayInformation =
+               // PaymentService.InitializePayment_Email(
+                 //    PointPackage.Price, Usere.UserName, Usere.Email, isCredit);
 
-                if (PayInformation.error)
-                    return new ResponseVM { RequestType = RequestTypeEnumVM.Error, Message = PayInformation.msg };
+               // if (PayInformation.error)
+                 //   return new ResponseVM { RequestType = RequestTypeEnumVM.Error, Message = PayInformation.msg };
 
                 UserPointPackage UserPurchas = new UserPointPackage(){Payment = new Payment() {
-
-                    Hash= PayInformation.Hash
+                    Hash=""// PayInformation.Hash
                 } };
 
                 CreateS.db = db;
@@ -87,7 +86,8 @@ namespace DAL.Bll
 
                 db.SaveChanges();
 
-                return new ResponseVM(RequestTypeEnumVM.Success, Token.BuyingSucceeded, PayInformation);
+                return new ResponseVM(RequestTypeEnumVM.Success, Token.BuyingSucceeded);
+              //  return new ResponseVM(RequestTypeEnumVM.Success, Token.BuyingSucceeded, PayInformation);
             }
             catch (Exception ex)
             {

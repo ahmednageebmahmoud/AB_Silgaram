@@ -243,8 +243,7 @@ namespace DAL.Service
 
             UserInformation UserInformation = new UserInformation()
             {
-                FirstName = "",
-                LastName = "",
+                FullName="",
                 Address = new Address()
                 {
                     FKCountry_Id = user.CountryId
@@ -304,8 +303,6 @@ namespace DAL.Service
 
         internal object Chat(ChatSendVM chat, ChatMessage chatMessage, PagesAllow pagesAllow)
         {
-            if (chat.AdId == 0)
-                return new ResponseVM(RequestTypeEnumVM.Error, $"{Token.FiledIsRequired} : {Token.AdId} ");
 
             if (string.IsNullOrEmpty(chat.Message))
                 return new ResponseVM(RequestTypeEnumVM.Error, Token.FiledIsRequired + " " + Token.Message);
@@ -324,25 +321,22 @@ namespace DAL.Service
             if (Ad == null)
                 return new ResponseVM(RequestTypeEnumVM.Error, Token.AdNotFound);
 
+
             chatMessage.Message = chat.Message;
             chatMessage.SendDateTime = DateTime.Now;
             chatMessage.IsOwnar = Ad.FkUser_Id == UserId;
 
-            //    if (chat.ChatId == 0)
-            //  {
-            if (Ad.FkUser_Id == UserId)
-                return new ResponseVM(RequestTypeEnumVM.Error, Token.YouCanNotCreateChatForYoureAds);
+            if (chat.ChatId == 0)
+            {
 
-            //chaek is creat in the past 
-            var Chat = Ad.Chattings.SingleOrDefault(c => c.FkUser_Id == User.Id);
-            if (Chat != null)
-            {
-                //only Send Message 
-                Chat.ChatMessages.Add(chatMessage);
-            }
-            else
-            {
-                //Now Create Chat And Send New Message 
+
+                if (Ad.FkUser_Id == UserId)
+                    return new ResponseVM(RequestTypeEnumVM.Error, Token.YouCanNotCreateChatForYoureAds);
+
+                if(db.Chattings.Any(c=> c.FkUser_Id==UserId && c.FkAd_Id==Ad.Id))
+                    return new ResponseVM(RequestTypeEnumVM.Error, Token.YoureAlreadyHaveChat);
+
+
                 Ad.Chattings.Add(new Chatting()
                 {
                     FkUser_Id = UserId,
@@ -350,20 +344,25 @@ namespace DAL.Service
                     ChatMessages = new List<ChatMessage> { chatMessage }
                 });
             }
-            //   }
-            // else
-            //{
-            //Chak Caht 
-            //   var Chat = Ad.Chattings.Single(c => c.Id == chat.ChatId);
-            // if (Chat == null)
-            //   return new ResponseVM(RequestTypeEnumVM.Error, Token.ChatNotFound);
+            else
+            {
+                //update chat
 
-            //Pass Message now 
-            //     Chat.ChatMessages.Add(chatMessage);
-            //}
+                //create new chat
+                if (chat.AdId == 0)
+                    return new ResponseVM(RequestTypeEnumVM.Error, $"{Token.FiledIsRequired} : {Token.AdId} ");
 
-            return null;
-        }
+                var Chat = db.Chattings.Find(chat.ChatId);
+                if (chat == null|| Chat.FkAd_Id!=Ad.Id)
+                    return new ResponseVM(RequestTypeEnumVM.Error, Token.ChatNotFound);
+
+
+                Chat.ChatMessages.Add(chatMessage);
+
+            }
+
+                return null;
+            }
         internal object ReportAd(ReportVM re, PagesAllow pagesAllow)
         {
             int UserId = AccessToken.GetUserId();
@@ -429,6 +428,7 @@ namespace DAL.Service
         internal object Ad(AdVM ad, PagesAllow pagesAllow)
         {
             int UserId = AccessToken.GetUserId();
+
             if (db.Users.Find(UserId).Points == 0)
                 return new ResponseVM(RequestTypeEnumVM.Error, Token.YouDonNoHaveEnoughPoints);
 
@@ -449,6 +449,8 @@ namespace DAL.Service
                 return new { RequestType = RequestTypeEnumVM.Error, Message = Token.SubCategory + "  >> " + Token.FiledIsRequired };
 
 
+
+
             //Check Length
             if (ad.Title.Length > 50)
                 return new { RequestType = RequestTypeEnumVM.Error, Message = Token.Title + "  >> " + Token.MaxLength + " 50" };
@@ -458,8 +460,18 @@ namespace DAL.Service
 
             if (string.IsNullOrEmpty(ad.Latitude))
                 return new { RequestType = RequestTypeEnumVM.Error, Message = Token.Latitude + "  >> " + Token.FiledIsRequired };
+
             if (string.IsNullOrEmpty(ad.Longitude))
                 return new { RequestType = RequestTypeEnumVM.Error, Message = Token.Longitude + "  >> " + Token.FiledIsRequired };
+
+
+            var Category = db.Categories.Find(ad.FkCategory_Id);
+            if (Category == null)
+                return new ResponseVM(RequestTypeEnumVM.Error, $"{Token.Category} : {Token.NotFound}");
+            if (!Category.SubCategories.Any(c => c.Id == ad.FkSubCategory_Id))
+                return new ResponseVM(RequestTypeEnumVM.Error, $"{Token.SubCategory} : {Token.NotFound}");
+
+
 
             Ad Ad = new Ad();
 
@@ -467,8 +479,6 @@ namespace DAL.Service
             Log Log = new Log() { CreateDateTime = DateTime.Now };
             if (pagesAllow.IsAllowLog || pagesAllow.IsAllowNotify)
             {
-                var Category = db.Categories.Find(ad.FkCategory_Id);
-
                 //Set History Details For Log
                 HistoryDetails.Add(new HistoryDetailVM("Title", ad.Title, true, false));
                 HistoryDetails.Add(new HistoryDetailVM("Description", ad.Description, true, false));
@@ -532,14 +542,16 @@ namespace DAL.Service
                 Longitude = ad.Longitude
             };
 
+            int DaysCount = 1;
+            int.TryParse(db.AppsInformations.Find(AppInformationEnumVM.AdPeriodDays).Value, out DaysCount);
+
+
             //Add Another Data
             Ad.Title = ad.Title;
             Ad.Description = ad.Description;
             Ad.Price = ad.Price;
             //نضع القيمة صحيحة موقتا
-            Ad.IsApprove = false;
             Ad.FkCategory_Id = ad.FkCategory_Id;
-            //if (ad.FkSubCategory_Id > 0)
             Ad.FkSubCategory_Id = ad.FkSubCategory_Id;
             Ad.FkUser_Id = UserId;
             Ad.IsTop = false;
@@ -547,6 +559,12 @@ namespace DAL.Service
             Ad.IsAllowMessaging = ad.IsAllowMessaging;
             Ad.IsPostWithOutPhoneNumber = ad.IsPostWithOutPhoneNumber;
             Ad.IsAutoPost = ad.IsAutoPost;
+
+
+            //وضع البيانات بشكل موقت
+            Ad.IsApprove = true;
+            Ad.StartDateTime = DateTime.Now;
+            Ad.EndDateTime = DateTime.Now.AddDays(DaysCount);
             db.Ads.Add(Ad);
             return null;
         }
@@ -778,9 +796,12 @@ namespace DAL.Service
             userPointPackage.Points = pointPackage.Points;
             userPointPackage.BuyDateTime = DateTime.Now;
             userPointPackage.Payment = new Payment();
-
+            userPointPackage.Payment.OrderNo = "";
             //Add  
             db.UserPointPackages.Add(userPointPackage);
+
+            //بشكل موقت نزيد النقاط لان هيا المفروض تزيد عند اتمام عملية الدفع
+            db.Users.Find(AccessToken.GetUserId()).Points += pointPackage.Points;
 
             //Add Historiy
             if (pageAllow.IsAllowLog || pageAllow.IsAllowNotify)

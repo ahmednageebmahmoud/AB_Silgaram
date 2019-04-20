@@ -3058,6 +3058,15 @@ namespace DAL.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Youre Already Have Chat.
+        /// </summary>
+        public static string YoureAlreadyHaveChat {
+            get {
+                return ResourceManager.GetString("YoureAlreadyHaveChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your Password Is.
         /// </summary>
         public static string YourPasswordIs {

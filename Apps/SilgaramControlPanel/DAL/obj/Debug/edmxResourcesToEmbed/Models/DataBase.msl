@@ -384,20 +384,21 @@
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="SilgaramModel.Payment">
         <MappingFragment StoreEntitySet="Payments">
-          <ScalarProperty Name="AuthCode" ColumnName="AuthCode" />
-          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-          <ScalarProperty Name="Responsecode" ColumnName="Responsecode" />
-          <ScalarProperty Name="Eci" ColumnName="Eci" />
-          <ScalarProperty Name="TranID" ColumnName="TranID" />
-          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-          <ScalarProperty Name="GatewayAccount" ColumnName="GatewayAccount" />
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
-          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-          <ScalarProperty Name="GatewayName" ColumnName="GatewayName" />
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+          <ScalarProperty Name="Auth" ColumnName="Auth" />
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -541,9 +542,7 @@
           <ScalarProperty Name="FkImage_Id" ColumnName="FkImage_Id" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="NationalId" ColumnName="NationalId" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="MediumName" ColumnName="MediumName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -629,6 +628,7 @@
     <EntitySetMapping Name="UsersPurchasesOffers">
       <EntityTypeMapping TypeName="SilgaramModel.UsersPurchasesOffer">
         <MappingFragment StoreEntitySet="UsersPurchasesOffers">
+          <ScalarProperty Name="FkPayment_Id" ColumnName="FkPayment_Id" />
           <ScalarProperty Name="BayDateTime" ColumnName="BayDateTime" />
           <ScalarProperty Name="OfferNetPrice" ColumnName="OfferNetPrice" />
           <ScalarProperty Name="OfferDiscountRate" ColumnName="OfferDiscountRate" />

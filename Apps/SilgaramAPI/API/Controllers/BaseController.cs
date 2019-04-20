@@ -61,7 +61,15 @@ namespace API.Controllers
             //set ar  language
             else
             {
-                LanguageService.SetCulture(LanguageService.DefaultLangage);
+                var Lang = actionContext.Request.Headers.AcceptLanguage.Select(c => c.Value).FirstOrDefault();
+
+
+                //get Language from culture or set language default
+                if (Lang == "en")
+                    LanguageService.SetCulture("en");
+                else
+                    LanguageService.SetCulture("ar");
+
             }
         }
 

@@ -218,7 +218,7 @@ namespace DAL.Service
                     if (!CheckedS.EmailIsCorrect(userDataVM.Email))
                         return new { RequestType = RequestTypeEnumVM.Error, Message = Token.Email + " >> " + Token.InvalidEmail };
 
-                    if (CheckedS.EmailIsNotAvailable(userDataVM.Email))
+                    if (db.Users.Any(c => c.Email == userDataVM.Email && c.Id != UserDataUpdate.Id))
                         return new { RequestType = RequestTypeEnumVM.Error, Message = Token.Email + " >> " + Token.ErrorDuplicate };
                     UserDataUpdate.Email = userDataVM.Email;
                 }
@@ -245,29 +245,7 @@ namespace DAL.Service
             if (!string.IsNullOrEmpty(userDataVM.FullName))
             {
 
-                string[] FullName = userDataVM.FullName.Split(' ');
-                string FirstName = string.Empty;
-                string LastName = string.Empty;
-                string MediumName = string.Empty;
-
-                if (FullName.Length == 0)
-                {
-                    FirstName = userDataVM.FullName;
-                }
-                {
-                    FirstName = FullName[0];
-
-                    MediumName = FullName.Length > 1 ? FullName[1] : string.Empty;
-                    if (FullName.Length > 2)
-                        for (int i = 2; i <= FullName.Length - 1; i++)
-                        {
-                            LastName = LastName + " " + FullName[i];
-                        }
-                }
-
-                UserDataUpdate.UserInformation.FirstName = FirstName;
-                UserDataUpdate.UserInformation.LastName = LastName;
-                UserDataUpdate.UserInformation.MediumName = MediumName;
+                UserDataUpdate.UserInformation.FullName = userDataVM.FullName;
             }
 
             //Check Is Update Birth Date 

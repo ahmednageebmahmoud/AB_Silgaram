@@ -349,21 +349,22 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GatewayName" Type="nvarchar" MaxLength="200" />
-    <Property Name="OrderNo" Type="nvarchar" MaxLength="200" />
-    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="200" />
-    <Property Name="ReferenceNumber" Type="nvarchar" MaxLength="200" />
-    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="Result" Type="nvarchar" MaxLength="200" />
-    <Property Name="GatewayAccount" Type="nvarchar" MaxLength="200" />
-    <Property Name="PostDate" Type="nvarchar" MaxLength="200" />
-    <Property Name="TrackID" Type="nvarchar" MaxLength="200" />
-    <Property Name="TranID" Type="nvarchar" MaxLength="200" />
-    <Property Name="Eci" Type="nvarchar" MaxLength="200" />
-    <Property Name="Responsecode" Type="nvarchar" MaxLength="200" />
-    <Property Name="PaymentID" Type="nvarchar" MaxLength="200" />
-    <Property Name="AuthCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsCancelled" Type="int" />
+    <Property Name="Hash" Type="nvarchar(max)" />
+    <Property Name="InvoiceId" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="TransactionId" Type="nvarchar(max)" />
+    <Property Name="Mode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Result" Type="nvarchar(max)" />
+    <Property Name="PaymentID" Type="nvarchar(max)" />
+    <Property Name="PostDate" Type="nvarchar(max)" />
+    <Property Name="TranID" Type="nvarchar(max)" />
+    <Property Name="Auth" Type="nvarchar(max)" />
+    <Property Name="Ref" Type="nvarchar(max)" />
+    <Property Name="OrderNo" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PointPackages">
     <Key>
@@ -483,9 +484,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MediumName" Type="nvarchar" MaxLength="50" />
-    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="NationalId" Type="nvarchar" MaxLength="50" />
     <Property Name="BirthDate" Type="date" />
     <Property Name="FkImage_Id" Type="int" Nullable="false" />
@@ -517,7 +516,7 @@
     <Property Name="FkUser_Id" Type="int" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="Points" Type="int" Nullable="false" />
-    <Property Name="FkPayment_Id" Type="int" Nullable="false" />
+    <Property Name="FkPayment_Id" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="UserRoles">
     <Key>
@@ -580,6 +579,7 @@
     <Property Name="OfferDiscountRate" Type="int" Nullable="false" />
     <Property Name="OfferNetPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="BayDateTime" Type="datetime" Nullable="false" />
+    <Property Name="FkPayment_Id" Type="bigint" Nullable="false" />
   </EntityType>
   <Association Name="FK_Addresses_Countries">
     <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
@@ -1699,8 +1699,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UsersPurchasesOffers_Payments">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="1" />
+    <End Role="UsersPurchasesOffers" Type="Self.UsersPurchasesOffers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffers">
+        <PropertyRef Name="FkPayment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UsersPurchasesOffers_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UsersPurchasesOffers" Type="Self.UsersPurchasesOffers" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
@@ -2149,6 +2163,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_UsersPurchasesOffers_Offers" Association="Self.FK_UsersPurchasesOffers_Offers">
       <End Role="Offers" EntitySet="Offers" />
+      <End Role="UsersPurchasesOffers" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Payments" Association="Self.FK_UsersPurchasesOffers_Payments">
+      <End Role="Payments" EntitySet="Payments" />
       <End Role="UsersPurchasesOffers" EntitySet="UsersPurchasesOffers" />
     </AssociationSet>
     <AssociationSet Name="FK_UsersPurchasesOffers_Users" Association="Self.FK_UsersPurchasesOffers_Users">

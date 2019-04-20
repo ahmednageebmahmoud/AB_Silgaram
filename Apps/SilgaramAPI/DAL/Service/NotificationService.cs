@@ -25,25 +25,21 @@ namespace DAL.Service
 
         public object GetNotifications(int userId, int skip, int take)
         {
-
-            var Notifications = db.UsersPrivateNotifies.Where(c =>
-           ! c.History.NotificationsIsReads.Any(v => v.FKUser_Id == userId)).ToList();
+            var Notifications = db.UsersPrivateNotifies.Where(c => c.FkUser_Id==userId&&
+            c.History.NotificationsIsReads.Any(v => v.FKUser_Id!= userId)).OrderByDescending(v => v.Id).Skip(skip).Take(take).ToList();
 
             //جلب العدد المحدد
-            var PureNotifications = Notifications.OrderByDescending(v => v.Id).Skip(skip).Take(take).ToList();
 
-            if (PureNotifications.Count == 0)
+            if (Notifications.Count == 0)
                 return new ResponseVM ( RequestTypeEnumVM.Error, Token.NoMoreNotifications );
 
 
-            var NotificationNotRead = PureNotifications.Select(c => new
+            var NotificationNotRead = Notifications.Select(c => new
             {
                 c.Id,
                 ActionDate = DateService.CaltDateTimeNotify(c.History.DateTime),
                 Title = GetNotifyTitle( c.History.FkState_Id),
                 Message = c.History.Title,
-                NotificationCount= Notifications.Count
-
             }).ToList();
 
             return new ResponseVM(RequestTypeEnumVM.Error, Token.Success, NotificationNotRead);

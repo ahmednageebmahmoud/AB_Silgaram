@@ -175,17 +175,7 @@ namespace DAL.Models
 
     public partial class UserInformation
     {
-        public string FullName
-        {
-            get
-            {
-                if (this != null)
-                    return this.FirstName + " " + this.MediumName + " " + this.LastName;
-
-                return "";
-            }
-        }
-
+    
         public string LanguageCode { get; set; }
         public bool IsBirthDate { get { return this.BirthDate != null; } }
         public List<LanguageUsing> Languages { get; set; }

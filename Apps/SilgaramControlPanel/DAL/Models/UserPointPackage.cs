@@ -20,7 +20,7 @@ namespace DAL.Models
         public int FkUser_Id { get; set; }
         public decimal Price { get; set; }
         public int Points { get; set; }
-        public int FkPayment_Id { get; set; }
+        public long FkPayment_Id { get; set; }
     
         public virtual Payment Payment { get; set; }
         public virtual PointPackage PointPackage { get; set; }

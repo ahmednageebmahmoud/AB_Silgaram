@@ -366,6 +366,10 @@
       <End Role="Payment" EntitySet="Payments" />
       <End Role="UserPointPackage" EntitySet="UserPointPackages" />
     </AssociationSet>
+    <AssociationSet Name="FK_UsersPurchasesOffers_Payments" Association="SilgaramModel.FK_UsersPurchasesOffers_Payments">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="UsersPurchasesOffer" EntitySet="UsersPurchasesOffers" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserPointPackages_PointPackages" Association="SilgaramModel.FK_UserPointPackages_PointPackages">
       <End Role="PointPackage" EntitySet="PointPackages" />
       <End Role="UserPointPackage" EntitySet="UserPointPackages" />
@@ -891,22 +895,24 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GatewayName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="OrderNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="CustomerEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="ReferenceNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="Result" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="GatewayAccount" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="PostDate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="TrackID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="TranID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Eci" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Responsecode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="PaymentID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="AuthCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsCancelled" Type="Int32" />
+    <Property Name="Hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TranID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ref" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="UserPointPackages" Relationship="SilgaramModel.FK_UserPointPackages_Payments" FromRole="Payment" ToRole="UserPointPackage" />
+    <NavigationProperty Name="UsersPurchasesOffers" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Payments" FromRole="Payment" ToRole="UsersPurchasesOffer" />
   </EntityType>
   <EntityType Name="PointPackage">
     <Key>
@@ -1052,9 +1058,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MediumName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="NationalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="FkImage_Id" Type="Int32" Nullable="false" />
@@ -1096,7 +1100,7 @@
     <Property Name="FkUser_Id" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="Points" Type="Int32" Nullable="false" />
-    <Property Name="FkPayment_Id" Type="Int32" Nullable="false" />
+    <Property Name="FkPayment_Id" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Payment" Relationship="SilgaramModel.FK_UserPointPackages_Payments" FromRole="UserPointPackage" ToRole="Payment" />
     <NavigationProperty Name="PointPackage" Relationship="SilgaramModel.FK_UserPointPackages_PointPackages" FromRole="UserPointPackage" ToRole="PointPackage" />
     <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UserPointPackages_Users" FromRole="UserPointPackage" ToRole="User" />
@@ -1189,7 +1193,9 @@
     <Property Name="OfferDiscountRate" Type="Int32" Nullable="false" />
     <Property Name="OfferNetPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="BayDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FkPayment_Id" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Offer" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Offers" FromRole="UsersPurchasesOffer" ToRole="Offer" />
+    <NavigationProperty Name="Payment" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Payments" FromRole="UsersPurchasesOffer" ToRole="Payment" />
     <NavigationProperty Name="User" Relationship="SilgaramModel.FK_UsersPurchasesOffers_Users" FromRole="UsersPurchasesOffer" ToRole="User" />
   </EntityType>
   <Association Name="FK_Addresses_Countries">
@@ -2164,6 +2170,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UsersPurchasesOffers_Payments">
+    <End Type="SilgaramModel.Payment" Role="Payment" Multiplicity="1" />
+    <End Type="SilgaramModel.UsersPurchasesOffer" Role="UsersPurchasesOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersPurchasesOffer">
+        <PropertyRef Name="FkPayment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserPointPackages_PointPackages">
     <End Type="SilgaramModel.PointPackage" Role="PointPackage" Multiplicity="1" />
     <End Type="SilgaramModel.UserPointPackage" Role="UserPointPackage" Multiplicity="*" />
@@ -2337,7 +2355,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UsersPurchasesOffers_Users">
-    <End Type="SilgaramModel.User" Role="User" Multiplicity="1" />
+    <End Type="SilgaramModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="SilgaramModel.UsersPurchasesOffer" Role="UsersPurchasesOffer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">

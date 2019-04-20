@@ -21,8 +21,10 @@ namespace DAL.Models
         public int OfferDiscountRate { get; set; }
         public decimal OfferNetPrice { get; set; }
         public System.DateTime BayDateTime { get; set; }
+        public long FkPayment_Id { get; set; }
     
         public virtual Offer Offer { get; set; }
+        public virtual Payment Payment { get; set; }
         public virtual User User { get; set; }
     }
 }

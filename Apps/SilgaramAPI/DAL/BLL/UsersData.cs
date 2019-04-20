@@ -32,33 +32,32 @@ namespace DAL.Bll
                 IsData = true,
                 Data = UserInformation(User)
 
+
             };
         }
         public object UserInformation(User user)
         {
-            return
-                new
-                {
-                    user.Id,
-                    user.UserName,
-                    user.UserInformation.FullName,
-                    user.IsBlocked,
-                    user.UserInformation.FirstName,
-                    user.UserInformation.MediumName,
-                    user.UserInformation.LastName,
-                    UserRoles = user.UserRoles.Select(c => new { c.Id, c.FkRole_Id, c.FkUser_Id }).ToList(),
-                    user.UserInformation.FKJob_Id,
-                    user.UserInformation.File.FileUrl,
-                    user.CreateDate,
-                    user.Country,
-                    user.CountryFlagUrl,
-                    user.CountryName,
-                    user.Address,
-                    user.Gender,
-                    user.Province,
-                    user.FollowersCount,
-                    user.FollowingCount
-                };
+            return new
+            {
+                user.Id,
+                user.UserName,
+                user.Serial,
+                user.Email,
+                Image = user.UserInformation.File.FullFileUrl,
+                user.UserInformation.FullName,
+                user.Phone,
+                user.UserInformation.BirthDate,
+                user.CountryFlagUrl,
+                user.UserInformation.File.FullFileUrl,
+                CreateDate = DateService.GetDateTimeByCulture(user.CreateDate),
+                user.Gender,
+                user.Address,
+                user.Country,
+                user.Province,
+                user.Points,
+                user.FollowersCount,
+                user.FollowingCount,
+            };
         }
         public object ChangeLanguage(string lang)
         {
@@ -212,9 +211,7 @@ namespace DAL.Bll
                 User.IsBlocked,
                 User.Serial,
                 UserRoles = User.UserRoles.Select(c => new { c.FkRole_Id, c.Id }).ToList(),
-                User.UserInformation.FirstName,
-                User.UserInformation.MediumName,
-                User.UserInformation.LastName,
+                User.UserInformation.FullName,
                 User.UserInformation.NationalId,
                 PhoneNumbers = User.UserInformation.PhoneNumber,
                 ImageUrl = User.UserInformation.File.FileUrl,

@@ -10,6 +10,6 @@ namespace DAL.Models.ViewModel
     {
         public string Message { get; set; }
         public int AdId { get; set; }
-        //public int ChatId{ get; set; }
+        public int ChatId{ get; set; }
     }
 }
